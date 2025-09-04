@@ -12,13 +12,8 @@
   <meta property="og:image" content="images/facility-front.png" />
   <meta name="theme-color" content="#0b2d5c" />
 
-  <!-- favicon: storage/warehouse icon -->
-  <link rel="icon" href='data:image/svg+xml;utf8,
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <rect width="64" height="64" rx="14" fill="%230b2d5c"/>
-    <path d="M6 26l26-10 26 10v24a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26z" fill="%23ffffff"/>
-    <path d="M16 50V34h8v16m8 0V34h8v16" stroke="%230b2d5c" stroke-width="3" fill="none"/>
-  </svg>' />
+  <!-- favicon: storage/warehouse icon (fixed/closed data URL) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2d5c'/%3E%3Cpath d='M6 26l26-10 26 10v24a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26z' fill='%23ffffff'/%3E%3Cpath d='M16 50V34h8v16m8 0V34h8v16' stroke='%230b2d5c' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
 
   <style>
     :root{
@@ -53,6 +48,21 @@
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
     .links a.cta:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
 
+    /* mobile nav */
+    .menu-toggle{display:none;background:transparent;border:1px solid var(--line);
+      border-radius:12px;padding:8px 10px;margin-left:8px;cursor:pointer}
+    .menu-toggle span{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;transition:.25s}
+    .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    .mobile-nav{position:fixed;top:62px;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+      box-shadow:0 18px 40px rgba(11,45,92,.12);display:none;z-index:39}
+    .mobile-nav.open{display:block;animation:slideDown .18s ease}
+    .mobile-nav a{display:block;padding:14px 18px;border-bottom:1px solid var(--line)}
+    .mobile-nav a.cta{background:var(--accent);color:#fff;border:0;margin:12px;border-radius:12px;text-align:center}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none}}
+
     /* hero */
     .hero{padding:74px 0 14px}
     .hero h2{font-size:clamp(28px,4vw,44px);line-height:1.08;margin:0 0 10px}
@@ -76,7 +86,7 @@
     /* gallery */
     .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .gallery .item{
-      grid-column:span 6; cursor:pointer;display:block;padding:12px;background:#fff;border:1px solid var(--line);
+      grid-column:span 6;cursor:pointer;display:block;padding:12px;background:#fff;border:1px solid var(--line);
       border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s
     }
     .gallery .item:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,45,92,.12)}
@@ -89,7 +99,7 @@
     .lb-inner{position:relative;width:min(1100px,92vw)}
     .lb-img{width:100%;height:min(78vh,900px);object-fit:contain;background:#000;border-radius:14px}
     .lb-btn{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.85);color:#0d1b2a;border-radius:999px;padding:10px 12px;cursor:pointer}
-    .lb-prev{left:-6px} .lb-next{right:-6px}
+    .lb-prev{left:-6px}.lb-next{right:-6px}
     .lb-close{position:absolute;top:-10px;right:-10px;border:none;background:#fff;color:#0d1b2a;border-radius:999px;padding:8px 11px;cursor:pointer}
     .lb-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
     .lb-dots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.7}
@@ -103,13 +113,14 @@
     footer{margin-top:36px;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
 
     /* reveal-on-scroll (faster) */
-    [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease, transform var(--speed) ease; will-change:transform,opacity}
+    [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease, transform var(--speed) ease;will-change:transform,opacity}
     .show{opacity:1;transform:none}
 
     /* mobile */
     @media(max-width:900px){
-      .card{grid-column:span 12}
       .links{display:none}
+      .menu-toggle{display:inline-flex;align-items:center;justify-content:center}
+      .card{grid-column:span 12}
       .gallery .item{grid-column:span 12}
       .gallery .item img{height:260px}
     }
@@ -148,6 +159,8 @@
         </div>
         <h1>Akron Crossdock Warehouse</h1>
       </div>
+
+      <!-- desktop links -->
       <nav class="links" aria-label="Primary">
         <a href="about.html">About</a>
         <a href="#services">Services</a>
@@ -156,15 +169,29 @@
         <a href="#reviews">Reviews</a>
         <a href="#contact" class="cta">Contact</a>
       </nav>
+
+      <!-- mobile hamburger -->
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile menu panel -->
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile">
+    <a href="about.html">About</a>
+    <a href="#services">Services</a>
+    <a href="#coverage">Location</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="cta">Contact</a>
+  </nav>
 
   <!-- Hero -->
   <section class="hero container" data-reveal>
     <h2>Cross-dock • Transload • Rework • Storage<br>Akron, Ohio</h2>
     <p>19,000 ft² facility delivering same-day cross-dock and pallet rework with <strong>short- and long-term storage</strong>. We’re <strong>open for all types of freight</strong> and keep loads moving on schedule.</p>
-
-    <!-- Typewriter line (replaces the badges row) -->
     <p id="typer" class="typer" aria-live="polite"></p>
   </section>
 
@@ -192,7 +219,7 @@
     <div class="callout"><strong>Open for all freight:</strong> retail, food & beverage, consumer goods, metals, packaging, and more.</div>
   </section>
 
-  <!-- Gallery (JS-driven thumbnails + lightbox) -->
+  <!-- Gallery -->
   <section id="gallery" class="container" data-reveal>
     <h2>Facility & Work</h2>
     <div class="gallery" id="galleryGrid"></div>
@@ -256,13 +283,13 @@
     // year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // reveal-on-scroll (faster trigger)
+    // reveal-on-scroll
     const ro = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target);} });
     },{threshold:.08, rootMargin:'0px 0px -10% 0px'});
     document.querySelectorAll('[data-reveal]').forEach(el=>ro.observe(el));
 
-    // typewriter (replaces chip row)
+    // typewriter
     const phrases = [
       "Fast cross-dock & transfer",
       "Pallet rework & recoup",
@@ -283,7 +310,7 @@
     }
     tick();
 
-    // simple testimonial rotator
+    // testimonial rotator
     const quotes=[
       "“Great team, fast unload and re-stack service. Saved my load!” — ★★★★★",
       "“Professional, communicative, and flexible with timing.” — ★★★★★",
@@ -291,7 +318,7 @@
     ];
     let tq=0; setInterval(()=>{tq=(tq+1)%quotes.length; document.getElementById('testimonial').textContent=quotes[tq];},4200);
 
-    // contact submit (Cloudflare/Netlify) + mailto fallback
+    // contact submit + fallback
     async function submitQuote(e){
       e.preventDefault();
       const form=e.target; const status=document.getElementById('quoteStatus');
@@ -314,7 +341,7 @@ ${data.message}`);
       }
     }
 
-    // ---- Gallery Lightbox (JS-driven so HTML & lightbox stay in sync) ----
+    // Gallery Lightbox
     const galleryData = [
       { src:'images/trailer-shift-1.png',  alt:'Shifted pallets before rework' },
       { src:'images/trailer-stacked-1.png',alt:'Re-stacked and wrapped pallets' },
@@ -327,8 +354,6 @@ ${data.message}`);
       { src:'images/IMG_1539.jpg', alt:'Food product pallets strapped' },
       { src:'images/IMG_0216.jpg', alt:'Produce pallets in reefer' }
     ];
-
-    // render thumbnails
     const grid=document.getElementById('galleryGrid');
     grid.innerHTML = galleryData.map((g,i)=>`
       <button class="item" data-idx="${i}" aria-label="Open image ${i+1}">
@@ -337,12 +362,10 @@ ${data.message}`);
       </button>
     `).join('');
 
-    // lightbox controls
     const lb=document.getElementById('lightbox');
     const lbImg=document.getElementById('lbImg');
     const lbDots=document.getElementById('lbDots');
     let cur=0;
-
     function openLB(i){ cur=i; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); updateLB(); }
     function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
     function next(){ cur=(cur+1)%galleryData.length; updateLB(); }
@@ -353,7 +376,6 @@ ${data.message}`);
       lbDots.innerHTML=galleryData.map((_,i)=>`<button ${i===cur?'class="active"':''} aria-label="Go to image ${i+1}"></button>`).join('');
       [...lbDots.children].forEach((b,i)=>b.onclick=()=>{cur=i;updateLB()});
     }
-
     grid.querySelectorAll('.item').forEach(it=>it.addEventListener('click',()=>openLB(+it.dataset.idx)));
     document.getElementById('lbClose').onclick=closeLB;
     document.getElementById('lbNext').onclick=next;
@@ -365,9 +387,20 @@ ${data.message}`);
       if(e.key==='ArrowRight') next();
       if(e.key==='ArrowLeft')  prev();
     });
-    // swipe
     let sx=0; lbImg.addEventListener('touchstart',e=>sx=e.touches[0].clientX);
     lbImg.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); }});
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('menuToggle');
+    const mobile = document.getElementById('mobileNav');
+    function setOpen(open){
+      toggle.setAttribute('aria-expanded', open);
+      mobile.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    toggle?.addEventListener('click', () => setOpen(!mobile.classList.contains('open')));
+    mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    window.addEventListener('keydown', e => { if(e.key === 'Escape' && mobile.classList.contains('open')) setOpen(false); });
   </script>
 </body>
 </html>
