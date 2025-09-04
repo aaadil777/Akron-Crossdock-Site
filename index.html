@@ -110,11 +110,23 @@
     input,textarea{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff}
     button{padding:12px 16px;border:none;border-radius:12px;background:var(--accent);color:#fff;cursor:pointer;transition:all .2s ease}
     button:hover{background:var(--accent-2);transform:translateY(-1px)}
+    .btn{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:12px;transition:.25s}
+    .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 14px rgba(11,45,92,.08)}
+    .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
     footer{margin-top:36px;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
 
     /* reveal-on-scroll (faster) */
     [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease, transform var(--speed) ease;will-change:transform,opacity}
     .show{opacity:1;transform:none}
+
+    /* Location grid (preview + map) */
+    .locgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .gpage{grid-column:span 6}
+    .mapwrap{grid-column:span 6}
+    .mapframe{width:100%;height:100%;min-height:360px;border:0;border-radius:12px}
+    .gmeta{display:grid;gap:8px;margin-top:6px;color:var(--muted)}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
     /* mobile */
     @media(max-width:900px){
@@ -123,6 +135,10 @@
       .card{grid-column:span 12}
       .gallery .item{grid-column:span 12}
       .gallery .item img{height:260px}
+      .gpage,.mapwrap{grid-column:span 12}
+      .gpage{order:1} /* preview ABOVE */
+      .mapwrap{order:2} /* map BELOW */
+      .mapframe{min-height:320px}
     }
     @media (prefers-reduced-motion: reduce){
       [data-reveal]{opacity:1;transform:none}
@@ -235,22 +251,47 @@
     </div>
   </section>
 
+  <!-- Location -->
+  <section id="coverage" class="container" data-reveal>
+    <h2>Location</h2>
+    <div class="locgrid">
+      <!-- Google "page" preview (card) -->
+      <article class="card gpage">
+        <h3 style="margin-top:0">Google Business Preview</h3>
+        <p><strong>Cross dock, Warehouse, Rework &amp; Storage of (Freight all kind) of Akron, Ohio</strong></p>
+        <div class="gmeta">
+          <div>1172 Rosemary Blvd, Akron, OH 44306</div>
+          <div>Plus Code: 2GP8+27 Akron, Ohio</div>
+          <div>Hours: Mon–Fri 8am–5pm · By appointment</div>
+        </div>
+        <div class="btnrow">
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4868394,17z/data=!3m1!4b1!4m6!3m5!1s0x88312ba142e5e063:0x7e90f84d3957209f!8m2!3d41.0350531!4d-81.4842645!16s%2Fg%2F11j1qp6rkl?entry=ttu">
+            View on Google
+          </a>
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=1172%20Rosemary%20Blvd%2C%20Akron%2C%20OH%2044306">
+            Get directions
+          </a>
+        </div>
+        <p class="muted" style="margin-top:12px">Note: Google’s live business panel can’t be embedded without an API; this card links directly to the official Google page.</p>
+      </article>
+
+      <!-- Map embed -->
+      <div class="mapwrap">
+        <iframe class="mapframe"
+          title="Google Map: Akron Crossdock Warehouse"
+          src="https://maps.google.com/maps?q=1172%20Rosemary%20Blvd%2C%20Akron%2C%20OH%2044306&z=15&output=embed"
+          loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- Reviews -->
   <section id="reviews" class="container" data-reveal>
     <h2>Customer Reviews</h2>
     <div class="callout" id="testimonial" style="font-style:italic;color:var(--muted)">
       “Great team, fast unload and re-stack service. Saved my load!” — ★★★★★
-    </div>
-  </section>
-
-  <!-- Location -->
-  <section id="coverage" class="container" data-reveal>
-    <h2>Location</h2>
-    <p><strong>Address:</strong> 1172 Rosemary Blvd, Akron, OH 44306 · <strong>Plus Code:</strong> 2GP8+27 Akron, Ohio</p>
-    <div style="aspect-ratio:16/9; overflow:hidden; border-radius:12px; border:1px solid var(--line)">
-      <iframe title="Google Map: Akron Crossdock Warehouse"
-        src="https://maps.google.com/maps?q=1172%20Rosemary%20Blvd%2C%20Akron%2C%20OH%2044306&z=15&output=embed"
-        width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
 
@@ -266,7 +307,7 @@
       <textarea style="grid-column:span 12; min-height:120px" name="message" placeholder="Load details, timing, special instructions…" required></textarea>
       <div style="grid-column:span 12; display:flex; gap:10px; flex-wrap:wrap">
         <button type="submit">Send</button>
-        <a href="mailto:crossdockW@gmail.com" class="links" style="padding:12px 16px;border:1px solid var(--line);border-radius:12px">Email instead</a>
+        <a href="mailto:crossdockW@gmail.com" class="btn">Email instead</a>
       </div>
       <p id="quoteStatus" class="muted" style="grid-column:span 12; margin:0"></p>
     </form>
