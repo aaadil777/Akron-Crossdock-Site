@@ -1,31 +1,30 @@
 // functions/api/contact.js
 export async function onRequestPost(context) {
-  const data = await context.request.json();
-  const { name, company, email, phone, message } = data;
+  if (context.request.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
+  }
+  const data = await context.request.json().catch(() => ({}));
+  const { name = '', company = '', email = '', phone = '', message = '' } = data;
 
-  const apiKey = context.env.RESEND_API_KEY; // set in Cloudflare
-  const to = 'operations@2010.aafl.com';
+  const apiKey = context.env.RESEND_API_KEY;
+  const to = context.env.TO_EMAIL || 'operations@2010.aafl.com';
+  const from = context.env.FROM_EMAIL || 'Akron Crossdock <onboarding@resend.dev>';
 
-  const res = await fetch('https://api.resend.com/emails', {
+  const bodyText = [
+    `Name: ${name}`,
+    `Company: ${company}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    '',
+    'Message:',
+    message
+  ].join('\n');
+
+  const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      from: 'Akron Crossdock <noreply@your-domain.com>',
-      to,
-      subject: 'New Quote Request',
-      text:
-`Name: ${name}
-Company: ${company}
-Email: ${email}
-Phone: ${phone}
-
-Message:
-${message}`
-    })
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from, to, subject: 'New Quote Request — Akron Crossdock Warehouse', text: bodyText })
   });
 
-  return new Response(res.ok ? 'OK' : 'Email send failed', { status: res.ok ? 200 : 500 });
+  return new Response(r.ok ? 'OK' : await r.text(), { status: r.ok ? 200 : 500 });
 }
