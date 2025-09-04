@@ -4,36 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About · Akron Crossdock Warehouse</title>
-  <meta name="description" content="About Akron Crossdock Warehouse — cross-dock, transloading, pallet rework, and short-term storage in Akron, OH." />
-  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="About Akron Crossdock Warehouse — cross-dock, rework, and short- & long-term storage in a 19,000 ft² Akron facility. Open for all types of freight." />
+  <meta name="theme-color" content="#0b2d5c" />
+  <link rel="icon" href='data:image/svg+xml;utf8,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="%230b2d5c"/>
+    <path d="M6 26l26-10 26 10v24a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26z" fill="%23ffffff"/>
+    <path d="M16 50V34h8v16m8 0V34h8v16" stroke="%230b2d5c" stroke-width="3" fill="none"/>
+  </svg>' />
   <style>
-    :root{--bg:#ffffff;--bg-tint:#f7f9fc;--card:#ffffff;--text:#0b0f1a;--muted:#5a6472;--line:#e6e9ef;--radius:16px;--shadow:0 8px 24px rgba(14,20,33,0.06);--gradient:radial-gradient(1200px 800px at 50% -10%, #ffffff 20%, #f4f6fb 45%, #eef2f7 100%)}
+    :root{--bg:#ffffff;--bg2:#f6f8fb;--card:#ffffff;--text:#0c1320;--muted:#5c6574;--line:#e7ebf1;--accent:#0b2d5c;--accent-2:#123c78;--radius:16px;--shadow:0 10px 30px rgba(11,45,92,.08);--gradient:radial-gradient(1200px 800px at 50% -10%, #fff 15%, #f4f7fb 55%, #eef2f7 100%);--reveal-y:16px;--speed:.6s}
     *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;color:var(--text);background:var(--gradient),var(--bg);line-height:1.5}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--gradient),var(--bg);line-height:1.55}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;border-radius:16px}
     .container{width:min(1120px,92vw);margin-inline:auto}
-    header{position:sticky;top:0;backdrop-filter:saturate(1.5) blur(10px);background:color-mix(in srgb,white 80%,transparent);border-bottom:1px solid var(--line);z-index:50}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.6) blur(10px);background:color-mix(in srgb, white 82%, transparent);border-bottom:1px solid var(--line);z-index:40}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6px}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:36px;height:36px;background:linear-gradient(180deg,#e9eef5,#cdd6e3);border-radius:10px;box-shadow:var(--shadow)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg,#eaf0f8,#d3dced);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo svg{width:22px;height:22px}
     .brand h1{font-size:18px;margin:0}
-    .links{display:flex;gap:14px;align-items:center}
-    .links a{padding:10px 14px;border:1px solid var(--line);border-radius:12px}
-    section{padding:28px 0}
-    .muted{color:var(--muted)}
+    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .links a{padding:10px 14px;border:1px solid var(--line);border-radius:999px;transition:all .25s ease}
+    .links a:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 14px rgba(11,45,92,.08)}
+
+    section{padding:28px 0;scroll-margin-top:86px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 6;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
+    .muted{color:var(--muted)}
     footer{margin-top:36px;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
+
+    [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease,transform var(--speed) ease}
+    .show{opacity:1;transform:none}
     @media(max-width:900px){.card{grid-column:span 12}.links{display:none}}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Akron Crossdock Warehouse</h1></div>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 10.5 12 6l9 4.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5Z" fill="currentColor" style="color:var(--accent)"/>
+            <path d="M7 20v-7h4v7M13 20v-7h4v7" stroke="#fff" stroke-width="1.6" fill="none"/>
+          </svg>
+        </div>
+        <h1>Akron Crossdock Warehouse</h1>
+      </div>
       <nav class="links">
         <a href="index.html">Home</a>
         <a href="index.html#services">Services</a>
@@ -45,67 +62,49 @@
     </div>
   </header>
 
-  <section class="container">
+  <section class="container" data-reveal>
     <h2>About Akron Crossdock Warehouse</h2>
-    <p class="muted">We provide same-day cross-dock, transloading, pallet rework/recoup, and short-term storage (store/hold) for LTL and truckload freight. Our team focuses on fast turns, clear communication, and photo/BOL documentation so carriers, brokers, and shippers can keep schedules on track.</p>
+    <p class="muted">We operate a <strong>19,000 ft²</strong> warehouse in Akron providing same-day cross-dock, pallet rework/recoup, and <strong>short- and long-term storage</strong>. We are open for <strong>all types of freight</strong> and focus on fast turns, clear communication, and photo/BOL documentation to keep brokers, carriers, and shippers on schedule.</p>
   </section>
 
-  <section class="container">
+  <section class="container" data-reveal>
     <div class="grid">
       <div class="card">
         <h3>Services at a glance</h3>
         <ul class="muted">
-          <li>Cross-Dock & Transfer (live unload/load, trailer-to-trailer/van/box)</li>
+          <li>Cross-Dock & Transfer (trailer↔trailer/van/box)</li>
           <li>Transloading between vehicles or modes</li>
           <li>Rework & Recoup (re-stack, re-wrap, banding, corner boards, relabel)</li>
-          <li>Store / Hold (daily/weekly short-term storage)</li>
+          <li>Storage: daily/weekly/monthly (short- & long-term)</li>
           <li>BOL prep, photo proof, counts</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Capabilities</h3>
-        <table>
-          <tbody>
-            <tr><th>Dock doors</th><td>3 (expandable)</td></tr>
-            <tr><th>Forklifts</th><td>2 × 5,000 lb</td></tr>
-            <tr><th>Max pallet height</th><td>~85"</td></tr>
-            <tr><th>Pallet types</th><td>48×40 GMA, CHEP, custom</td></tr>
-            <tr><th>Access</th><td>53' trailers, box trucks, vans</td></tr>
-            <tr><th>Security</th><td>CCTV, monitored entry</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="card">
         <h3>Coverage</h3>
-        <p class="muted">Akron, Cleveland, Canton, Youngstown (same-day). Statewide: Columbus, Toledo, Cincinnati. Near I-76, I-77, SR-8.</p>
+        <p class="muted">Same-day: Akron, Cleveland, Canton, Youngstown. Statewide: Columbus, Toledo, Cincinnati.</p>
       </div>
       <div class="card">
-        <h3>Driver instructions</h3>
+        <h3>Driver notes</h3>
         <ul class="muted">
-          <li>Check in on arrival; we provide dock door assignment and safety notes.</li>
-          <li>Have BOL and seal ready; we’ll record photos and counts.</li>
-          <li>After-hours arrivals by appointment only.</li>
+          <li>Check in on arrival for dock door & safety notes.</li>
+          <li>Have BOL and seal ready; we record photos and counts.</li>
+          <li>After-hours by appointment.</li>
         </ul>
+      </div>
+      <div class="card">
+        <h3>Contact & Hours</h3>
+        <p><strong>Address:</strong> 1172 Rosemary Blvd, Akron, OH 44306 · <strong>Plus Code:</strong> 2GP8+27</p>
+        <p><strong>Phone:</strong> (330) 524-0021 &nbsp;·&nbsp; <strong>Email:</strong> <a href="mailto:crossdockW@gmail.com">crossdockW@gmail.com</a></p>
+        <p><strong>Hours:</strong> Mon–Fri 8am–5pm · By appointment</p>
       </div>
     </div>
   </section>
 
-  <section class="container">
-    <h3>FAQs</h3>
-    <details><summary>Do you accept LTL and full truckload?</summary><p class="muted">Yes — we handle both LTL and TL (FAK).</p></details>
-    <details><summary>Can you rework shifted or leaning pallets?</summary><p class="muted">Yes — re-stack, re-wrap, banding, and corner boards with photo proof.</p></details>
-    <details><summary>Do you offer short-term storage?</summary><p class="muted">Yes — daily or weekly store/hold with handling and cycle counts as needed.</p></details>
-    <details><summary>How do I schedule after-hours?</summary><p class="muted">Call ahead to arrange an appointment outside 8–5.</p></details>
-  </section>
-
-  <section class="container">
-    <h3>Contact & Hours</h3>
-    <p><strong>Address:</strong> 1172 Rosemary Blvd, Akron, OH 44306 · <strong>Plus Code:</strong> 2GP8+27 Akron, Ohio</p>
-    <p><strong>Phone:</strong> (330) 524-0021 &nbsp;·&nbsp; <strong>Email:</strong> <a href="mailto:operations@2010.aafl.com">operations@2010.aafl.com</a></p>
-    <p><strong>Hours:</strong> Mon–Fri 8am–5pm · By appointment</p>
-  </section>
-
   <footer><div class="container">© <span id="year"></span> Akron Crossdock Warehouse</div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ro.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('[data-reveal]').forEach(el=>ro.observe(el));
+  </script>
 </body>
 </html>

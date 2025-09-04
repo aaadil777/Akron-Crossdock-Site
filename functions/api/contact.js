@@ -1,14 +1,15 @@
-// functions/api/contact.js
+// Cloudflare Pages Function: email via Resend
 export async function onRequestPost(context) {
   if (context.request.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
   }
+
   const data = await context.request.json().catch(() => ({}));
   const { name = '', company = '', email = '', phone = '', message = '' } = data;
 
   const apiKey = context.env.RESEND_API_KEY;
-  const to = context.env.TO_EMAIL || 'operations@2010.aafl.com';
-  const from = context.env.FROM_EMAIL || 'Akron Crossdock <onboarding@resend.dev>';
+  const to = context.env.TO_EMAIL || 'crossdockW@gmail.com'; // updated default recipient
+  const from = context.env.FROM_EMAIL || 'Akron Crossdock <onboarding@resend.dev>'; // replace with verified sender later
 
   const bodyText = [
     `Name: ${name}`,
