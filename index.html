@@ -12,7 +12,7 @@
   <meta property="og:image" content="images/facility-front.png" />
   <meta name="theme-color" content="#0b2d5c" />
 
-  <!-- favicon: storage/warehouse icon (fixed/closed data URL) -->
+  <!-- favicon: storage/warehouse icon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2d5c'/%3E%3Cpath d='M6 26l26-10 26 10v24a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26z' fill='%23ffffff'/%3E%3Cpath d='M16 50V34h8v16m8 0V34h8v16' stroke='%230b2d5c' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
 
   <style>
@@ -42,22 +42,37 @@
     .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg,#eaf0f8,#d3dced);display:grid;place-items:center;box-shadow:var(--shadow)}
     .logo svg{width:22px;height:22px}
     .brand h1{font-size:18px;margin:0;letter-spacing:.2px}
+
     .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .links a{padding:10px 14px;border:1px solid var(--line);border-radius:999px;transition:all .25s ease}
     .links a:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 14px rgba(11,45,92,.08)}
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
     .links a.cta:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
 
-    /* mobile nav */
-    .menu-toggle{display:none;background:transparent;border:1px solid var(--line);
-      border-radius:12px;padding:8px 10px;margin-left:8px;cursor:pointer}
-    .menu-toggle span{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;transition:.25s}
-    .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
-    .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    /* MOBILE HAMBURGER – isolated from global button styles */
+    .menu-toggle{
+      /* neutralize global button rule */
+      background:transparent!important;border:1px solid var(--line)!important;color:var(--text)!important;
+      padding:0!important;transform:none!important;box-shadow:none!important;
 
-    .mobile-nav{position:fixed;top:62px;left:0;right:0;background:#fff;border-top:1px solid var(--line);
-      box-shadow:0 18px 40px rgba(11,45,92,.12);display:none;z-index:39}
+      display:none; /* only on small screens */
+      position:relative; width:44px; height:36px; border-radius:12px; margin-left:8px; cursor:pointer;
+    }
+    .menu-toggle span{
+      position:absolute; left:10px; right:10px; height:2px; background:var(--text);
+      border-radius:2px; transition:transform .25s ease, opacity .2s ease, top .25s ease;
+    }
+    .menu-toggle span:nth-child(1){ top:11px }
+    .menu-toggle span:nth-child(2){ top:17px }
+    .menu-toggle span:nth-child(3){ top:23px }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1){ top:17px; transform:rotate(45deg) }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0 }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3){ top:17px; transform:rotate(-45deg) }
+
+    .mobile-nav{
+      position:fixed;top:62px;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+      box-shadow:0 18px 40px rgba(11,45,92,.12);display:none;z-index:39
+    }
     .mobile-nav.open{display:block;animation:slideDown .18s ease}
     .mobile-nav a{display:block;padding:14px 18px;border-bottom:1px solid var(--line)}
     .mobile-nav a.cta{background:var(--accent);color:#fff;border:0;margin:12px;border-radius:12px;text-align:center}
@@ -116,7 +131,7 @@
     .btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
     footer{margin-top:36px;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
 
-    /* reveal-on-scroll (faster) */
+    /* reveal-on-scroll */
     [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease, transform var(--speed) ease;will-change:transform,opacity}
     .show{opacity:1;transform:none}
 
@@ -136,8 +151,7 @@
       .gallery .item{grid-column:span 12}
       .gallery .item img{height:260px}
       .gpage,.mapwrap{grid-column:span 12}
-      .gpage{order:1} /* preview ABOVE */
-      .mapwrap{order:2} /* map BELOW */
+      .gpage{order:1} .mapwrap{order:2}
       .mapframe{min-height:320px}
     }
     @media (prefers-reduced-motion: reduce){
@@ -255,9 +269,8 @@
   <section id="coverage" class="container" data-reveal>
     <h2>Location</h2>
     <div class="locgrid">
-      <!-- Google "page" preview (card) -->
       <article class="card gpage">
-        <h3 style="margin-top:0">Crossdock Directions & Contact Card</h3>
+        <h3 style="margin-top:0">Google Business Preview</h3>
         <p><strong>Cross dock, Warehouse, Rework &amp; Storage of (Freight all kind) of Akron, Ohio</strong></p>
         <div class="gmeta">
           <div>1172 Rosemary Blvd, Akron, OH 44306</div>
@@ -274,10 +287,9 @@
             Get directions
           </a>
         </div>
-        <p class="muted" style="margin-top:12px"></p>
+        <p class="muted" style="margin-top:12px">Note: Google’s live business panel can’t be embedded without an API; this card links directly to the official Google page.</p>
       </article>
 
-      <!-- Map embed -->
       <div class="mapwrap">
         <iframe class="mapframe"
           title="Google Map: Akron Crossdock Warehouse"
@@ -431,7 +443,7 @@ ${data.message}`);
     let sx=0; lbImg.addEventListener('touchstart',e=>sx=e.touches[0].clientX);
     lbImg.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); }});
 
-    // Mobile nav toggle
+    // Mobile nav toggle (close on link & ESC; lock body scroll)
     const toggle = document.getElementById('menuToggle');
     const mobile = document.getElementById('mobileNav');
     function setOpen(open){
