@@ -7,13 +7,10 @@
   <meta name="description" content="Parhar Trucking has delivered logistics solutions for over 30 years. Crossdock Akron adds cross-dock, pallet rework, and storage — 27 docks, 2+ acres parking, highway access under 0.5 miles." />
   <meta name="theme-color" content="#0a2a6b" />
 
-  <link rel="preload" as="image" href="images/IMG_0421.jpg">
-
   <style>
-    :root{--bg:#f4f7ff;--paper:#ffffff;--line:#e0e8f8;--muted:#44506d;--text:#0b132b;--accent:#0a2a6b;--accent-2:#163a8a;--shadow:0 10px 30px rgba(10,42,107,.12);--radius:14px}
+    :root{--bg:#ffffff;--paper:#ffffff;--line:#cfe1ff;--muted:#29509f;--text:#081a3a;--accent:#0a2a6b;--accent-2:#1b4aa5;--shadow:0 10px 30px rgba(27,74,165,.18);--radius:14px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    img{max-width:100%;display:block;border-radius:12px}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
     .container{width:min(1220px,92vw);margin-inline:auto}
 
@@ -23,24 +20,12 @@
     .brand svg{width:28px;height:28px}
     .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px}
 
-    /* Big, readable About copy (no box) */
-    .lead-wrap{padding:26px 0}
-    .lead{font-size:clamp(18px,2.1vw,22px);line-height:1.6;max-width:90ch}
-    .lead strong{color:var(--accent)}
-
-    /* Turnstile */
-    .slider{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper);margin-top:10px}
-    .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
-    .slide.active{opacity:1}
-    .slide img{width:100%;height:100%;object-fit:cover}
-    .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:#ffffffee;border:1px solid var(--line);border-radius:999px;padding:10px;margin:10px;cursor:pointer}
-    .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
-    .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.9}
-    .sdots button.active{background:#fff}
-
-    /* Map */
-    .map{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
+    /* Big monospace bullets with typewriter */
+    .lead-wrap{padding:34px 0}
+    .lead-title{margin:0 0 10px;font-size:clamp(24px,3vw,32px);color:var(--accent)}
+    .bullets{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);white-space:pre-wrap}
+    .cursor{border-right:2px solid var(--accent-2)}
+    .map{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
     .map iframe{width:100%;height:360px;border:0}
 
     footer{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
@@ -67,29 +52,21 @@
   </header>
 
   <section class="container lead-wrap">
-    <h2>About Parhar Trucking</h2>
-    <p class="lead"><strong>30+ years</strong> of dependable logistics. Our <strong>Crossdock Akron</strong> expansion delivers fast cross-docking, pallet rework/recoup, and flexible storage for carriers, brokers, and shippers. Driver-friendly access: <strong>27 dock doors</strong>, <strong>2+ acres</strong> of parking, and major highway access <strong>&lt; 0.5 miles</strong>. We’re ~11 miles from Walmart &amp; Sam’s Club DCs and operate Mon–Fri 8–5, with <strong>24/7 by appointment</strong>.</p>
-  </section>
+    <h2 class="lead-title">About Parhar Trucking</h2>
+    <div id="bullets" class="bullets cursor" aria-live="polite"></div>
 
-  <section class="container">
-    <h2>More Facility &amp; Work</h2>
-    <div class="slider" id="slider">
-      <div class="slide active"><img src="images/IMG_0421.jpg" alt="Orange product pallets" fetchpriority="high" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_0314.jpg" alt="Organized trailer cartons" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_0230.jpg" alt="Bulk bags strapped" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1816.jpg" alt="Coffee pallets staged" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1814.jpg" alt="Alani pallets staged" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1784.jpg" alt="Crated equipment" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1980.jpg" alt="Bai beverage pallets" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_2008.jpg" alt="Mixed pallets in warehouse" loading="lazy" decoding="async"></div>
-      <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
-      <div class="sdots" id="sdots" aria-label="Slide dots"></div>
+    <div>
+
     </div>
 
     <div class="map">
       <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+
+    <div>
+      
+    </div>
 
   <footer>
     <div class="footbrand">
@@ -102,17 +79,26 @@
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Turnstile
-    const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
-    let cur=0,timer;
-    function go(i){slides[cur].classList.remove('active');cur=(i+slides.length)%slides.length;slides[cur].classList.add('active');[...dots.children].forEach((d,j)=>d.classList.toggle('active',j===cur));}
-    function next(){go(cur+1)} function prev(){go(cur-1)}
-    function start(){stop();timer=setInterval(next,4200)} function stop(){clearInterval(timer)}
-    dots.innerHTML=slides.map((_,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join('');
-    [...dots.children].forEach((b,i)=>b.onclick=()=>{go(i);start()});
-    document.getElementById('next').onclick=()=>{next();start()};
-    document.getElementById('prev').onclick=()=>{prev();start()};
-    start();
+    // Typewriter bullet list with arrows -->
+    const lines = [
+      "-->  30+ years of dependable logistics.",
+      "-->  Crossdock Akron: fast cross-docking, pallet rework/recoup, and storage.",
+      "-->  Driver-friendly: 27 dock doors and 2+ acres of parking.",
+      "-->  Highway access under 0.5 miles; ~11 miles to Walmart & Sam's Club DCs.",
+      "-->  Hours: Mon–Fri 8–5  |  24/7 by appointment."
+    ];
+    const el = document.getElementById('bullets');
+    let li = 0, ci = 0;
+    (function type(){
+      if(li >= lines.length){ el.classList.remove('cursor'); return; }
+      const current = lines[li];
+      if(ci <= current.length){
+        el.textContent = (lines.slice(0, li).join("\n") + (li? "\n":"")) + current.slice(0, ci++);
+        setTimeout(type, 14);
+      } else {
+        li++; ci = 0; setTimeout(type, 220);
+      }
+    })();
   </script>
 </body>
 </html>
