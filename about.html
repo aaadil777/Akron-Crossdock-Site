@@ -11,36 +11,40 @@
   <link rel="preload" as="image" href="images/IMG_0421.jpg">
 
   <style>
-    :root{--bg:#fff;--bg2:#f6f8fb;--line:#e7ebf1;--muted:#5c6574;--text:#0c1320;--accent:#0b2d5c;--accent-2:#123c78;--shadow:0 10px 30px rgba(11,45,92,.08)}
+    :root{--bg:#f7f9fc;--paper:#ffffff;--line:#e5ebf4;--muted:#596584;--text:#0b1a33;--accent:#0b2d5c;--accent-2:#072347;--shadow:0 10px 30px rgba(11,45,92,.08)}
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     img{max-width:100%;display:block;border-radius:12px}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
     .container{width:min(1200px,92vw);margin-inline:auto}
 
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:40}
+    header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:40}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
-    .links a{margin-left:10px;text-decoration:none;color:#000;padding:8px 12px;border:1px solid var(--line);border-radius:999px}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:800}
+    .brand svg{width:28px;height:28px}
+    .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 12px;border:1px solid var(--line);border-radius:999px}
 
     section{padding:24px 0}
-    p.muted{color:var(--muted);max-width:70ch}
+    p.muted{color:var(--muted);max-width:70ch;background:var(--paper);padding:14px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
 
-    /* Turnstile with fixed height */
-    .slider{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px)}
+    /* Turnstile */
+    .slider{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
     .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:rgba(255,255,255,.92);border:none;border-radius:999px;padding:10px;margin:10px;cursor:pointer}
+    .sbtn{pointer-events:auto;background:rgba(255,255,255,.95);border:none;border-radius:999px;padding:10px;margin:10px;cursor:pointer}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
     .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.8}
     .sdots button.active{background:#fff}
 
-    /* Floating email CTA */
-    .float-cta{position:fixed;right:16px;bottom:18px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600}
-    .float-cta:hover{background:var(--accent-2);transform:translateY(-1px)}
-    .float-cta svg{width:18px;height:18px}
+    /* Map */
+    .map{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
+    .map iframe{width:100%;height:360px;border:0}
 
-    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
+    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
+    footer .footbrand{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
+    footer svg{width:18px;height:18px}
     footer a{color:var(--accent);text-decoration:none}
 
     @media (max-width:900px){.links{display:none}}
@@ -49,7 +53,10 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">Parhar Trucking · Crossdock Akron</div>
+      <div class="brand">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 16h13l3-5h2v5h-1a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H2v-2a3 3 0 0 1 1-2l3-3h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Parhar Trucking · Crossdock Akron</span>
+      </div>
       <nav class="links">
         <a href="index.html">Home</a>
         <a href="index.html#gallery">Gallery</a>
@@ -77,11 +84,22 @@
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
+
+    <!-- Embedded Google Map -->
+    <div class="map">
+      <iframe
+        title="Crossdock Akron Map"
+        src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Parhar Trucking · Crossdock Akron ·
-    <a href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4842645,17z">Find us on Google Maps</a>
+    <div class="footbrand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 16h13l3-5h2v5h-1a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H2v-2a3 3 0 0 1 1-2l3-3h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Parhar Trucking · Crossdock Akron</span>
+    </div>
+    <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
 
   <button class="float-cta" id="emailCta" aria-label="Get a quote by email">
@@ -105,7 +123,7 @@
     start();
 
     // Email CTA
-    document.getElementById('emailCta').addEventListener('click', ()=>{
+    function openEmailTemplate(){
       const to="crossdockW@gmail.com";
       const subject="Inquiry for Crossdock Akron";
       const body=[
@@ -116,7 +134,8 @@
         "Best regards,"
       ].join("%0D%0A");
       window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    });
+    }
+    document.getElementById('emailCta').addEventListener('click', openEmailTemplate);
   </script>
 </body>
 </html>
