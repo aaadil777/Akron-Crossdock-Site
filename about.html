@@ -5,44 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About · Parhar Trucking — Crossdock Akron</title>
   <meta name="description" content="Parhar Trucking has delivered logistics solutions for over 30 years. Crossdock Akron adds cross-dock, pallet rework, and storage — 27 docks, 2+ acres parking, highway access under 0.5 miles." />
-  <meta name="theme-color" content="#0b2d5c" />
+  <meta name="theme-color" content="#0a2a6b" />
 
-  <!-- Preload first slide for instant gallery paint -->
   <link rel="preload" as="image" href="images/IMG_0421.jpg">
 
   <style>
-    :root{--bg:#f7f9fc;--paper:#ffffff;--line:#e5ebf4;--muted:#596584;--text:#0b1a33;--accent:#0b2d5c;--accent-2:#072347;--shadow:0 10px 30px rgba(11,45,92,.08)}
+    :root{--bg:#f4f7ff;--paper:#ffffff;--line:#e0e8f8;--muted:#44506d;--text:#0b132b;--accent:#0a2a6b;--accent-2:#163a8a;--shadow:0 10px 30px rgba(10,42,107,.12);--radius:14px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     img{max-width:100%;display:block;border-radius:12px}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    .container{width:min(1200px,92vw);margin-inline:auto}
+    .container{width:min(1220px,92vw);margin-inline:auto}
 
     header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:40}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
     .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:800}
     .brand svg{width:28px;height:28px}
-    .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 12px;border:1px solid var(--line);border-radius:999px}
+    .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px}
 
-    section{padding:24px 0}
-    p.muted{color:var(--muted);max-width:70ch;background:var(--paper);padding:14px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+    /* Big, readable About copy (no box) */
+    .lead-wrap{padding:26px 0}
+    .lead{font-size:clamp(18px,2.1vw,22px);line-height:1.6;max-width:90ch}
+    .lead strong{color:var(--accent)}
 
     /* Turnstile */
-    .slider{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper)}
+    .slider{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper);margin-top:10px}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
     .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:rgba(255,255,255,.95);border:none;border-radius:999px;padding:10px;margin:10px;cursor:pointer}
+    .sbtn{pointer-events:auto;background:#ffffffee;border:1px solid var(--line);border-radius:999px;padding:10px;margin:10px;cursor:pointer}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
-    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.8}
+    .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.9}
     .sdots button.active{background:#fff}
 
     /* Map */
-    .map{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
+    .map{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
     .map iframe{width:100%;height:360px;border:0}
 
-    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
+    footer{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
     footer .footbrand{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
     footer svg{width:18px;height:18px}
     footer a{color:var(--accent);text-decoration:none}
@@ -65,9 +66,9 @@
     </div>
   </header>
 
-  <section class="container">
+  <section class="container lead-wrap">
     <h2>About Parhar Trucking</h2>
-    <p class="muted"><strong>30+ years</strong> of dependable logistics. Our <strong>Crossdock Akron</strong> expansion delivers fast cross-docking, pallet rework/recoup, and storage. Driver-friendly: 27 dock doors, 2+ acres parking, and major highway access &lt; 0.5 miles.</p>
+    <p class="lead"><strong>30+ years</strong> of dependable logistics. Our <strong>Crossdock Akron</strong> expansion delivers fast cross-docking, pallet rework/recoup, and flexible storage for carriers, brokers, and shippers. Driver-friendly access: <strong>27 dock doors</strong>, <strong>2+ acres</strong> of parking, and major highway access <strong>&lt; 0.5 miles</strong>. We’re ~11 miles from Walmart &amp; Sam’s Club DCs and operate Mon–Fri 8–5, with <strong>24/7 by appointment</strong>.</p>
   </section>
 
   <section class="container">
@@ -85,12 +86,8 @@
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
 
-    <!-- Embedded Google Map -->
     <div class="map">
-      <iframe
-        title="Crossdock Akron Map"
-        src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
@@ -101,11 +98,6 @@
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
-
-  <button class="float-cta" id="emailCta" aria-label="Get a quote by email">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Get a Quote
-  </button>
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
@@ -121,21 +113,6 @@
     document.getElementById('next').onclick=()=>{next();start()};
     document.getElementById('prev').onclick=()=>{prev();start()};
     start();
-
-    // Email CTA
-    function openEmailTemplate(){
-      const to="crossdockW@gmail.com";
-      const subject="Inquiry for Crossdock Akron";
-      const body=[
-        "Hi, my name is ____ and I am with ____.",
-        "I am interested in your services and I would like to request more information on storage and pricing.",
-        "My email/phone is _____.",
-        "",
-        "Best regards,"
-      ].join("%0D%0A");
-      window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    }
-    document.getElementById('emailCta').addEventListener('click', openEmailTemplate);
   </script>
 </body>
 </html>
