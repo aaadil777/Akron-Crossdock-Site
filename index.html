@@ -3,457 +3,146 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akron Crossdock Warehouse: Freight, Rework & Storage</title>
-
-  <meta name="description" content="Akron Crossdock Warehouse — cross-dock, rework, and short- & long-term storage in a 19,000 ft² Akron facility. Open for all types of freight with same-day turns." />
-  <meta property="og:title" content="Akron Crossdock Warehouse: Freight, Rework & Storage" />
-  <meta property="og:description" content="Cross-dock • Rework • Short & Long-term Storage — 19,000 ft² in Akron, OH" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/facility-front.png" />
+  <title>Parhar Trucking · Crossdock Akron — 27 Docks, 2+ Acre Parking, Hwy &lt; 0.5 mi</title>
+  <meta name="description" content="Parhar Trucking — 30+ years of logistics. Crossdock Akron: 27 dock doors, 2+ acres parking, < 0.5 miles from highway, ~11 miles to Walmart & Sam’s Club DCs. Open Mon–Fri 8–5; 24/7 by appointment." />
   <meta name="theme-color" content="#0b2d5c" />
-
-  <!-- favicon: storage/warehouse icon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2d5c'/%3E%3Cpath d='M6 26l26-10 26 10v24a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V26z' fill='%23ffffff'/%3E%3Cpath d='M16 50V34h8v16m8 0V34h8v16' stroke='%230b2d5c' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
-
   <style>
-    :root{
-      --bg:#ffffff; --bg2:#f6f8fb; --card:#ffffff;
-      --text:#0c1320; --muted:#5c6574; --line:#e7ebf1;
-      --accent:#0b2d5c; --accent-2:#123c78;
-      --radius:16px; --shadow:0 10px 30px rgba(11,45,92,.08);
-      --gradient:radial-gradient(1200px 800px at 50% -10%, #fff 15%, #f4f7fb 55%, #eef2f7 100%);
-      --reveal-y:8px; --speed:.38s;
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;
-      color:var(--text);background:var(--gradient),var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased
-    }
-    img{max-width:100%;display:block;border-radius:calc(var(--radius) - 4px)}
-    a{color:inherit;text-decoration:none}
+    :root{--bg:#fff;--bg2:#f6f8fb;--line:#e7ebf1;--muted:#5c6574;--text:#0c1320;--accent:#0b2d5c;--accent-2:#123c78;--shadow:0 10px 30px rgba(11,45,92,.08);--radius:14px}
+    *{box-sizing:border-box} img{max-width:100%;display:block;border-radius:12px}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
     .container{width:min(1120px,92vw);margin-inline:auto}
 
-    /* header */
-    header{position:sticky;top:0;backdrop-filter:saturate(1.6) blur(10px);
-      background:color-mix(in srgb, white 82%, transparent);border-bottom:1px solid var(--line);z-index:40}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg,#eaf0f8,#d3dced);display:grid;place-items:center;box-shadow:var(--shadow)}
-    .logo svg{width:22px;height:22px}
-    .brand h1{font-size:18px;margin:0;letter-spacing:.2px}
-
-    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .links a{padding:10px 14px;border:1px solid var(--line);border-radius:999px;transition:all .25s ease}
-    .links a:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 14px rgba(11,45,92,.08)}
+    /* Header + translucent banner */
+    header{position:sticky;top:0;background:#fff;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6px;border-bottom:1px solid var(--line)}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .links a{margin-left:10px;text-decoration:none;color:#000;padding:8px 12px;border:1px solid var(--line);border-radius:999px}
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .links a.cta:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
-
-    /* MOBILE HAMBURGER – isolated from global button styles */
-    .menu-toggle{
-      /* neutralize global button rule */
-      background:transparent!important;border:1px solid var(--line)!important;color:var(--text)!important;
-      padding:0!important;transform:none!important;box-shadow:none!important;
-
-      display:none; /* only on small screens */
-      position:relative; width:44px; height:36px; border-radius:12px; margin-left:8px; cursor:pointer;
+    .quote-banner{background:var(--bg2);padding:6px 0;text-align:center;font-size:14px;color:var(--accent);border-top:1px solid var(--line)}
+    .header-banner{
+      height:clamp(90px,20vw,180px);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,.82), rgba(255,255,255,.86)),
+        url('images/facility-front.png') center/cover no-repeat;
     }
-    .menu-toggle span{
-      position:absolute; left:10px; right:10px; height:2px; background:var(--text);
-      border-radius:2px; transition:transform .25s ease, opacity .2s ease, top .25s ease;
-    }
-    .menu-toggle span:nth-child(1){ top:11px }
-    .menu-toggle span:nth-child(2){ top:17px }
-    .menu-toggle span:nth-child(3){ top:23px }
-    .menu-toggle[aria-expanded="true"] span:nth-child(1){ top:17px; transform:rotate(45deg) }
-    .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0 }
-    .menu-toggle[aria-expanded="true"] span:nth-child(3){ top:17px; transform:rotate(-45deg) }
 
-    .mobile-nav{
-      position:fixed;top:62px;left:0;right:0;background:#fff;border-top:1px solid var(--line);
-      box-shadow:0 18px 40px rgba(11,45,92,.12);display:none;z-index:39
-    }
-    .mobile-nav.open{display:block;animation:slideDown .18s ease}
-    .mobile-nav a{display:block;padding:14px 18px;border-bottom:1px solid var(--line)}
-    .mobile-nav a.cta{background:var(--accent);color:#fff;border:0;margin:12px;border-radius:12px;text-align:center}
-    @keyframes slideDown{from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none}}
+    /* Sections */
+    section{padding:26px 0}
+    .hero{padding-top:28px}
+    .hero h2{margin:0 0 8px;font-size:clamp(28px,4vw,44px);line-height:1.08}
+    .hero p{margin:0 0 12px;color:var(--muted);max-width:66ch}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .badge{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .hero-media{margin:12px 0 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero-media img{width:100%;height:clamp(220px,38vw,420px);object-fit:cover}
 
-    /* hero */
-    .hero{padding:74px 0 14px}
-    .hero h2{font-size:clamp(28px,4vw,44px);line-height:1.08;margin:0 0 10px}
-    .hero p{color:var(--muted);max-width:66ch;margin:0 0 10px}
+    /* Turnstile slider */
+    .slider{position:relative;margin-top:16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
+    .slide.active{opacity:1}
+    .slide img{width:100%;height:min(70vh,680px);object-fit:cover}
+    .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .sbtn{pointer-events:auto;background:rgba(255,255,255,.9);border:none;border-radius:999px;padding:10px;cursor:pointer;margin:10px}
+    .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.7}
+    .sdots button.active{background:#fff;opacity:1}
 
-    /* typer */
-    .typer{min-height:28px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      color:var(--accent);font-size:clamp(14px,2.1vw,18px);letter-spacing:.2px}
-    .caret{display:inline-block;width:8px;background:var(--accent);margin-left:2px;animation:blink 1s step-end infinite}
-    @keyframes blink{50%{opacity:0}}
+    /* Floating CTA */
+    .float-cta{position:fixed;right:16px;bottom:18px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600}
+    .float-cta:hover{background:var(--accent-2);transform:translateY(-1px)}
+    .float-cta svg{width:18px;height:18px}
 
-    /* sections & cards */
-    section{scroll-margin-top:86px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 8px;font-size:18px}
-    .card p{margin:0;color:var(--muted)}
-    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-    .callout{margin:24px 0;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,#fff,var(--bg2))}
-
-    /* gallery */
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .gallery .item{
-      grid-column:span 6;cursor:pointer;display:block;padding:12px;background:#fff;border:1px solid var(--line);
-      border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s
-    }
-    .gallery .item:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,45,92,.12)}
-    .gallery .item img{width:100%;height:360px;object-fit:cover;border-radius:calc(var(--radius) - 6px)}
-    .gallery .item.broken{display:grid;place-items:center;color:#a3abb7}
-
-    /* lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(10,16,25,.75);display:none;align-items:center;justify-content:center;z-index:60}
-    .lightbox.open{display:flex}
-    .lb-inner{position:relative;width:min(1100px,92vw)}
-    .lb-img{width:100%;height:min(78vh,900px);object-fit:contain;background:#000;border-radius:14px}
-    .lb-btn{position:absolute;top:50%;transform:translateY(-50%);border:none;background:rgba(255,255,255,.85);color:#0d1b2a;border-radius:999px;padding:10px 12px;cursor:pointer}
-    .lb-prev{left:-6px}.lb-next{right:-6px}
-    .lb-close{position:absolute;top:-10px;right:-10px;border:none;background:#fff;color:#0d1b2a;border-radius:999px;padding:8px 11px;cursor:pointer}
-    .lb-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
-    .lb-dots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.7}
-    .lb-dots button.active{background:#fff;opacity:1}
-
-    /* forms & buttons */
-    form{display:grid;gap:12px;margin-top:20px}
-    input,textarea{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff}
-    button{padding:12px 16px;border:none;border-radius:12px;background:var(--accent);color:#fff;cursor:pointer;transition:all .2s ease}
-    button:hover{background:var(--accent-2);transform:translateY(-1px)}
-    .btn{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:12px;transition:.25s}
-    .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 4px 14px rgba(11,45,92,.08)}
-    .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
-    footer{margin-top:36px;padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
-
-    /* reveal-on-scroll */
-    [data-reveal]{opacity:0;transform:translateY(var(--reveal-y));transition:opacity var(--speed) ease, transform var(--speed) ease;will-change:transform,opacity}
-    .show{opacity:1;transform:none}
-
-    /* Location grid (preview + map) */
-    .locgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .gpage{grid-column:span 6}
-    .mapwrap{grid-column:span 6}
-    .mapframe{width:100%;height:100%;min-height:360px;border:0;border-radius:12px}
-    .gmeta{display:grid;gap:8px;margin-top:6px;color:var(--muted)}
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-
-    /* mobile */
-    @media(max-width:900px){
-      .links{display:none}
-      .menu-toggle{display:inline-flex;align-items:center;justify-content:center}
-      .card{grid-column:span 12}
-      .gallery .item{grid-column:span 12}
-      .gallery .item img{height:260px}
-      .gpage,.mapwrap{grid-column:span 12}
-      .gpage{order:1} .mapwrap{order:2}
-      .mapframe{min-height:320px}
-    }
-    @media (prefers-reduced-motion: reduce){
-      [data-reveal]{opacity:1;transform:none}
-      .caret{animation:none}
-    }
+    /* Footer */
+    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
+    footer a{color:var(--accent);text-decoration:none}
+    @media(max-width:900px){.links{display:none}}
   </style>
-
-  <!-- LocalBusiness SEO -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org","@type":"LocalBusiness",
-    "name":"Akron Crossdock Warehouse",
-    "description":"Cross-dock, rework, and short- & long-term storage in a 19,000 ft² Akron facility. Open for all types of freight.",
-    "image":"images/facility-front.png",
-    "address":{"@type":"PostalAddress","streetAddress":"1172 Rosemary Blvd","addressLocality":"Akron","addressRegion":"OH","postalCode":"44306","addressCountry":"US"},
-    "geo":{"@type":"GeoCoordinates","latitude":41.0350531,"longitude":-81.4842645},
-    "telephone":"(330) 524-0021",
-    "email":"mailto:crossdockW@gmail.com",
-    "openingHours":"Mo,Tu,We,Th,Fr 08:00-17:00",
-    "url":"https://akron-crossdock-site.pages.dev"
-  }
-  </script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 10.5 12 6l9 4.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5Z" fill="currentColor" style="color:var(--accent)"/>
-            <path d="M7 20v-7h4v7M13 20v-7h4v7" stroke="#fff" stroke-width="1.6" fill="none"/>
-          </svg>
-        </div>
-        <h1>Akron Crossdock Warehouse</h1>
-      </div>
-
-      <!-- desktop links -->
-      <nav class="links" aria-label="Primary">
+      <div class="brand">Parhar Trucking · Crossdock Akron</div>
+      <nav class="links">
         <a href="about.html">About</a>
-        <a href="#services">Services</a>
-        <a href="#coverage">Location</a>
         <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
         <a href="#contact" class="cta">Contact</a>
       </nav>
-
-      <!-- mobile hamburger -->
-      <button class="menu-toggle" id="menuToggle"
-              aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
+    <div class="quote-banner">📦 Contact us today for quotes &amp; pricing</div>
+    <!-- translucent banner using facility-front.png -->
+    <div class="header-banner" aria-hidden="true"></div>
   </header>
 
-  <!-- Mobile menu panel -->
-  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile">
-    <a href="about.html">About</a>
-    <a href="#services">Services</a>
-    <a href="#coverage">Location</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact" class="cta">Contact</a>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero container" data-reveal>
-    <h2>Cross-dock • Transload • Rework • Storage<br>Akron, Ohio</h2>
-    <p>19,000 ft² facility delivering same-day cross-dock and pallet rework with <strong>short- and long-term storage</strong>. We’re <strong>open for all types of freight</strong> and keep loads moving on schedule.</p>
-    <p id="typer" class="typer" aria-live="polite"></p>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="container" data-reveal>
-    <h2>Services</h2>
-    <div class="grid" style="margin-top:14px">
-      <article class="card"><h3>Cross-Dock & Transfer</h3>
-        <p>Live unload/load — trailer-to-trailer or trailer-to-box-truck. Fast turns to keep schedules on track.</p>
-        <ul class="list"><li>Late cutoff / appointment rescue</li><li>Seal control, photos & BOL</li><li>LTL/TL, FAK handling</li></ul>
-      </article>
-      <article class="card"><h3>Transloading</h3>
-        <p>Move freight between vehicles or modes (53’, box truck, van) to hit the next leg on time.</p>
-        <ul class="list"><li>Pallet swap & redistribution</li><li>Door-to-door staging</li><li>Final-mile handoff</li></ul>
-      </article>
-      <article class="card"><h3>Rework & Recoup</h3>
-        <p>Fix shifted or damaged pallets to protect product and prevent claims.</p>
-        <ul class="list"><li>Re-stacking, re-wrapping, bands & corner boards</li><li>Labeling, pallet builds</li><li>Counts, photos, incident notes</li></ul>
-      </article>
-      <article class="card"><h3>Storage (Short & Long-Term)</h3>
-        <p>Staging between appointments or extended hold — pay only for what you use in our <strong>19,000 ft²</strong> warehouse.</p>
-        <ul class="list"><li>Daily/weekly/monthly pallet storage</li><li>Inbound checks & cycle counts</li><li>Scheduled outbound prep</li></ul>
-      </article>
+  <section class="hero container">
+    <h2>We are <strong>Parhar Trucking</strong> — 30+ years of logistics service.</h2>
+    <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
+    <div class="badges">
+      <span class="badge">27 dock doors</span>
+      <span class="badge">2+ acres parking</span>
+      <span class="badge">Highway &lt; 0.5 mi</span>
+      <span class="badge">~11 mi to Walmart &amp; Sam’s DCs</span>
+      <span class="badge">Mon–Fri 8–5 · 24/7 appt.</span>
     </div>
-    <div class="callout"><strong>Open for all freight:</strong> retail, food & beverage, consumer goods, metals, packaging, and more.</div>
+    <div class="hero-media"><img src="images/IMG_0527.jpg" alt="Crossdock Akron — beverage pallets"></div>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery" class="container" data-reveal>
-    <h2>Facility & Work</h2>
-    <div class="gallery" id="galleryGrid"></div>
-
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-      <div class="lb-inner">
-        <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-        <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">◀</button>
-        <img class="lb-img" id="lbImg" alt="">
-        <button class="lb-btn lb-next" id="lbNext" aria-label="Next">▶</button>
-        <div class="lb-dots" id="lbDots"></div>
-      </div>
+  <section id="gallery" class="container">
+    <h2>Facility &amp; Work</h2>
+    <div class="slider" id="slider">
+      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged"></div>
+      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized"></div>
+      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag"></div>
+      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock"></div>
+      <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
+      <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
   </section>
 
-  <!-- Location -->
-  <section id="coverage" class="container" data-reveal>
-    <h2>Location</h2>
-    <div class="locgrid">
-      <article class="card gpage">
-        <h3 style="margin-top:0">Google Business Preview</h3>
-        <p><strong>Cross dock, Warehouse, Rework &amp; Storage of (Freight all kind) of Akron, Ohio</strong></p>
-        <div class="gmeta">
-          <div>1172 Rosemary Blvd, Akron, OH 44306</div>
-          <div>Plus Code: 2GP8+27 Akron, Ohio</div>
-          <div>Hours: Mon–Fri 8am–5pm · By appointment</div>
-        </div>
-        <div class="btnrow">
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4868394,17z/data=!3m1!4b1!4m6!3m5!1s0x88312ba142e5e063:0x7e90f84d3957209f!8m2!3d41.0350531!4d-81.4842645!16s%2Fg%2F11j1qp6rkl?entry=ttu">
-            View on Google
-          </a>
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&destination=1172%20Rosemary%20Blvd%2C%20Akron%2C%20OH%2044306">
-            Get directions
-          </a>
-        </div>
-        <p class="muted" style="margin-top:12px">Note: Google’s live business panel can’t be embedded without an API; this card links directly to the official Google page.</p>
-      </article>
-
-      <div class="mapwrap">
-        <iframe class="mapframe"
-          title="Google Map: Akron Crossdock Warehouse"
-          src="https://maps.google.com/maps?q=1172%20Rosemary%20Blvd%2C%20Akron%2C%20OH%2044306&z=15&output=embed"
-          loading="lazy" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section id="reviews" class="container" data-reveal>
-    <h2>Customer Reviews</h2>
-    <div class="callout" id="testimonial" style="font-style:italic;color:var(--muted)">
-      “Great team, fast unload and re-stack service. Saved my load!” — ★★★★★
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="container" data-reveal>
+  <section id="contact" class="container">
     <h2>Request a Quote</h2>
-    <p class="muted">Send lane details, trailer type, pallet count/dims, and any OS&D notes. We’ll reply fast.</p>
-    <form id="quoteForm" style="display:grid; gap:12px; grid-template-columns:repeat(12,1fr)" onsubmit="submitQuote(event)">
-      <input style="grid-column:span 6" name="name" placeholder="Your name" required>
-      <input style="grid-column:span 6" name="company" placeholder="Company" required>
-      <input style="grid-column:span 6" type="email" name="email" placeholder="Email" required>
-      <input style="grid-column:span 6" name="phone" placeholder="Phone" required>
-      <textarea style="grid-column:span 12; min-height:120px" name="message" placeholder="Load details, timing, special instructions…" required></textarea>
-      <div style="grid-column:span 12; display:flex; gap:10px; flex-wrap:wrap">
-        <button type="submit">Send</button>
-        <a href="mailto:crossdockW@gmail.com" class="btn">Email instead</a>
-      </div>
-      <p id="quoteStatus" class="muted" style="grid-column:span 12; margin:0"></p>
-    </form>
-    <div style="margin-top:14px">
-      <p><strong>Phone:</strong> (330) 524-0021</p>
-      <p><strong>Email:</strong> <a href="mailto:crossdockW@gmail.com">crossdockW@gmail.com</a></p>
-      <p><strong>Hours:</strong> Mon–Fri 8am–5pm · By appointment</p>
-    </div>
+    <p><strong>Phone:</strong> (330) 524-0021 · <strong>Email:</strong> <a href="mailto:crossdockW@gmail.com">crossdockW@gmail.com</a></p>
   </section>
 
-  <footer><div class="container">© <span id="year"></span> Akron Crossdock Warehouse</div></footer>
+  <footer>
+    © <span id="year"></span> Parhar Trucking · Crossdock Akron ·
+    <a href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4842645,17z">Find us on Google Maps</a>
+  </footer>
+
+  <button class="float-cta" id="emailCta">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Get a Quote
+  </button>
 
   <script>
-    // year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // reveal-on-scroll
-    const ro = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target);} });
-    },{threshold:.08, rootMargin:'0px 0px -10% 0px'});
-    document.querySelectorAll('[data-reveal]').forEach(el=>ro.observe(el));
+    // Turnstile
+    const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
+    let cur=0,timer;
+    function go(i){slides[cur].classList.remove('active');cur=(i+slides.length)%slides.length;slides[cur].classList.add('active');[...dots.children].forEach((d,j)=>d.classList.toggle('active',j===cur));}
+    function next(){go(cur+1)} function prev(){go(cur-1)}
+    function start(){stop();timer=setInterval(next,4200)} function stop(){clearInterval(timer)}
+    dots.innerHTML=slides.map((_,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join('');
+    [...dots.children].forEach((b,i)=>b.onclick=()=>{go(i);start()});
+    document.getElementById('next').onclick=()=>{next();start()};
+    document.getElementById('prev').onclick=()=>{prev();start()};
+    start();
 
-    // typewriter
-    const phrases = [
-      "Fast cross-dock & transfer",
-      "Pallet rework & recoup",
-      "Short- & long-term storage (19,000 ft²)",
-      "Open for all types of freight",
-      "Same-day turns • Photo & BOL proof"
-    ];
-    const typer = document.getElementById('typer');
-    let p = 0, i = 0, del = false;
-    function tick(){
-      const text = phrases[p];
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ typer.textContent = text; return; }
-      i += del ? -1 : 1;
-      typer.innerHTML = text.slice(0,i) + '<span class="caret"></span>';
-      if (!del && i === text.length){ del = true; setTimeout(tick, 1200); return; }
-      if (del && i === 0){ del = false; p = (p+1) % phrases.length; }
-      setTimeout(tick, del ? 20 : 38);
-    }
-    tick();
-
-    // testimonial rotator
-    const quotes=[
-      "“Great team, fast unload and re-stack service. Saved my load!” — ★★★★★",
-      "“Professional, communicative, and flexible with timing.” — ★★★★★",
-      "“Quick, efficient, and helpful with our LTL shipments.” — ★★★★★"
-    ];
-    let tq=0; setInterval(()=>{tq=(tq+1)%quotes.length; document.getElementById('testimonial').textContent=quotes[tq];},4200);
-
-    // contact submit + fallback
-    async function submitQuote(e){
-      e.preventDefault();
-      const form=e.target; const status=document.getElementById('quoteStatus');
-      status.textContent='Sending…';
-      const data=Object.fromEntries(new FormData(form).entries());
-      try{
-        const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-        if(res.ok){ status.textContent='Thanks! We received your request and will reply shortly.'; form.reset(); }
-        else{ throw new Error(await res.text()); }
-      }catch(err){
-        const body=encodeURIComponent(`Name: ${data.name}
-Company: ${data.company}
-Email: ${data.email}
-Phone: ${data.phone}
-
-Message:
-${data.message}`);
-        window.location.href=`mailto:crossdockW@gmail.com?subject=Quote request — Akron Crossdock Warehouse&body=${body}`;
-        status.textContent='If your mail app did not open, please email crossdockW@gmail.com';
-      }
-    }
-
-    // Gallery Lightbox
-    const galleryData = [
-      { src:'images/trailer-shift-1.png',  alt:'Shifted pallets before rework' },
-      { src:'images/trailer-stacked-1.png',alt:'Re-stacked and wrapped pallets' },
-      { src:'images/facility-front.png',   alt:'Facility and dock doors' },
-      { src:'images/boxtruck-equipment.png', alt:'Box truck equipment' },
-      { src:'images/IMG_1868.jpg', alt:'Pallets staged at end of trailer' },
-      { src:'images/IMG_0661.jpg', alt:'Beverage pallets loaded' },
-      { src:'images/IMG_1553.jpg', alt:'Metal bales staged' },
-      { src:'images/IMG_1584.jpg', alt:'Metal bales secured' },
-      { src:'images/IMG_1539.jpg', alt:'Food product pallets strapped' },
-      { src:'images/IMG_0216.jpg', alt:'Produce pallets in reefer' }
-    ];
-    const grid=document.getElementById('galleryGrid');
-    grid.innerHTML = galleryData.map((g,i)=>`
-      <button class="item" data-idx="${i}" aria-label="Open image ${i+1}">
-        <img src="${g.src}" alt="${g.alt}" loading="lazy"
-             onerror="this.closest('.item').classList.add('broken');this.remove();">
-      </button>
-    `).join('');
-
-    const lb=document.getElementById('lightbox');
-    const lbImg=document.getElementById('lbImg');
-    const lbDots=document.getElementById('lbDots');
-    let cur=0;
-    function openLB(i){ cur=i; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); updateLB(); }
-    function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
-    function next(){ cur=(cur+1)%galleryData.length; updateLB(); }
-    function prev(){ cur=(cur-1+galleryData.length)%galleryData.length; updateLB(); }
-    function updateLB(){
-      lbImg.src=galleryData[cur].src+'?v='+cur;
-      lbImg.alt=galleryData[cur].alt;
-      lbDots.innerHTML=galleryData.map((_,i)=>`<button ${i===cur?'class="active"':''} aria-label="Go to image ${i+1}"></button>`).join('');
-      [...lbDots.children].forEach((b,i)=>b.onclick=()=>{cur=i;updateLB()});
-    }
-    grid.querySelectorAll('.item').forEach(it=>it.addEventListener('click',()=>openLB(+it.dataset.idx)));
-    document.getElementById('lbClose').onclick=closeLB;
-    document.getElementById('lbNext').onclick=next;
-    document.getElementById('lbPrev').onclick=prev;
-    lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
-    window.addEventListener('keydown',e=>{
-      if(!lb.classList.contains('open')) return;
-      if(e.key==='Escape') closeLB();
-      if(e.key==='ArrowRight') next();
-      if(e.key==='ArrowLeft')  prev();
+    // Email CTA
+    document.getElementById('emailCta').addEventListener('click', ()=>{
+      const to="crossdockW@gmail.com";
+      const subject="Inquiry for Crossdock Akron";
+      const body=[
+        "Hi, my name is ____ and I am with ____.",
+        "I am interested in your services and I would like to request more information on storage and pricing.",
+        "My email/phone is _____.",
+        "",
+        "Best regards,"
+      ].join("%0D%0A");
+      window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
     });
-    let sx=0; lbImg.addEventListener('touchstart',e=>sx=e.touches[0].clientX);
-    lbImg.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); }});
-
-    // Mobile nav toggle (close on link & ESC; lock body scroll)
-    const toggle = document.getElementById('menuToggle');
-    const mobile = document.getElementById('mobileNav');
-    function setOpen(open){
-      toggle.setAttribute('aria-expanded', open);
-      mobile.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    }
-    toggle?.addEventListener('click', () => setOpen(!mobile.classList.contains('open')));
-    mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-    window.addEventListener('keydown', e => { if(e.key === 'Escape' && mobile.classList.contains('open')) setOpen(false); });
   </script>
 </body>
 </html>
