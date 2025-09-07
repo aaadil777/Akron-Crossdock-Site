@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a2a6b" />
 
   <style>
-    :root{--bg:#ffffff;--paper:#ffffff;--line:#cfe1ff;--muted:#29509f;--text:#081a3a;--accent:#0a2a6b;--accent-2:#1b4aa5;--shadow:0 10px 30px rgba(27,74,165,.18);--radius:14px}
+    :root{--bg:#ffffff;--paper:#ffffff;--line:#cfe1ff;--muted:#29509f;--text:#081a3a;--accent:#0a2a6b;--accent-2:#1b4aa5;--shadow:0 14px 34px rgba(27,74,165,.18);--radius:14px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
@@ -20,15 +20,21 @@
     .brand svg{width:28px;height:28px}
     .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px}
 
-    /* Big monospace bullets with typewriter */
     .lead-wrap{padding:34px 0}
-    .lead-title{margin:0 0 10px;font-size:clamp(24px,3vw,32px);color:var(--accent)}
-    .bullets{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);white-space:pre-wrap}
-    .cursor{border-right:2px solid var(--accent-2)}
-    .map{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
-    .map iframe{width:100%;height:360px;border:0}
+    .lead-title{margin:0 0 14px;font-size:clamp(28px,3.4vw,38px);color:var(--accent)}
+    .about-box{background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .about-box ul{margin:0;padding-left:1.1rem}
+    .about-box li{margin:10px 0;font-weight:700;letter-spacing:.2px}
+    .about-box li::marker{content:"→  ";color:var(--accent-2)}
+    .about-box strong{color:var(--accent)}
+    .about-note{margin-top:8px;color:var(--muted);font-size:14px}
 
-    footer{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
+    /* Footer map section */
+    .foot-map{margin-top:26px}
+    .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .foot-map iframe{width:100%;height:360px;border:0}
+
+    footer{margin-top:28px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
     footer .footbrand{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
     footer svg{width:18px;height:18px}
     footer a{color:var(--accent);text-decoration:none}
@@ -53,20 +59,25 @@
 
   <section class="container lead-wrap">
     <h2 class="lead-title">About Parhar Trucking</h2>
-    <div id="bullets" class="bullets cursor" aria-live="polite"></div>
 
-    <div>
-
+    <div class="about-box">
+      <ul>
+        <li><strong>30+ years</strong> of dependable logistics.</li>
+        <li><strong>Crossdock Akron</strong>: fast cross-docking, pallet rework/recoup, and storage.</li>
+        <li><strong>Driver-friendly</strong>: 27 dock doors and 2+ acres of parking.</li>
+        <li><strong>Highway access</strong> under 0.5 miles; ~11 miles to Walmart &amp; Sam’s Club DCs.</li>
+        <li><strong>Hours</strong>: Mon–Fri 8–5 · 24/7 by appointment.</li>
+      </ul>
+      <p class="about-note">Built for carriers, brokers, and shippers who need speed, access, and room to maneuver.</p>
     </div>
+  </section>
 
+  <!-- Footer Map (separate block) -->
+  <section class="container foot-map" aria-label="Location">
     <div class="map">
       <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
-
-    <div>
-      
-    </div>
 
   <footer>
     <div class="footbrand">
@@ -78,27 +89,6 @@
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
-
-    // Typewriter bullet list with arrows -->
-    const lines = [
-      "-->  30+ years of dependable logistics.",
-      "-->  Crossdock Akron: fast cross-docking, pallet rework/recoup, and storage.",
-      "-->  Driver-friendly: 27 dock doors and 2+ acres of parking.",
-      "-->  Highway access under 0.5 miles; ~11 miles to Walmart & Sam's Club DCs.",
-      "-->  Hours: Mon–Fri 8–5  |  24/7 by appointment."
-    ];
-    const el = document.getElementById('bullets');
-    let li = 0, ci = 0;
-    (function type(){
-      if(li >= lines.length){ el.classList.remove('cursor'); return; }
-      const current = lines[li];
-      if(ci <= current.length){
-        el.textContent = (lines.slice(0, li).join("\n") + (li? "\n":"")) + current.slice(0, ci++);
-        setTimeout(type, 14);
-      } else {
-        li++; ci = 0; setTimeout(type, 220);
-      }
-    })();
   </script>
 </body>
 </html>

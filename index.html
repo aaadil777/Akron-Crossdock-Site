@@ -14,16 +14,16 @@
 
   <style>
     :root{
-      /* Pure white + blues (no grey) */
+      /* Pure white + bright blues (no greys) */
       --bg:#ffffff;
       --paper:#ffffff;
-      --line:#cfe1ff;           /* light blue border */
-      --muted:#29509f;          /* secondary text blue */
-      --text:#081a3a;           /* primary navy text */
-      --accent:#0a2a6b;         /* deep navy */
-      --accent-2:#1b4aa5;       /* brighter navy */
-      --accent-3:#3ea1ff;       /* cyan highlight */
-      --shadow:0 10px 30px rgba(27,74,165,.18);
+      --line:#cfe1ff;            /* light blue border */
+      --muted:#29509f;           /* secondary text blue */
+      --text:#081a3a;            /* primary navy text */
+      --accent:#0a2a6b;          /* deep navy */
+      --accent-2:#1b4aa5;        /* brighter navy */
+      --accent-3:#3ea1ff;        /* cyan highlight */
+      --shadow:0 14px 34px rgba(27,74,165,.18);
       --radius:14px;
     }
     *{box-sizing:border-box}
@@ -43,18 +43,17 @@
     .links a.cta:hover{background:var(--accent-2)}
     .quote-banner{background:linear-gradient(90deg,#0a2a6b 0%,#1b4aa5 100%);padding:7px 0;text-align:center;font-size:14px;color:#fff}
 
-    /* HERO — facility-front as background, blue overlay */
+    /* HERO — facility-front as background with rich blue overlay */
     .hero{
       position:relative; min-height:clamp(380px,54vw,580px);
       display:flex; align-items:center; color:#fff;
       background:
-        linear-gradient(180deg, rgba(10,42,107,.72), rgba(27,74,165,.58)),
+        linear-gradient(180deg, rgba(10,42,107,.78), rgba(27,74,165,.62)),
         url('images/facility-front.png') center/cover no-repeat;
     }
     .hero .inner{padding:48px 0}
-    .type-wrap{display:inline-block;border-right:2px solid rgba(255,255,255,.96);white-space:nowrap;overflow:hidden}
-    .hero h1{margin:0 0 16px;font-size:clamp(32px,4.9vw,56px);line-height:1.06;letter-spacing:.2px}
-    .hero p{margin:0;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:80ch}
+    .hero h1{margin:0 0 14px;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:.2px}
+    .hero p{margin:0;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:82ch}
 
     /* Feature cards */
     .feature-cards{display:grid;gap:12px;margin-top:22px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
@@ -77,12 +76,13 @@
     .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.95}
     .sdots button.active{background:#fff}
 
-    /* Map */
-    .map{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--paper)}
-    .map iframe{width:100%;height:360px;border:0}
+    /* Footer map section */
+    .foot-map{margin-top:26px;background:var(--paper)}
+    .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .foot-map iframe{width:100%;height:360px;border:0}
 
     section{padding:26px 0}
-    footer{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
+    footer{margin-top:28px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
     footer .footbrand{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
     footer svg{width:18px;height:18px}
     footer a{color:var(--accent);text-decoration:none}
@@ -98,8 +98,9 @@
     .modal .card{width:min(560px,96vw);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .modal h3{margin:0 0 12px;color:var(--accent)}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .grid > *:nth-child(3){grid-column:1/3}
-    .grid > *:nth-child(6){grid-column:1/3}
+    .grid > *:nth-child(3){grid-column:1/2}
+    .grid > *:nth-child(4){grid-column:2/3}
+    .grid > *:nth-child(5){grid-column:1/3}
     label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
     input,textarea{width:100%;padding:10px 12px;border:1px solid #9ec6ff;border-radius:10px;font:inherit;background:#f2f8ff}
     textarea{min-height:110px;resize:vertical}
@@ -137,7 +138,7 @@
   <!-- HERO (facility background) -->
   <section class="hero">
     <div class="container inner">
-      <h1><span class="type-wrap" id="typewrite"></span></h1>
+      <h1>We are Parhar Trucking — 30+ years of logistics service.</h1>
       <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
       <div class="feature-cards">
@@ -168,8 +169,10 @@
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
+  </section>
 
-    <!-- Embedded Google Map -->
+  <!-- Footer Map (separate block) -->
+  <section class="container foot-map" aria-label="Location">
     <div class="map">
       <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -235,11 +238,6 @@
     // Year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Typewriter headline
-    const line = "We are Parhar Trucking — 30+ years of logistics service.";
-    const target = document.getElementById('typewrite');
-    let i = 0; (function type(){ if(i<=line.length){ target.textContent=line.slice(0,i++); setTimeout(type, 16);} })();
-
     // Slider
     const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
     let cur=0,timer;
@@ -253,9 +251,9 @@
     start();
 
     // Modal form handlers
+    const modal = document.getElementById('contactModal');
     const openModal = ()=>{ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); };
     const closeModal = ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); };
-    const modal = document.getElementById('contactModal');
     document.getElementById('emailCta').addEventListener('click', openModal);
     document.getElementById('contactLink').addEventListener('click', (e)=>{e.preventDefault(); openModal();});
     document.getElementById('closeModal').addEventListener('click', closeModal);
@@ -270,7 +268,7 @@
       setTimeout(()=>toast.classList.remove('show'), 2800);
     }
 
-    // Submit to Cloudflare function: /api/contact
+    // Submit to Cloudflare function: /api/contact (no mailto loop)
     const form = document.getElementById('quoteForm');
     const submitBtn = document.getElementById('submitBtn');
     form.addEventListener('submit', async (e)=>{
