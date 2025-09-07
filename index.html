@@ -4,63 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parhar Trucking · Crossdock Akron — 27 Docks, 2+ Acre Parking, Hwy &lt; 0.5 mi</title>
-  <meta name="description" content="Parhar Trucking — 30+ years of logistics. Crossdock Akron: 27 dock doors, 2+ acres parking, < 0.5 miles from highway, ~11 miles to Walmart & Sam’s Club DCs. Open Mon–Fri 8–5; 24/7 by appointment." />
+  <meta name="description" content="Parhar Trucking — 30+ years of logistics. Crossdock Akron: 27 dock doors, 2+ acres parking, under 0.5 miles from highway, ~11 miles to Walmart & Sam’s Club DCs. Mon–Fri 8–5; 24/7 by appointment." />
   <meta name="theme-color" content="#0b2d5c" />
-  <style>
-    :root{--bg:#fff;--bg2:#f6f8fb;--line:#e7ebf1;--muted:#5c6574;--text:#0c1320;--accent:#0b2d5c;--accent-2:#123c78;--shadow:0 10px 30px rgba(11,45,92,.08);--radius:14px}
-    *{box-sizing:border-box} img{max-width:100%;display:block;border-radius:12px}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    .container{width:min(1120px,92vw);margin-inline:auto}
 
-    /* Header + translucent banner */
-    header{position:sticky;top:0;background:#fff;z-index:40}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6px;border-bottom:1px solid var(--line)}
+  <!-- Preload critical images for instant paint -->
+  <link rel="preload" as="image" href="images/yard-bobcat.jpg">
+  <link rel="preload" as="image" href="images/IMG_0527.jpg">
+  <link rel="preload" as="image" href="images/IMG_1794.jpg">
+
+  <style>
+    :root{
+      --bg:#fff;--bg2:#f6f8fb;--line:#e7ebf1;--muted:#5c6574;--text:#0c1320;
+      --accent:#0b2d5c;--accent-2:#123c78;--shadow:0 10px 30px rgba(11,45,92,.08)
+    }
+    *{box-sizing:border-box}
+    img{max-width:100%;display:block;border-radius:12px}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
+    .container{width:min(1200px,92vw);margin-inline:auto}
+
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
     .brand{font-weight:700;letter-spacing:.2px}
     .links a{margin-left:10px;text-decoration:none;color:#000;padding:8px 12px;border:1px solid var(--line);border-radius:999px}
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .quote-banner{background:var(--bg2);padding:6px 0;text-align:center;font-size:14px;color:var(--accent);border-top:1px solid var(--line)}
-    .header-banner{
-      height:clamp(90px,20vw,180px);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:
-        linear-gradient(to bottom, rgba(255,255,255,.82), rgba(255,255,255,.86)),
-        url('images/facility-front.png') center/cover no-repeat;
-    }
+    .quote-banner{background:var(--bg2);padding:6px 0;text-align:center;font-size:14px;color:var(--accent)}
 
-    /* Sections */
-    section{padding:26px 0}
-    .hero{padding-top:28px}
-    .hero h2{margin:0 0 8px;font-size:clamp(28px,4vw,44px);line-height:1.08}
-    .hero p{margin:0 0 12px;color:var(--muted);max-width:66ch}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-    .badge{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff}
-    .hero-media{margin:12px 0 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    /* HERO — full-bleed background image */
+    .hero{
+      position:relative;
+      min-height: clamp(320px, 48vw, 520px);
+      display:flex;align-items:center;
+      color:#fff;
+      background:
+        linear-gradient(180deg, rgba(12,19,32,.55), rgba(12,19,32,.45)),
+        url('images/yard-bobcat.jpg') center/cover no-repeat;
+    }
+    .hero .inner{padding:38px 0}
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,4.2vw,46px);line-height:1.08}
+    .hero p{margin:0;color:#e8edf6;font-size:clamp(15px,1.5vw,18px);max-width:72ch}
+
+    /* Feature cards */
+    .feature-cards{
+      display:grid;gap:12px;margin-top:22px;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    }
+    .feature-cards .card{
+      background:#fff;color:var(--text);border:1px solid var(--line);
+      border-radius:12px;padding:16px 12px;text-align:center;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;justify-content:center
+    }
+    .feature-cards .card strong{font-size:18px;color:var(--accent);margin-bottom:4px}
+    .feature-cards .card span{font-size:14px;color:var(--muted)}
+
+    /* Featured image below hero text */
+    .hero-media{margin:16px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
     .hero-media img{width:100%;height:clamp(220px,38vw,420px);object-fit:cover}
 
     /* Turnstile slider */
-    .slider{position:relative;margin-top:16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
-    .slide img{width:100%;height:min(70vh,680px);object-fit:cover}
+    .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:rgba(255,255,255,.9);border:none;border-radius:999px;padding:10px;cursor:pointer;margin:10px}
+    .sbtn{pointer-events:auto;background:rgba(255,255,255,.92);border:none;border-radius:999px;padding:10px;cursor:pointer;margin:10px}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
-    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.7}
-    .sdots button.active{background:#fff;opacity:1}
+    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.8}
+    .sdots button.active{background:#fff}
 
-    /* Floating CTA */
-    .float-cta{position:fixed;right:16px;bottom:18px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600}
+    section{padding:24px 0}
+    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
+    footer a{color:var(--accent);text-decoration:none}
+
+    /* Floating email CTA */
+    .float-cta{
+      position:fixed;right:16px;bottom:18px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:999px;
+      padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600
+    }
     .float-cta:hover{background:var(--accent-2);transform:translateY(-1px)}
     .float-cta svg{width:18px;height:18px}
 
-    /* Footer */
-    footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
-    footer a{color:var(--accent);text-decoration:none}
-    @media(max-width:900px){.links{display:none}}
+    @media (max-width:900px){.links{display:none}}
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand">Parhar Trucking · Crossdock Akron</div>
@@ -71,47 +98,59 @@
       </nav>
     </div>
     <div class="quote-banner">📦 Contact us today for quotes &amp; pricing</div>
-    <!-- translucent banner using facility-front.png -->
-    <div class="header-banner" aria-hidden="true"></div>
   </header>
 
-  <section class="hero container">
-    <h2>We are <strong>Parhar Trucking</strong> — 30+ years of logistics service.</h2>
-    <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
-    <div class="badges">
-      <span class="badge">27 dock doors</span>
-      <span class="badge">2+ acres parking</span>
-      <span class="badge">Highway &lt; 0.5 mi</span>
-      <span class="badge">~11 mi to Walmart &amp; Sam’s DCs</span>
-      <span class="badge">Mon–Fri 8–5 · 24/7 appt.</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container inner">
+      <h1>We are <strong>Parhar Trucking</strong> — 30+ years of logistics service.</h1>
+      <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
+
+      <div class="feature-cards">
+        <div class="card"><strong>27</strong><span>Dock Doors</span></div>
+        <div class="card"><strong>2+ Acres</strong><span>Parking</span></div>
+        <div class="card"><strong>&lt; 0.5 mi</strong><span>Highway Access</span></div>
+        <div class="card"><strong>~ 11 mi</strong><span>Walmart &amp; Sam’s DCs</span></div>
+        <div class="card"><strong>Mon–Fri 8–5</strong><span>24/7 by Appt.</span></div>
+      </div>
     </div>
-    <div class="hero-media"><img src="images/IMG_0527.jpg" alt="Crossdock Akron — beverage pallets"></div>
   </section>
 
+  <!-- Featured image -->
+  <section class="container">
+    <div class="hero-media">
+      <img src="images/IMG_0527.jpg" alt="Trailer with beverage pallets secured" fetchpriority="high" decoding="async">
+    </div>
+  </section>
+
+  <!-- Gallery / Turnstile -->
   <section id="gallery" class="container">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged"></div>
-      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized"></div>
-      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag"></div>
-      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock"></div>
+      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" fetchpriority="high" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy" decoding="async"></div>
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="container">
     <h2>Request a Quote</h2>
     <p><strong>Phone:</strong> (330) 524-0021 · <strong>Email:</strong> <a href="mailto:crossdockW@gmail.com">crossdockW@gmail.com</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     © <span id="year"></span> Parhar Trucking · Crossdock Akron ·
     <a href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4842645,17z">Find us on Google Maps</a>
   </footer>
 
-  <button class="float-cta" id="emailCta">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <!-- Floating Get a Quote -->
+  <button class="float-cta" id="emailCta" aria-label="Get a quote by email">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Get a Quote
   </button>
 

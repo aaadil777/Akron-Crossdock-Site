@@ -6,47 +6,44 @@
   <title>About · Parhar Trucking — Crossdock Akron</title>
   <meta name="description" content="Parhar Trucking has delivered logistics solutions for over 30 years. Crossdock Akron adds cross-dock, pallet rework, and storage — 27 docks, 2+ acres parking, highway access under 0.5 miles." />
   <meta name="theme-color" content="#0b2d5c" />
+
+  <!-- Preload first slide for instant gallery paint -->
+  <link rel="preload" as="image" href="images/IMG_0421.jpg">
+
   <style>
     :root{--bg:#fff;--bg2:#f6f8fb;--line:#e7ebf1;--muted:#5c6574;--text:#0c1320;--accent:#0b2d5c;--accent-2:#123c78;--shadow:0 10px 30px rgba(11,45,92,.08)}
-    *{box-sizing:border-box} img{max-width:100%;display:block;border-radius:12px}
+    *{box-sizing:border-box}
+    img{max-width:100%;display:block;border-radius:12px}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    .container{width:min(1120px,92vw);margin-inline:auto}
+    .container{width:min(1200px,92vw);margin-inline:auto}
 
-    /* Header + translucent banner */
-    header{position:sticky;top:0;background:#fff;z-index:40}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6px;border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
     .links a{margin-left:10px;text-decoration:none;color:#000;padding:8px 12px;border:1px solid var(--line);border-radius:999px}
-    .header-banner{
-      height:clamp(90px,20vw,180px);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:
-        linear-gradient(to bottom, rgba(255,255,255,.82), rgba(255,255,255,.86)),
-        url('images/facility-front.png') center/cover no-repeat;
-    }
 
-    section{padding:26px 0}
+    section{padding:24px 0}
     p.muted{color:var(--muted);max-width:70ch}
 
-    /* Turnstile */
-    .slider{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    /* Turnstile with fixed height */
+    .slider{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
-    .slide img{width:100%;height:min(70vh,680px);object-fit:cover}
+    .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:rgba(255,255,255,.9);border:none;border-radius:999px;padding:10px;margin:10px;cursor:pointer}
+    .sbtn{pointer-events:auto;background:rgba(255,255,255,.92);border:none;border-radius:999px;padding:10px;margin:10px;cursor:pointer}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
-    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.7}
-    .sdots button.active{background:#fff;opacity:1}
+    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.8}
+    .sdots button.active{background:#fff}
 
-    /* Floating CTA */
+    /* Floating email CTA */
     .float-cta{position:fixed;right:16px;bottom:18px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600}
     .float-cta:hover{background:var(--accent-2);transform:translateY(-1px)}
     .float-cta svg{width:18px;height:18px}
 
     footer{margin-top:30px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
     footer a{color:var(--accent);text-decoration:none}
-    @media(max-width:900px){.links{display:none}}
+
+    @media (max-width:900px){.links{display:none}}
   </style>
 </head>
 <body>
@@ -59,8 +56,6 @@
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
-    <!-- translucent banner using facility-front.png -->
-    <div class="header-banner" aria-hidden="true"></div>
   </header>
 
   <section class="container">
@@ -71,14 +66,14 @@
   <section class="container">
     <h2>More Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <div class="slide active"><img src="images/IMG_0421.jpg" alt="Orange product pallets"></div>
-      <div class="slide"><img src="images/IMG_0314.jpg" alt="Organized trailer cartons"></div>
-      <div class="slide"><img src="images/IMG_0230.jpg" alt="Bulk bags strapped"></div>
-      <div class="slide"><img src="images/IMG_1816.jpg" alt="Coffee pallets staged"></div>
-      <div class="slide"><img src="images/IMG_1814.jpg" alt="Alani pallets staged"></div>
-      <div class="slide"><img src="images/IMG_1784.jpg" alt="Crated equipment"></div>
-      <div class="slide"><img src="images/IMG_1980.jpg" alt="Bai beverage pallets"></div>
-      <div class="slide"><img src="images/IMG_2008.jpg" alt="Mixed pallets in warehouse"></div>
+      <div class="slide active"><img src="images/IMG_0421.jpg" alt="Orange product pallets" fetchpriority="high" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0314.jpg" alt="Organized trailer cartons" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0230.jpg" alt="Bulk bags strapped" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1816.jpg" alt="Coffee pallets staged" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1814.jpg" alt="Alani pallets staged" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1784.jpg" alt="Crated equipment" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1980.jpg" alt="Bai beverage pallets" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_2008.jpg" alt="Mixed pallets in warehouse" loading="lazy" decoding="async"></div>
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
@@ -89,7 +84,7 @@
     <a href="https://www.google.com/maps/place/Cross+dock,+Warehouse,+Rework+%26+Storage+of+(+Freight+all+kind+)+of+Akron,+Ohio/@41.0350531,-81.4842645,17z">Find us on Google Maps</a>
   </footer>
 
-  <button class="float-cta" id="emailCta">
+  <button class="float-cta" id="emailCta" aria-label="Get a quote by email">
     <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Get a Quote
   </button>
