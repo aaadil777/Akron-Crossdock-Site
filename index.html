@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crossdock Warehouse & Storage — Akron, OH</title>
-  <meta name="description" content="Parhar Trucking · Crossdock Akron — cross-dock, pallet rework/recoup, storage. 48 doors, easy highway access, ~11 mi to Walmart & Sam’s DCs." />
+  <meta name="description" content="Parhar Trucking — Crossdock Akron. 48 dock doors, 4+ acres, fast cross-dock, pallet rework/recoup, storage, quick highway access (< 0.25 mi)." />
   <meta name="theme-color" content="#0a2a6b" />
 
-  <!-- Preload hero/logo assets -->
+  <!-- Preload critical images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/logo.jpg">
   <link rel="preload" as="image" href="images/parhar-logo.jpeg">
+  <link rel="preload" as="image" href="images/IMG_1794.jpg">
 
   <style>
     :root{
-      --bg:#ffffff; --paper:#ffffff; --line:#cfe1ff;
-      --text:#0b1a37; --muted:#335a9f;
-      --accent:#0a2a6b; --accent-2:#184aa7; --accent-3:#3ea1ff;
-      --radius:14px; --shadow:0 14px 34px rgba(10,42,107,.18);
+      --bg:#ffffff;--paper:#ffffff;--line:#cfe1ff;--text:#0b1a37;--muted:#335a9f;
+      --accent:#0a2a6b;--accent-2:#184aa7;--accent-3:#3ea1ff;
+      --radius:14px;--shadow:0 14px 34px rgba(10,42,107,.16);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -26,111 +26,121 @@
 
     .container{width:min(1220px,92vw);margin-inline:auto}
 
-    /* Header (bigger logo, mobile friendly) */
-    header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 6px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{height:48px;width:auto;display:block}
-    @media (max-width:520px){ .brand img{height:42px} }
-    .links a{margin-left:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--text)}
+    /* Header */
+    header{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 8px}
+    .brand img{height:56px;width:auto}
+    @media (max-width:560px){ .brand img{height:46px} }
+    .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px}
     .links a.cta{background:var(--accent);border-color:var(--accent);color:#fff}
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#184aa7);color:#fff;text-align:center;font-size:14px;padding:6px 0}
 
-    /* HERO: full Parhar logo shown entirely (no cropping) */
+    /* HERO (standalone banner) */
     .hero{
-      position:relative;min-height:clamp(420px,62vh,680px);display:flex;align-items:center;color:#fff;
+      position:relative;display:flex;align-items:center;
+      min-height:clamp(420px,55vw,640px);
+      color:#0b1a37;
       background:
-        linear-gradient(180deg, rgba(10,42,107,.78), rgba(10,42,107,.85)),
-        url('images/parhar-trucking.png') center/contain no-repeat;
-      background-color:#0a2a6b;
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,.70) 0%,
+          rgba(248,250,253,.62) 35%,
+          rgba(240,244,248,.46) 65%,
+          rgba(236,240,246,.30) 100%
+        ),
+        url('images/parhar-trucking.png') center/cover no-repeat;
     }
-    .hero .inner{padding:46px 0}
-    .type-xl{font-size:clamp(32px,4.4vw,54px);line-height:1.06;font-weight:800;margin:0 0 12px}
-    .lead{color:#e7f0ff;margin:0 0 12px}
-    .card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .kcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:12px;text-align:center}
-    .kcard b{display:block;color:var(--accent);font-size:18px;margin-bottom:4px}
-    .kcard small{color:var(--muted);font-size:12px}
+    .hero .inner{padding:48px 0}
+    .hero h1{margin:0 0 12px;font-size:clamp(34px,5vw,58px);line-height:1.06;font-weight:900}
+    .typewriter .caret{border-right:2px solid #0b1a37;animation:blink 1.05s steps(1,end) infinite}
+    @keyframes blink{50%{border-color:transparent}}
+    .hero p{margin:0 0 10px;color:#1d2b4d;max-width:82ch}
 
-    /* Logo card before facility photos */
-    .logo-card{margin:24px 0;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);background:#f2f8ff}
-    .logo-card img{width:100%;height:clamp(220px,40vw,420px);object-fit:contain}
+    /* Fact cards (with emojis) */
+    .card-row{display:grid;gap:12px;margin-top:18px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+    .kcard{display:grid;gap:6px;place-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 10px;box-shadow:var(--shadow)}
+    .kcard b{font-size:18px;color:var(--accent)}
+    .kcard small{font-size:12px;color:#4a5f8a}
+    .kcard .e{margin-right:6px}
 
-    /* Turnstile slider */
-    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:#fff}
+    /* staged reveal */
+    .staged .kcard{opacity:0;transform:translateY(8px)}
+    .staged .kcard.reveal{opacity:1;transform:none;transition:opacity .4s ease, transform .4s ease}
+
+    /* Crossdock logo section (no side whitespace) */
+    .logo-section{padding:24px 0}
+    .logo-card{border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:0;background:#f6f9ff}
+    .logo-card img{width:100%;height:auto;object-fit:contain}
+
+    /* Gallery slider */
+    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
     .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
-    .sbtn{pointer-events:auto;background:#ffffffee;border:1px solid var(--line);border-radius:999px;padding:10px;margin:10px;cursor:pointer}
+    .sbtn{pointer-events:auto;background:#ffffffee;border:1px solid var(--line);border-radius:999px;padding:10px;cursor:pointer;margin:10px}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
-    .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent}
+    .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.95}
     .sdots button.active{background:#fff}
 
-    /* Map + footer */
+    /* Footer map */
     .foot-map{margin-top:26px}
     .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
     .foot-map iframe{width:100%;height:360px;border:0}
 
-    footer{margin-top:28px;padding:18px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+    footer{margin-top:28px;padding:18px 0;border-top:1px solid var(--line);text-align:center;color:#335a9f}
     .footbrand{display:inline-flex;align-items:center;gap:10px}
-    .footbrand img{height:42px;width:auto}
-    @media (max-width:520px){ .footbrand img{height:36px} }
+    .footbrand img{height:48px;width:auto}
+    @media (max-width:560px){ .footbrand img{height:40px} }
     footer a{color:var(--accent);text-decoration:none}
 
     /* Floating CTA */
     .float-cta{
-      position:fixed;right:16px;bottom:18px;z-index:60;background:#0b2d5c;color:#fff;border:none;border-radius:999px;
-      padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700
+      position:fixed;right:18px;bottom:18px;z-index:70;
+      background:var(--accent);color:#fff;border:none;border-radius:999px;
+      padding:12px 16px;box-shadow:0 10px 28px rgba(11,45,92,.25);
+      cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700
     }
-    .float-cta:hover{background:#184aa7;transform:translateY(-1px)}
+    .float-cta:hover{background:var(--accent-2);transform:translateY(-1px)}
     .float-cta svg{width:18px;height:18px}
-
-    /* Typewriter + staged reveal */
-    .cursor{border-right:2px solid #fff;animation:blink 1.05s steps(1,end) infinite}
-    @keyframes blink{50%{border-color:transparent}}
-    .staged .kcard{opacity:0;transform:translateY(8px)}
-    .staged .kcard.show{opacity:1;transform:none;transition:.35s ease}
-    section{padding:24px 0}
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/parhar-logo.jpeg" alt="Parhar Group logo" height="48" width="48" />
-      </div>
+      <div class="brand"><img src="images/parhar-logo.jpeg" alt="Parhar Group logo"></div>
       <nav class="links">
         <a href="about.html">About</a>
         <a href="#gallery">Gallery</a>
-        <a class="cta" href="#contact">Contact</a>
+        <a class="cta" id="openContact" href="#">Contact</a>
       </nav>
     </div>
     <div class="quote-strip">📦 Contact us today for quotes &amp; pricing</div>
   </header>
 
-  <!-- HERO (full logo contained) -->
+  <!-- HERO (standalone; not part of the slider) -->
   <section class="hero">
     <div class="container inner">
-      <h1 class="type-xl" id="tty">We are Parhar Trucking Inc. — 30+ years of logistics service.</h1>
-      <p class="lead">With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
+      <h1 id="h1" class="typewriter">We are Parhar Trucking Inc. — 30+ years of logistics service.</h1>
+      <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
+
       <div class="card-row staged" id="facts">
-        <div class="kcard"><b>🚪 48</b><small>Dock Doors</small></div>
-        <div class="kcard"><b🏭>19,000 sq. ft.</b><small>Expansive Storage</small></div>
-        <div class="kcard"><b>🌳 4+ Acres</b><small>Easy Maneuverability & Parking</small></div>
-        <div class="kcard"><b>📹 24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b>🛣️ &lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
-        <div class="kcard"><b>🏪 ~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
-        <div class="kcard"><b>🕗 Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
+        <div class="kcard"><b><span class="e">🌐</span>48</b><small>Dock Doors</small></div>
+        <div class="kcard"><b><span class="e">🏭</span>19,000 sq ft</b><small>Expansive Storage</small></div>
+        <div class="kcard"><b><span class="e">🚚</span>4+ Acres</b><small>Easy Maneuverability & Parking</small></div>
+        <div class="kcard"><b><span class="e">📹</span>24/7</b><small>Surveillance for Safety</small></div>
+        <div class="kcard"><b><span class="e">🛣️</span>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
+        <div class="kcard"><b><span class="e">🏪</span>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
+        <div class="kcard"><b><span class="e">🕗</span>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
       </div>
     </div>
   </section>
 
-  <!-- Crossdock logo card (requested just before facility photos) -->
-  <section class="container">
+  <!-- Crossdock brand card (no odd whitespace) -->
+  <section class="container logo-section">
     <div class="logo-card">
-      <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage · Akron, OH">
+      <img src="images/logo.jpg" alt="CROSSDOCK Warehouse & Storage – Akron, OH">
     </div>
   </section>
 
@@ -138,30 +148,24 @@
   <section id="gallery" class="container">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Bobcat"></div>
-      <div class="slide"></div><img src="images/IMG_1794.jpg" alt="Pallet stacks staged"></div>
-      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized"></div>
-      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag"></div>
-      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock"></div>
+      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" fetchpriority="high" decoding="async"></div>
+      <div class="slide"><img src="images/yard-bobcat.jpg" alt="Excavator" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy" decoding="async"></div>
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
   </section>
 
-  <!-- Map -->
+  <!-- Footer Map -->
   <section class="container foot-map" aria-label="Location">
     <div class="map">
       <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2>Request a Quote</h2>
-    <p><strong>Phone:</strong> (330) 524-0021 · <strong>Email:</strong> <a href="mailto:crossdockW@gmail.com">crossdockW@gmail.com</a></p>
-  </section>
-
-  <!-- Footer with bigger logo -->
+  <!-- Footer -->
   <footer>
     <div class="footbrand">
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
@@ -171,33 +175,35 @@
   </footer>
 
   <!-- Floating CTA -->
-  <button class="float-cta" id="emailCta" aria-label="Get a quote">
+  <button class="float-cta" id="emailCta" aria-label="Request a quote">
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Get a Quote
   </button>
 
+  <!-- Modal (simple mailto for now; hook to /api/contact when ready) -->
   <script>
-    // Year
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Typewriter for the H1
+    // Typewriter for the hero
     (function(){
-      const el = document.getElementById('tty');
+      const el = document.getElementById('h1');
       const full = el.textContent.trim();
       el.textContent = '';
       let i = 0;
       const tick = () => {
         el.textContent = full.slice(0, i++) + ' ';
-        if (i <= full.length) setTimeout(tick, 24);
-        else el.classList.add('cursor');
+        if (i <= full.length) setTimeout(tick, 18);
+        else el.classList.add('caret');
       };
       tick();
     })();
 
-    // Staged reveal of fact cards
+    // Staggered reveal of fact cards
     (function(){
-      const cards = [...document.querySelectorAll('#facts .kcard')];
-      cards.forEach((c,idx)=>setTimeout(()=>c.classList.add('show'), 260 + idx*120));
+      const row = document.getElementById('facts');
+      const cards = [...row.querySelectorAll('.kcard')];
+      cards.forEach((c, idx) => setTimeout(()=>c.classList.add('reveal'), 200 + idx*140));
     })();
 
     // Slider
@@ -208,23 +214,24 @@
     function start(){stop();timer=setInterval(next,4200)} function stop(){clearInterval(timer)}
     dots.innerHTML=slides.map((_,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join('');
     [...dots.children].forEach((b,i)=>b.onclick=()=>{go(i);start()});
-    document.getElementById('next').onclick=()=>{next();start()};
-    document.getElementById('prev').onclick=()=>{prev();start()};
+    document.getElementById('next')?.addEventListener('click', ()=>{next();start()});
+    document.getElementById('prev')?.addEventListener('click', ()=>{prev();start()});
     start();
 
-    // Floating CTA -> mailto template
-    document.getElementById('emailCta').addEventListener('click', ()=>{
-      const to="crossdockW@gmail.com";
-      const subject="Inquiry for Crossdock Akron";
-      const body=[
-        "Hi, my name is ____ and I am with ____.",
-        "I am interested in your services and I would like to request more information on storage and pricing.",
-        "My email/phone is _____.",
-        "",
-        "Best regards,"
-      ].join("%0D%0A");
-      window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    });
+    // Contact button -> mailto template
+    const emailTo = "crossdockW@gmail.com";
+    const subject = "Inquiry for Crossdock Akron";
+    const body = [
+      "Hi, my name is ____ and I am with ____.",
+      "I am interested in your services and I would like to request more information on storage and pricing.",
+      "My email/phone is _____.",
+      "",
+      "Best regards,"
+    ].join("%0D%0A");
+    const mailto = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    document.getElementById('emailCta').addEventListener('click', ()=>location.href=mailto);
+    document.getElementById('openContact').addEventListener('click', (e)=>{e.preventDefault(); location.href=mailto;});
   </script>
 </body>
 </html>
