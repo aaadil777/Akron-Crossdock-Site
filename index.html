@@ -36,12 +36,11 @@
     /* HERO – full Parhar logo with soft side fades + light wash */
     .hero{
       position:relative;display:flex;align-items:center;
-      min-height: clamp(360px, 52vw, 640px);
+      min-height: clamp(380px, 54vw, 660px);
       color:#0b1a37;
       background:
-        url('images/parhar-trucking.png') center 46% / contain no-repeat,
+        url('images/parhar-trucking.png') center 47% / contain no-repeat,
         #f4f6fb;
-      /* keep the logo nicely centered; 46% shows horse slightly higher */
     }
     /* soft white wash + LEFT/RIGHT fades so edges blend cleanly */
     .hero::before{
@@ -51,18 +50,18 @@
         linear-gradient(90deg,
           rgba(255,255,255,1) 0%,
           rgba(255,255,255,.94) 8%,
-          rgba(255,255,255,.78) 14%,
+          rgba(255,255,255,.80) 14%,
           rgba(255,255,255,0) 28%,
           rgba(255,255,255,0) 72%,
-          rgba(255,255,255,.78) 86%,
+          rgba(255,255,255,.80) 86%,
           rgba(255,255,255,.94) 92%,
           rgba(255,255,255,1) 100%
         ),
         /* subtle top/bottom wash */
-        linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.58));
+        linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.56));
     }
-    .hero .inner{position:relative; padding:38px 0}
-    .hero h1{margin:0 0 8px;font-weight:800;font-size:clamp(28px,5vw,52px);letter-spacing:.2px;color:#0b1a37;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+    .hero .inner{position:relative; padding:40px 0}
+    .hero h1{margin:0 0 8px;font-weight:800;font-size:clamp(28px,5vw,52px);letter-spacing:.2px;color:#0b1a37;text-shadow:0 1px 0 rgba(255,255,255,.55)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
     /* Stat cards */
@@ -79,14 +78,18 @@
       .kcard small{font-size:12px}
       .hero{background-position:50% 50%} /* nudge logo to center on narrow */
     }
+    @media (max-width:380px){
+      .card-row{grid-template-columns:1fr}
+    }
 
-    /* Crossdock logo block – tight, no extra whitespace */
-    .logo-block{margin:12px 0}
+    /* Crossdock logo block – tight, centered, with tagline */
+    .logo-block{margin:14px 0}
     .logo-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff}
     .logo-card img{width:100%;height:auto;object-fit:contain}
+    .logo-tag{margin:10px 6px 0;text-align:center;color:#2a4272;font-weight:700}
 
     /* Gallery / slider (ensure images always appear) */
-    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+    .slider{position:relative;margin-top:22px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
     .slide picture, .slide img{width:100%;height:clamp(340px,60vh,720px);display:block}
@@ -142,7 +145,7 @@
         <div class="kcard"><b>19,000 sq ft</b><small>Expansive Warehouse &amp; Storage</small></div>
         <div class="kcard"><b>4+ Acres</b><small>Easy Maneuverability &amp; Parking</small></div>
         <div class="kcard"><b>24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b>&lt; ~0.25 mi</b><small>From Multiple Highway Access</small></div>
+        <div class="kcard"><b>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
         <div class="kcard"><b>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
         <div class="kcard"><b>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
       </div>
@@ -154,6 +157,7 @@
     <div class="logo-card">
       <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage">
     </div>
+    <p class="logo-tag">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</p>
   </section>
 
   <!-- Gallery / Turnstile -->
