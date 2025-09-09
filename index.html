@@ -11,7 +11,7 @@
   <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/logo.jpg">
   <link rel="preload" as="image" href="images/parhar-logo.jpeg">
-  <link rel="preload" as="image" href="images/IMG_1794.jpg">
+  <link rel="preload" as="image" href="images/yard-bobcat.jpg">
 
   <style>
     :root{
@@ -35,39 +35,38 @@
     .links a.cta{background:var(--accent);border-color:var(--accent);color:#fff}
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#184aa7);color:#fff;text-align:center;font-size:14px;padding:6px 0}
 
-    /* HERO (standalone banner) */
-    .hero{
-      position:relative;display:flex;align-items:center;
-      min-height:clamp(420px,55vw,640px);
-      color:#0b1a37;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(255,255,255,.70) 0%,
-          rgba(248,250,253,.62) 35%,
-          rgba(240,244,248,.46) 65%,
-          rgba(236,240,246,.30) 100%
-        ),
-        url('images/parhar-trucking.png') center/cover no-repeat;
+    /* HERO uses the actual image size (no crop) */
+    .hero{position:relative}
+    .hero-art{width:100%;height:auto;display:block}
+    .hero-overlay{
+      position:absolute;inset:0;display:flex;align-items:center;
+      background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,.78) 0%,
+        rgba(252,253,255,.68) 35%,
+        rgba(246,249,252,.46) 65%,
+        rgba(242,246,251,.32) 100%
+      );
+      pointer-events:none;
     }
-    .hero .inner{padding:48px 0}
+    .hero-content{pointer-events:auto;width:100%}
+    .hero-content .inner{padding:48px 0}
     .hero h1{margin:0 0 12px;font-size:clamp(34px,5vw,58px);line-height:1.06;font-weight:900}
     .typewriter .caret{border-right:2px solid #0b1a37;animation:blink 1.05s steps(1,end) infinite}
     @keyframes blink{50%{border-color:transparent}}
     .hero p{margin:0 0 10px;color:#1d2b4d;max-width:82ch}
 
-    /* Fact cards (with emojis) */
+    /* Fact cards (no emojis now) */
     .card-row{display:grid;gap:12px;margin-top:18px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
     .kcard{display:grid;gap:6px;place-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px 10px;box-shadow:var(--shadow)}
     .kcard b{font-size:18px;color:var(--accent)}
     .kcard small{font-size:12px;color:#4a5f8a}
-    .kcard .e{margin-right:6px}
 
     /* staged reveal */
     .staged .kcard{opacity:0;transform:translateY(8px)}
     .staged .kcard.reveal{opacity:1;transform:none;transition:opacity .4s ease, transform .4s ease}
 
-    /* Crossdock logo section (no side whitespace) */
+    /* Crossdock logo section */
     .logo-section{padding:24px 0}
     .logo-card{border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:0;background:#f6f9ff}
     .logo-card img{width:100%;height:auto;object-fit:contain}
@@ -119,25 +118,30 @@
     <div class="quote-strip">📦 Contact us today for quotes &amp; pricing</div>
   </header>
 
-  <!-- HERO (standalone; not part of the slider) -->
+  <!-- HERO with full-size banner image (no cropping) -->
   <section class="hero">
-    <div class="container inner">
-      <h1 id="h1" class="typewriter">We are Parhar Trucking Inc. — 30+ years of logistics service.</h1>
-      <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
+    <img class="hero-art" src="images/parhar-trucking.png" alt="Parhar Trucking banner">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <div class="container inner">
+          <h1 id="h1" class="typewriter">We are Parhar Trucking Inc. — 30+ years of logistics service.</h1>
+          <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
-      <div class="card-row staged" id="facts">
-        <div class="kcard"><b><span class="e">🌐</span>48</b><small>Dock Doors</small></div>
-        <div class="kcard"><b><span class="e">🏭</span>19,000 sq ft</b><small>Expansive Storage</small></div>
-        <div class="kcard"><b><span class="e">🚚</span>4+ Acres</b><small>Easy Maneuverability & Parking</small></div>
-        <div class="kcard"><b><span class="e">📹</span>24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b><span class="e">🛣️</span>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
-        <div class="kcard"><b><span class="e">🏪</span>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
-        <div class="kcard"><b><span class="e">🕗</span>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
+          <div class="card-row staged" id="facts">
+            <div class="kcard"><b>48</b><small>Dock Doors</small></div>
+            <div class="kcard"><b>19,000 sq ft</b><small>Expansive Storage</small></div>
+            <div class="kcard"><b>4+ Acres</b><small>Easy Maneuverability & Parking</small></div>
+            <div class="kcard"><b>24/7</b><small>Surveillance for Safety</small></div>
+            <div class="kcard"><b>&lt; Less than 0.25 mi</b><small>From Multiple Highway Access</small></div>
+            <div class="kcard"><b>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
+            <div class="kcard"><b>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Crossdock brand card (no odd whitespace) -->
+  <!-- Crossdock brand card -->
   <section class="container logo-section">
     <div class="logo-card">
       <img src="images/logo.jpg" alt="CROSSDOCK Warehouse & Storage – Akron, OH">
@@ -148,8 +152,8 @@
   <section id="gallery" class="container">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" fetchpriority="high" decoding="async"></div>
-      <div class="slide"><img src="images/yard-bobcat.jpg" alt="Excavator" loading="lazy" decoding="async"></div>
+      <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Excavator" fetchpriority="high" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" fetchpriority="high" decoding="async"></div>
       <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
       <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy" decoding="async"></div>
       <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy" decoding="async"></div>
@@ -180,7 +184,6 @@
     Get a Quote
   </button>
 
-  <!-- Modal (simple mailto for now; hook to /api/contact when ready) -->
   <script>
     // year
     document.getElementById('year').textContent = new Date().getFullYear();
