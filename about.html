@@ -3,99 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About · Parhar Trucking — Crossdock Akron</title>
-  <meta name="description" content="Parhar Trucking: 30+ years of dependable logistics. Crossdock Akron adds cross-dock, pallet rework, and storage — 48 docks, 4+ acres, < 0.25 mi highway access." />
+  <title>About · Crossdock Warehouse & Storage — Akron, OH</title>
+  <meta name="description" content="30+ years of dependable logistics. Crossdock Akron adds fast cross-dock, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access." />
   <meta name="theme-color" content="#0a2a6b" />
-  <link rel="preload" as="image" href="images/parhar-logo.jpeg" />
   <style>
-    :root{--bg:#ffffff;--paper:#ffffff;--line:#cfe1ff;--muted:#29509f;--text:#081a3a;--accent:#0a2a6b;--accent-2:#1b4aa5;--shadow:0 14px 34px rgba(27,74,165,.18);--radius:14px}
+    :root{--bg:#fff;--paper:#fff;--line:#cfe1ff;--text:#0b1a37;--muted:#335a9f;--accent:#0a2a6b;--accent-2:#184aa7;--radius:14px;--shadow:0 14px 34px rgba(10,42,107,.18)}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    .container{width:min(1240px,94vw);margin-inline:auto}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
+    img{max-width:100%;display:block}
+    .container{width:min(1220px,92vw);margin-inline:auto}
 
-    /* Header w/ Parhar logo sized for web+mobile */
-    header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:60}
+    header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 6px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo-img{height:56px;width:auto;border-radius:8px}
-    @media (max-width:900px){ .logo-img{height:44px} }
-    .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px}
-    .menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
-    .menu-btn svg{width:22px;height:22px;color:var(--accent)}
-    @media (max-width:900px){ .links{display:none} .menu-btn{display:inline-flex} }
-    .mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(8,26,58,.06)}
-    .mobile-menu.open{display:block}
-    .mobile-menu .wrap{width:min(1240px,94vw);margin-inline:auto;padding:12px 8px;display:grid;gap:8px}
-    .mobile-menu a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--text)}
+    .brand img{height:48px;width:auto}
+    @media (max-width:520px){ .brand img{height:42px} }
+    .links a{margin-left:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--text)}
+    .quote-strip{background:linear-gradient(90deg,#0a2a6b,#184aa7);color:#fff;text-align:center;font-size:14px;padding:6px 0}
 
-    /* Lead / content */
-    .lead-wrap{padding:26px 0}
-    .lead-title{margin:0 0 10px;font-size:clamp(28px,3.8vw,42px);color:var(--accent)}
-    .lead-line{margin:0 0 16px;color:#234a96;font-weight:600;font-size:clamp(16px,1.6vw,19px)}
-    .typewrap{display:inline-block;white-space:nowrap;border-right:2px solid #234a96;animation:blink .9s step-end infinite}
-    @keyframes blink{50%{border-color:transparent}}
-
-    .about-box{background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .lead{padding:30px 0}
+    .lead h1{margin:0 0 10px;font-size:clamp(28px,3.6vw,40px);color:var(--accent);font-weight:800}
+    .about-box{background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .about-box ul{margin:0;padding-left:1.1rem}
-    .about-box li{margin:10px 0;font-weight:700;letter-spacing:.2px;opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s}
-    .about-box li.show{opacity:1;transform:translateY(0)}
+    .about-box li{margin:10px 0;font-weight:700}
     .about-box li::marker{content:"→  ";color:var(--accent-2)}
-    .about-box strong{color:var(--accent)}
-    .about-note{margin-top:10px;color:var(--muted);font-size:14px}
+    .about-note{margin-top:6px;color:var(--muted);font-size:14px}
 
-    /* Map in footer zone */
-    .foot-map{margin-top:22px}
+    .foot-map{margin-top:26px}
     .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
     .foot-map iframe{width:100%;height:360px;border:0}
 
-    /* Footer (logo size to match header) */
-    footer{margin-top:26px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
-    .footbrand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:6px}
-    .footer-logo{height:46px;width:auto;border-radius:8px}
-    @media (max-width:900px){ .footer-logo{height:36px} }
-    footer a{color:var(--accent);text-decoration:none}
+    footer{margin-top:28px;padding:18px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+    .footbrand{display:inline-flex;align-items:center;gap:10px}
+    .footbrand img{height:42px;width:auto}
+    @media (max-width:520px){ .footbrand img{height:36px} }
+
+    /* Typewriter for About heading */
+    .cursor{border-right:2px solid var(--accent);animation:blink 1.05s steps(1,end) infinite}
+    @keyframes blink{50%{border-color:transparent}}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <img class="logo-img" src="images/parhar-logo.jpeg" alt="Parhar Trucking Inc.">
+        <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
       </div>
       <nav class="links">
         <a href="index.html">Home</a>
         <a href="index.html#gallery">Gallery</a>
         <a href="index.html#contact">Contact</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="wrap">
-        <a href="index.html">Home</a>
-        <a href="index.html#gallery">Gallery</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-    </div>
+    <div class="quote-strip">📦 Contact us today for quotes &amp; pricing</div>
   </header>
 
-  <section class="container lead-wrap">
-    <h2 class="lead-title"><span id="tw" class="typewrap"></span></h2>
-    <p class="lead-line">With <strong>Crossdock Akron</strong>, we expanded operations to serve carriers, brokers, and shippers who need speed, access, and room to maneuver.</p>
-
-    <div class="about-box" id="aboutBox">
-      <ul id="aboutList">
+  <section class="container lead">
+    <h1 id="abouth1">About Parhar Trucking</h1>
+    <div class="about-box">
+      <ul>
         <li><strong>30+ years</strong> of dependable logistics.</li>
         <li><strong>Crossdock Akron</strong>: fast cross-docking, pallet rework/recoup, and storage.</li>
-        <li><strong>Driver-friendly</strong>: 48 dock doors and 4+ acres of lot & facility space.</li>
-        <li><strong>Highway access</strong> under 0.25 mile; ~11 miles to Walmart &amp; Sam’s Club DCs.</li>
+        <li><strong>Driver-friendly</strong>: 48 dock doors and 4+ acres of maneuverable parking.</li>
+        <li><strong>Highway access</strong> under 0.25 miles; ~11 miles to Walmart &amp; Sam’s Club DCs.</li>
         <li><strong>Hours</strong>: Mon–Fri 8–5 · 24/7 by appointment.</li>
       </ul>
-      <p class="about-note">Your freight — handled with care, visibility, and quick turnarounds.</p>
+      <p class="about-note">Built for carriers, brokers, and shippers who need speed, access, and room to maneuver.</p>
     </div>
   </section>
 
@@ -107,7 +80,8 @@
 
   <footer>
     <div class="footbrand">
-      <img class="footer-logo" src="images/parhar-logo.jpeg" alt="Parhar Trucking Inc.">
+      <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
+      <span>Parhar Trucking · Crossdock Akron</span>
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
@@ -115,34 +89,19 @@
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Hamburger
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
-    });
-
-    // Typewriter title
-    const twEl = document.getElementById('tw');
-    const twText = "About Parhar Trucking — Crossdock Akron";
-    let i = 0;
-    (function type(){
-      if (i <= twText.length) {
-        twEl.textContent = twText.slice(0, i++);
-        requestAnimationFrame(() => setTimeout(type, 22));
-      } else { twEl.classList.remove('typewrap'); }
+    // Typewriter for About header
+    (function(){
+      const el = document.getElementById('abouth1');
+      const full = el.textContent.trim();
+      el.textContent = '';
+      let i = 0;
+      const tick = () => {
+        el.textContent = full.slice(0, i++) + ' ';
+        if (i <= full.length) setTimeout(tick, 26);
+        else el.classList.add('cursor');
+      };
+      tick();
     })();
-
-    // Reveal bullets
-    const items = [...document.querySelectorAll('#aboutList li')];
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) {
-        items.forEach((li, idx) => setTimeout(() => li.classList.add('show'), idx * 120));
-        io.disconnect();
-      }
-    }, { threshold: .3 });
-    io.observe(document.getElementById('aboutBox'));
   </script>
 </body>
 </html>
