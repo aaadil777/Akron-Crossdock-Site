@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parhar Trucking Inc. · Crossdock Akron — 27 Docks, 4+ Acre Parking, Hwy &lt; Quarter Mile Highway Access</title>
-  <meta name="description" content="We are Parhar Trucking Inc. — 30+ years of logistics. With Crossdock Akron we boast: 48 dock doors, 4+ acres lot + facility size, located under quarter mile from multiple highway access, ~11 miles to Walmart &amp; Sam’s Club DCs. Available Mon–Fri 8–5 & 24/7 by appointment." />
+  <title>Parhar Trucking Inc. · Crossdock Akron — 27 Docks, 4+ Acre Parking, Hwy &lt; 0.25 mi</title>
+  <meta name="description" content="We are Parhar Trucking Inc. — 30+ years of logistics. Crossdock Akron: 48 dock doors, 4+ acres, < 0.25 mi highway access, ~11 mi to Walmart & Sam’s DCs. Mon–Fri 8–5; 24/7 by appt." />
   <meta name="theme-color" content="#0a2a6b" />
 
   <!-- Preload critical images -->
-  <link rel="preload" as="image" href="images/logo.jpg">
-  <link rel="preload" as="image" href="images/yard-bobcat.jpg">
+  <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/parhar-logo.jpeg">
 
   <style>
@@ -22,61 +21,59 @@
     html{scroll-behavior:smooth}
     img{max-width:100%;display:block;border-radius:12px}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    .container{width:min(1220px,92vw);margin-inline:auto}
+    .container{width:min(1240px,94vw);margin-inline:auto}
 
     /* Header */
     header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:60}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 6px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo-img{height:40px; width:auto; border-radius:6px}
-    @media (max-width:900px){ .logo-img{height:32px} }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-img{height:56px;width:auto;border-radius:8px}
+    @media (max-width:900px){ .logo-img{height:44px} }
 
     .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
     .links a:hover{border-color:#a9ccff}
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
     .links a.cta:hover{background:var(--accent-2)}
-
     .menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
     .menu-btn svg{width:22px;height:22px;color:var(--accent)}
     @media (max-width:900px){ .links{display:none} .menu-btn{display:inline-flex} }
 
     .mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(8,26,58,.06)}
     .mobile-menu.open{display:block}
-    .mobile-menu .wrap{width:min(1220px,92vw);margin-inline:auto;padding:12px 8px;display:grid;gap:8px}
+    .mobile-menu .wrap{width:min(1240px,94vw);margin-inline:auto;padding:12px 8px;display:grid;gap:8px}
     .mobile-menu a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--text)}
     .mobile-menu a.cta{background:var(--accent);border-color:var(--accent);color:#fff}
 
     .quote-banner{background:linear-gradient(90deg,#0a2a6b 0%,#1b4aa5 100%);padding:7px 0;text-align:center;font-size:14px;color:#fff}
 
-    /* HERO */
+    /* HERO — full-bleed with improved deep-navy overlay (no greys) */
     .hero{
-      position:relative; min-height:clamp(380px,54vw,580px);
-      display:flex; align-items:center; color:#fff;
+      position:relative;min-height:clamp(380px,54vw,640px);
+      display:flex;align-items:center;color:#fff;
       background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(194, 202, 219, 0.62)),
+        linear-gradient( to bottom, rgba(10,42,107,.88) 0%, rgba(10,42,107,.40) 58%, rgba(10,42,107,.30) 100% ),
         url('images/parhar-trucking.png') center/cover no-repeat;
     }
-    .hero .inner{padding:48px 0}
+    .hero .inner{padding:38px 0}
     .hero h1{margin:0 0 10px;font-size:clamp(32px,5vw,56px);line-height:1.06}
-    .hero p{margin:0 0 6px;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:82ch}
+    .hero p{margin:0;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:82ch}
 
-    /* Typewriter effect */
+    /* Typewriter */
     .typewrap{display:inline-block;white-space:nowrap;border-right:2px solid #fff;animation:blink .9s step-end infinite}
     @keyframes blink{50%{border-color:transparent}}
 
-    /* Feature cards (stagger reveal) */
-    .feature-cards{display:grid;gap:12px;margin-top:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-    .feature-cards .card{background:var(--paper);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
+    /* Feature cards (stagger) */
+    .feature-cards{display:grid;gap:12px;margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+    .feature-cards .card{background:var(--paper);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
     .feature-cards .card.show{opacity:1;transform:translateY(0)}
     .feature-cards .card strong{font-size:19px;color:var(--accent);margin-bottom:4px;display:block}
     .feature-cards .card span{font-size:14px;color:var(--muted)}
 
-    /* Featured image (Bobcat) – show whole image */
-    .hero-media{margin:18px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#f2f8ff}
-    .hero-media img{width:100%;height:clamp(260px,42vw,480px);object-fit:contain;object-position:center;background:#f2f8ff}
+    /* Reduce global section spacing a touch (removes the extra margins) */
+    section{padding:22px 0}
 
-    /* Slider */
-    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper)}
+    /* Gallery slider */
+    .slider{position:relative;margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:min(70vh,680px);background:var(--paper)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
     .slide img{width:100%;height:100%;object-fit:cover}
@@ -87,18 +84,17 @@
     .sdots button.active{background:#fff}
 
     /* Footer map */
-    .foot-map{margin-top:26px}
+    .foot-map{margin-top:22px}
     .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
     .foot-map iframe{width:100%;height:360px;border:0}
 
-    section{padding:26px 0}
-    footer{margin-top:28px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
+    footer{margin-top:26px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
     footer .footbrand{display:flex;align-items:center;gap:10px;justify-content:center}
-    .footer-logo{height:34px;width:auto;border-radius:6px}
-    @media (max-width:900px){ .footer-logo{height:28px} }
+    .footer-logo{height:46px;width:auto;border-radius:8px}
+    @media (max-width:900px){ .footer-logo{height:36px} }
     footer a{color:var(--accent);text-decoration:none}
 
-    /* Floating Get a Quote button */
+    /* Floating Get a Quote — back to top-right blue pill */
     .float-cta{
       position:fixed;right:20px;bottom:22px;z-index:1000;background:#0a2a6b;color:#fff;border:none;border-radius:999px;
       padding:12px 18px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;transition:all .2s ease-in-out
@@ -136,7 +132,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img class="logo-img" src="images/Parhar-Logo.png" alt="Crossdock Warehouse & Storage — Akron, OH">
+        <img class="logo-img" src="images/parhar-logo.jpeg" alt="Parhar Trucking Inc.">
       </div>
 
       <nav class="links">
@@ -163,7 +159,7 @@
     <div class="quote-banner">📦 Contact us today for quotes &amp; pricing</div>
   </header>
 
-  <!-- HERO (facility background) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container inner">
       <h1><span id="tw" class="typewrap"></span></h1>
@@ -172,22 +168,12 @@
       <div class="feature-cards" id="features">
         <div class="card"><strong>48</strong><span>Dock Doors</span></div>
         <div class="card"><strong>19,000 square feet</strong><span>Expansive Storage</span></div>
-        <div class="card"><strong>Featuring 4+ Acres</strong><span>Easy Manuverability & Parking</span></div>
-        <div class="card"><strong>24/7 Surveillance</strong><span>Keeping Your Drivers & Operators Safe</span></div>
-        <div class="card"><strong>&lt; Less than 0.25 mi</strong><span>Multiple Highway Access</span></div>
+        <div class="card"><strong>Featuring 4+ Acres</strong><span>Easy Maneuverability & Parking</span></div>
+        <div class="card"><strong>24/7 Surveillance</strong><span>Keeping Drivers & Operators Safe</span></div>
+        <div class="card"><strong>&lt; 0.25 mi</strong><span>Multiple Highway Access</span></div>
         <div class="card"><strong>~ 11 mi</strong><span>Walmart &amp; Sam’s DCs</span></div>
-        <div class="card"><strong>Mon–Fri 8 AM – 5 PM</strong><span>Available 24/7 by Appt.</span></div>
+        <div class="card"><strong>Mon–Fri 8 AM–5 PM</strong><span>24/7 by Appt.</span></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Featured image (LOGO) – no crop -->
-  <section class="container">
-    <div class="hero-media">
-      <picture>
-        <source srcset="images/logo.jpg" type="image/jpg">
-        <img src="images/logo.jpg" alt="Logo Crossdock Akron" fetchpriority="high" decoding="async">
-      </picture>
     </div>
   </section>
 
@@ -195,11 +181,11 @@
   <section id="gallery" class="container">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Excavators" fetchpriority="high" decoding="async"></div>
-      <div class="slide active"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" fetchpriority="high" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy" decoding="async"></div>
+      <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Excavators"></div>
+      <div class="slide"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged"></div>
+      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy"></div>
+      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy"></div>
+      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy"></div>
       <div class="snav"><button class="sbtn" id="prev" aria-label="Previous">◀</button><button class="sbtn" id="next" aria-label="Next">▶</button></div>
       <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
@@ -215,13 +201,13 @@
   <!-- Contact -->
   <section id="contact" class="container">
     <h2>Request a Quote</h2>
-    <p><strong>Phone:</strong> (330) 524-0021 </a></p>
+    <p><strong>Phone:</strong> (330) 524-0021</p>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="footbrand">
-      <img class="footer-logo" src="images/parhar-logo.jpeg" alt="Crossdock Warehouse & Storage — Akron, OH">
+      <img class="footer-logo" src="images/parhar-logo.jpeg" alt="Parhar Trucking Inc.">
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
@@ -261,30 +247,24 @@
       menuBtn.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
     });
 
-    // Typewriter
+    // Typewriter headline
     const twEl = document.getElementById('tw');
     const twText = "We are Parhar Trucking Inc. — 30+ years of logistics service.";
     let idx = 0;
-    function typeNext(){
+    (function typeNext(){
       if(idx <= twText.length){
         twEl.textContent = twText.slice(0, idx++);
-        requestAnimationFrame(()=>setTimeout(typeNext, 22)); // smooth typing
-      } else {
-        // stop cursor after finish
-        twEl.classList.remove('typewrap');
-      }
-    }
-    typeNext();
+        requestAnimationFrame(()=>setTimeout(typeNext, 22));
+      } else { twEl.classList.remove('typewrap'); }
+    })();
 
-    // Reveal feature cards one-by-one
+    // Stagger in feature cards
     const cards = document.querySelectorAll('.feature-cards .card');
     const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          cards.forEach((c,i)=>setTimeout(()=>c.classList.add('show'), i*140));
-          obs.disconnect();
-        }
-      });
+      if(entries.some(e=>e.isIntersecting)){
+        cards.forEach((c,i)=>setTimeout(()=>c.classList.add('show'), i*140));
+        obs.disconnect();
+      }
     }, {threshold:.35});
     obs.observe(document.getElementById('features'));
 
@@ -300,7 +280,7 @@
     document.getElementById('prev')?.addEventListener('click', ()=>{prev();start()});
     start();
 
-    // Modal
+    // Modal send (to /api/contact)
     const modal = document.getElementById('contactModal');
     const openModal = ()=>{ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); };
     const closeModal = ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); };
@@ -308,40 +288,21 @@
     document.getElementById('contactLink').addEventListener('click', (e)=>{e.preventDefault(); openModal();});
     document.getElementById('contactLinkMobile').addEventListener('click', (e)=>{e.preventDefault(); mobileMenu.classList.remove('open'); openModal();});
     document.getElementById('closeModal').addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
 
-    // Toast
     const toast = document.getElementById('toast');
-    function showToast(msg, ok=true){
-      toast.textContent = msg;
-      toast.style.background = ok ? 'var(--accent)' : '#c1121f';
-      toast.classList.add('show');
-      setTimeout(()=>toast.classList.remove('show'), 2800);
-    }
+    function showToast(msg, ok=true){ toast.textContent=msg; toast.style.background = ok?'var(--accent)':'#c1121f'; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 2800); }
 
-    // Submit to /api/contact
     const form = document.getElementById('quoteForm');
     const submitBtn = document.getElementById('submitBtn');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
       try{
-        const payload = {
-          name: form.name.value.trim(),
-          company: form.company.value.trim(),
-          email: form.email.value.trim(),
-          phone: form.phone.value.trim(),
-          message: form.message.value.trim()
-        };
-        const r = await fetch('/api/contact', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify(payload)
-        });
+        const payload = Object.fromEntries(new FormData(form).entries());
+        const r = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
         const res = await r.json().catch(()=>({ok:false}));
-        if(!r.ok || !res.ok){ throw new Error(res.error || 'Failed to send'); }
-        showToast('Thanks! We received your request.', true);
-        form.reset(); closeModal();
+        if(!r.ok || !res.ok) throw new Error(res.error || 'Failed to send');
+        showToast('Thanks! We received your request.', true); form.reset(); closeModal();
       }catch(err){ showToast('Could not send. Please try again.', false); }
       finally{ submitBtn.disabled=false; submitBtn.textContent='Send'; }
     });
