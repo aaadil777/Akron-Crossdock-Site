@@ -9,7 +9,8 @@
 
   <!-- Preload critical images -->
   <link rel="preload" as="image" href="images/facility-front.png">
-  <link rel="preload" as="image" href="images/ca5ad012-c67b-44e7-af5f-2c308420812b.png"> <!-- bobcat PNG -->
+  <link rel="preload" as="image" href="images/ca5ad012-c67b-44e7-af5f-2c308420812b.png">
+  <link rel="preload" as="image" href="images/logo.jpg">
 
   <style>
     :root{
@@ -23,22 +24,22 @@
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
     .container{width:min(1220px,92vw);margin-inline:auto}
 
-    /* Header with hamburger */
+    /* Header */
     header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:60}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--accent)}
-    .brand svg{width:28px;height:28px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 6px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo-img{height:40px; width:auto; border-radius:6px}
+    @media (max-width:900px){ .logo-img{height:32px} }
+
     .links a{margin-left:10px;text-decoration:none;color:var(--text);padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
     .links a:hover{border-color:#a9ccff}
     .links a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
     .links a.cta:hover{background:var(--accent-2)}
 
-    /* Hamburger button */
     .menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
     .menu-btn svg{width:22px;height:22px;color:var(--accent)}
     @media (max-width:900px){ .links{display:none} .menu-btn{display:inline-flex} }
 
-    /* Slide-down mobile menu */
     .mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(8,26,58,.06)}
     .mobile-menu.open{display:block}
     .mobile-menu .wrap{width:min(1220px,92vw);margin-inline:auto;padding:12px 8px;display:grid;gap:8px}
@@ -56,16 +57,21 @@
         url('images/facility-front.png') center/cover no-repeat;
     }
     .hero .inner{padding:48px 0}
-    .hero h1{margin:0 0 14px;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:.2px}
-    .hero p{margin:0;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:82ch}
+    .hero h1{margin:0 0 10px;font-size:clamp(32px,5vw,56px);line-height:1.06}
+    .hero p{margin:0 0 6px;color:#e7f2ff;font-size:clamp(16px,1.6vw,19px);max-width:82ch}
 
-    /* Feature cards */
-    .feature-cards{display:grid;gap:12px;margin-top:22px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-    .feature-cards .card{background:var(--paper);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow)}
+    /* Typewriter effect */
+    .typewrap{display:inline-block;white-space:nowrap;border-right:2px solid #fff;animation:blink .9s step-end infinite}
+    @keyframes blink{50%{border-color:transparent}}
+
+    /* Feature cards (stagger reveal) */
+    .feature-cards{display:grid;gap:12px;margin-top:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+    .feature-cards .card{background:var(--paper);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
+    .feature-cards .card.show{opacity:1;transform:translateY(0)}
     .feature-cards .card strong{font-size:19px;color:var(--accent);margin-bottom:4px;display:block}
     .feature-cards .card span{font-size:14px;color:var(--muted)}
 
-    /* Featured image (Bobcat) – show whole image (no crop) */
+    /* Featured image (Bobcat) – show whole image */
     .hero-media{margin:18px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#f2f8ff}
     .hero-media img{width:100%;height:clamp(260px,42vw,480px);object-fit:contain;object-position:center;background:#f2f8ff}
 
@@ -87,29 +93,15 @@
 
     section{padding:26px 0}
     footer{margin-top:28px;padding:22px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center;background:var(--paper)}
-    footer .footbrand{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
-    footer svg{width:18px;height:18px}
+    footer .footbrand{display:flex;align-items:center;gap:10px;justify-content:center}
+    .footer-logo{height:34px;width:auto;border-radius:6px}
+    @media (max-width:900px){ .footer-logo{height:28px} }
     footer a{color:var(--accent);text-decoration:none}
 
     /* Floating Get a Quote button */
     .float-cta{
-      position:fixed;
-      right:20px;
-      bottom:22px;
-      z-index:1000;
-      background:#0a2a6b;
-      color:#fff;
-      border:none;
-      border-radius:999px;
-      padding:12px 18px;
-      box-shadow:0 10px 28px rgba(11,45,92,.25);
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-weight:600;
-      font-size:15px;
-      transition:all .2s ease-in-out;
+      position:fixed;right:20px;bottom:22px;z-index:1000;background:#0a2a6b;color:#fff;border:none;border-radius:999px;
+      padding:12px 18px;box-shadow:0 10px 28px rgba(11,45,92,.25);cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;transition:all .2s ease-in-out
     }
     .float-cta:hover{background:#1b4aa5;transform:translateY(-2px)}
     .float-cta svg{width:20px;height:20px}
@@ -144,8 +136,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 16h13l3-5h2v5h-1a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H2v-2a3 3 0 0 1 1-2l3-3h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Parhar Trucking · Crossdock Akron</span>
+        <img class="logo-img" src="images/logo.jpg" alt="Crossdock Warehouse & Storage — Akron, OH">
       </div>
 
       <nav class="links">
@@ -175,10 +166,10 @@
   <!-- HERO (facility background) -->
   <section class="hero">
     <div class="container inner">
-      <h1>We are Parhar Trucking — 30+ years of logistics service.</h1>
+      <h1><span id="tw" class="typewrap"></span></h1>
       <p>With <strong>Crossdock Akron</strong>, we expanded operations to offer fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
-      <div class="feature-cards">
+      <div class="feature-cards" id="features">
         <div class="card"><strong>27</strong><span>Dock Doors</span></div>
         <div class="card"><strong>2+ Acres</strong><span>Easy Manuverability & Abundant Parking</span></div>
         <div class="card"><strong>24/7 Surveillance</strong><span>Keeping Your Drivers & Operators Safe</span></div>
@@ -228,8 +219,7 @@
   <!-- Footer -->
   <footer>
     <div class="footbrand">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 16h13l3-5h2v5h-1a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H2v-2a3 3 0 0 1 1-2l3-3h8v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Parhar Trucking · Crossdock Akron</span>
+      <img class="footer-logo" src="images/logo.jpg" alt="Crossdock Warehouse & Storage — Akron, OH">
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
@@ -266,9 +256,35 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('open');
-      const open = mobileMenu.classList.contains('open');
-      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menuBtn.setAttribute('aria-label', mobileMenu.classList.contains('open') ? 'Close menu' : 'Open menu');
     });
+
+    // Typewriter
+    const twEl = document.getElementById('tw');
+    const twText = "We are Parhar Trucking — 30+ years of logistics service.";
+    let idx = 0;
+    function typeNext(){
+      if(idx <= twText.length){
+        twEl.textContent = twText.slice(0, idx++);
+        requestAnimationFrame(()=>setTimeout(typeNext, 22)); // smooth typing
+      } else {
+        // stop cursor after finish
+        twEl.classList.remove('typewrap');
+      }
+    }
+    typeNext();
+
+    // Reveal feature cards one-by-one
+    const cards = document.querySelectorAll('.feature-cards .card');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          cards.forEach((c,i)=>setTimeout(()=>c.classList.add('show'), i*140));
+          obs.disconnect();
+        }
+      });
+    }, {threshold:.35});
+    obs.observe(document.getElementById('features'));
 
     // Slider
     const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
@@ -301,7 +317,7 @@
       setTimeout(()=>toast.classList.remove('show'), 2800);
     }
 
-    // Submit to /api/contact (Cloudflare function)
+    // Submit to /api/contact
     const form = document.getElementById('quoteForm');
     const submitBtn = document.getElementById('submitBtn');
     form.addEventListener('submit', async (e)=>{
