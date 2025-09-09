@@ -7,7 +7,7 @@
   <meta name="description" content="Crossdock Akron — fast cross-docking, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access. Mon–Fri 8–5; 24/7 by appointment." />
   <meta name="theme-color" content="#0a2a6b" />
 
-  <!-- Preload hero + first-paint images to avoid flashes/missing images -->
+  <!-- Preload hero + first-paint images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/logo.jpg">
 
@@ -32,19 +32,16 @@
     .links a{margin-left:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--text)}
     .links a.cta{background:var(--accent);border-color:var(--accent);color:#fff}
 
-    /* Quote bar with emoji + text fallback */
+    /* Quote bar */
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#1b49a4);color:#fff;text-align:center;font-size:14px;padding:6px 0;white-space:nowrap}
-    .quote-strip .e{font-family:system-ui, "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-right:6px}
+    .quote-strip .e{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-right:6px}
     .quote-strip .fallback{display:none}
-    @supports not (font-variant-emoji: emoji){
-      .quote-strip .fallback{display:inline}
-    }
+    @supports not (font-variant-emoji: emoji){ .quote-strip .fallback{display:inline} }
 
-    /* HERO: full Parhar logo + softer readability overlays + side fades */
+    /* HERO with gentle white overlay + side fades for readability */
     .hero{
       position:relative;display:flex;align-items:center;min-height: clamp(380px, 54vw, 640px);
       color:#0b1a37;
-      /* stack: top overlay -> side fades -> image -> base */
       background:
         linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
         radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
@@ -53,7 +50,7 @@
         #f6f8fc;
     }
     .hero .inner{padding:42px 0}
-    .hero h1{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px);letter-spacing:.2px}
+    .hero h1{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
     /* Stat cards */
@@ -62,7 +59,6 @@
     .kcard b{display:block;font-size:18px;margin-bottom:4px;color:var(--accent)}
     .kcard small{display:block;font-size:13px;color:#496aa7}
 
-    /* Phone compaction */
     @media (max-width:640px){
       .card-row{grid-template-columns:repeat(2,1fr);gap:8px}
       .kcard{padding:10px 8px}
@@ -70,24 +66,32 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock logo block */
+    /* Crossdock logo block — CENTERED + max width */
     .logo-block{margin:18px 0 8px}
-    .logo-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff}
-    .logo-card img{width:100%;height:auto;object-fit:contain}
+    .logo-card{
+      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
+      display:flex;justify-content:center;align-items:center;
+    }
+    .logo-card img{
+      width:100%;max-width:980px;height:auto;object-fit:contain;margin:auto;
+    }
     .logo-caption{margin-top:10px;text-align:center;color:#375a9d;font-weight:600}
 
-    /* Gallery / slider — simple, robust */
-    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+    /* Gallery / slider — give the container HEIGHT so it shows */
+    .slider{
+      position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;
+      height:min(70vh,680px);
+    }
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
-    .slide img{width:100%;height:clamp(320px,60vh,720px);object-fit:cover}
+    .slide img{width:100%;height:100%;object-fit:cover}
     .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
     .sbtn{pointer-events:auto;background:#ffffffed;border:1px solid var(--line);border-radius:999px;padding:10px;cursor:pointer;margin:10px}
     .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
     .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.95}
     .sdots button.active{background:#fff}
 
-    /* Footer map + footer */
+    /* Footer + map */
     section{padding:24px 0}
     .foot-map .map{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
     .foot-map iframe{width:100%;height:360px;border:0}
@@ -95,7 +99,7 @@
     .footbrand{display:inline-flex;align-items:center;gap:8px}
     .footbrand img{height:40px;width:auto}
 
-    /* Floating CTA + content bottom padding so it never covers content */
+    /* Floating CTA */
     .float-cta{
       position:fixed;right:16px;bottom:18px;z-index:70;background:var(--accent);color:#fff;border:0;border-radius:999px;
       padding:12px 16px;box-shadow:0 14px 34px rgba(10,42,107,.28);display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer
@@ -141,7 +145,7 @@
     </div>
   </section>
 
-  <!-- Crossdock logo (tight & centered) -->
+  <!-- Crossdock logo (centered) -->
   <section class="container logo-block">
     <div class="logo-card">
       <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
@@ -153,7 +157,6 @@
   <section id="gallery" class="container" aria-label="Facility & Work">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
-      <!-- IMPORTANT: first slide eager/high to prevent ‘missing image’ flashes -->
       <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Yard equipment" loading="eager" decoding="async"></div>
       <div class="slide"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" loading="lazy" decoding="async"></div>
       <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
@@ -175,7 +178,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footbrand">
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
@@ -191,10 +193,10 @@
   </button>
 
   <script>
-    // Footer year
+    // Year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Simple, reliable slider
+    // Robust slider
     const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
     let cur=0,timer;
     function go(i){
@@ -211,7 +213,7 @@
     document.getElementById('prev')?.addEventListener('click', ()=>{prev();start()});
     start();
 
-    // Mailto contact (fast, no dependency)
+    // Mailto
     const to="crossdockW@gmail.com";
     const subject="Inquiry for Crossdock Akron";
     const body=[
@@ -225,10 +227,10 @@
     document.getElementById('emailCta').addEventListener('click', ()=>{ window.location.href=mailto; });
     document.getElementById('contactLink').addEventListener('click',(e)=>{ e.preventDefault(); window.location.href=mailto; });
 
-    // If any gallery image fails to load, skip to the next so the carousel never looks empty
+    // If any gallery image errors, remove that slide so the carousel never looks empty
     slides.forEach(s=>{
       const img=s.querySelector('img');
-      img.addEventListener('error',()=>{ s.parentNode.removeChild(s); if(!slides[cur]) cur=0; });
+      img.addEventListener('error',()=>{ s.remove(); if(cur>=slides.length) cur=0; });
     });
   </script>
 </body>
