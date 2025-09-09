@@ -22,7 +22,10 @@
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#184aa7);color:#fff;text-align:center;font-size:14px;padding:6px 0}
 
     .lead{padding:30px 0}
-    .lead h1{margin:0 0 10px;font-size:clamp(28px,3.6vw,40px);color:var(--accent);font-weight:800}
+    .lead h1{margin:0 0 10px;font-size:clamp(28px,3.6vw,40px);color:var(--accent);font-weight:800;display:inline-block}
+    .cursor{border-right:2px solid var(--accent);animation:blink 1s steps(1,end) infinite}
+    @keyframes blink{50%{border-color:transparent}}
+
     .about-box{background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .about-box ul{margin:0;padding-left:1.1rem}
     .about-box li{margin:10px 0;font-weight:700}
@@ -37,10 +40,6 @@
     .footbrand{display:inline-flex;align-items:center;gap:10px}
     .footbrand img{height:42px;width:auto}
     @media (max-width:520px){ .footbrand img{height:36px} }
-
-    /* Typewriter for About heading */
-    .cursor{border-right:2px solid var(--accent);animation:blink 1.05s steps(1,end) infinite}
-    @keyframes blink{50%{border-color:transparent}}
   </style>
 </head>
 <body>
@@ -59,7 +58,7 @@
   </header>
 
   <section class="container lead">
-    <h1 id="abouth1">About Parhar Trucking</h1>
+    <h1 id="abouth1"></h1>
     <div class="about-box">
       <ul>
         <li><strong>30+ years</strong> of dependable logistics.</li>
@@ -81,7 +80,7 @@
   <footer>
     <div class="footbrand">
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
-      <span>Parhar Trucking · Crossdock Akron</span>
+      <span>Parhar Group · Crossdock Akron</span>
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
@@ -89,18 +88,20 @@
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Typewriter for About header
+    // Typewriter effect for About header
     (function(){
       const el = document.getElementById('abouth1');
-      const full = el.textContent.trim();
-      el.textContent = '';
+      const text = "About Parhar Trucking";
       let i = 0;
-      const tick = () => {
-        el.textContent = full.slice(0, i++) + ' ';
-        if (i <= full.length) setTimeout(tick, 26);
-        else el.classList.add('cursor');
-      };
-      tick();
+      function type(){
+        el.textContent = text.slice(0, i++);
+        if (i <= text.length){
+          setTimeout(type, 40);
+        } else {
+          el.classList.add("cursor");
+        }
+      }
+      type();
     })();
   </script>
 </body>
