@@ -79,7 +79,7 @@
     }
 
     /* ===== Crossdock logo block — background image w/ optical centering ===== */
-  .logo-block {
+    .logo-block {
       margin: 18px 0 8px;
       padding-left: 0 !important;
       text-align: center;
@@ -90,20 +90,21 @@
     }
     .logo-card {
       margin: 0 auto !important;
-      max-width: 1000px;
-      width: 100%;
+      max-width: 800px; /* Reduced max-width to better fit the logo */
+      width: auto; /* Allow width to adjust based on content */
       border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: var(--shadow);
       background: #fff;
       display: inline-block !important;
+      vertical-align: middle; /* Ensure vertical alignment if needed */
     }
     .logo-card.logo-bg {
       aspect-ratio: 11 / 4;
       background-image: url("images/logo.png");
       background-repeat: no-repeat;
-      background-size: 80% auto; /* Compress to 80% of original size, maintain aspect ratio */
+      background-size: 70% auto; /* Further compress to 70% to fit better */
       background-position: center center !important;
       min-height: 140px;
       margin-top: 20px; /* Gap between text and logo */
