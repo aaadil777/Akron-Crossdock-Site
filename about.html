@@ -6,74 +6,44 @@
   <title>About · Crossdock Warehouse & Storage — Akron, OH</title>
   <meta name="description" content="30+ years of dependable logistics. Crossdock Akron adds fast cross-dock, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access." />
   <meta name="theme-color" content="#0a2a6b" />
-  <style>
-    :root{--bg:#fff;--paper:#fff;--line:#cfe1ff;--text:#0b1a37;--muted:#335a9f;--accent:#0a2a6b;--accent-2:#184aa7;--radius:14px;--shadow:0 14px 34px rgba(10,42,107,.18)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    img{max-width:100%;display:block}
-    .container{width:min(1220px,92vw);margin-inline:auto}
-
-    header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 6px}
-    .brand img{height:48px;width:auto}
-    @media (max-width:520px){ .brand img{height:42px} }
-    .links a{margin-left:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--text)}
-    .quote-strip{background:linear-gradient(90deg,#0a2a6b,#184aa7);color:#fff;text-align:center;font-size:14px;padding:6px 0}
-
-    .lead{padding:30px 0}
-    .lead h1{margin:0 0 10px;font-size:clamp(28px,3.6vw,40px);color:var(--accent);font-weight:800;display:inline-block}
-    .cursor{border-right:2px solid var(--accent);animation:blink 1s steps(1,end) infinite}
-    @keyframes blink{50%{border-color:transparent}}
-
-    .about-box{background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .about-box ul{margin:0;padding-left:1.1rem}
-    .about-box li{margin:10px 0;font-weight:700}
-    .about-box li::marker{content:"→  ";color:var(--accent-2)}
-    .about-note{margin-top:6px;color:var(--muted);font-size:14px}
-
-    .foot-map{margin-top:26px}
-    .foot-map .map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .foot-map iframe{width:100%;height:360px;border:0}
-
-    footer{margin-top:28px;padding:18px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
-    .footbrand{display:inline-flex;align-items:center;gap:10px}
-    .footbrand img{height:42px;width:auto}
-    @media (max-width:520px){ .footbrand img{height:36px} }
-  </style>
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
-      </div>
+      <div class="brand"><img src="images/parhar-logo.jpeg" alt="Parhar Group logo"></div>
       <nav class="links">
         <a href="index.html">Home</a>
         <a href="index.html#gallery">Gallery</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
-    <div class="quote-strip">📦 Contact us today for quotes &amp; pricing</div>
+    <div class="quote-strip"><span class="emoji" aria-hidden="true">📦</span>Contact us today for quotes &amp; pricing</div>
   </header>
 
-  <section class="container lead">
-    <h1 id="abouth1"></h1>
-    <div class="about-box">
-      <ul>
+  <section class="container" style="padding:30px 0">
+    <h1 id="abouth1" style="margin:0 0 10px;display:inline-block;color:var(--accent)"></h1>
+    <div class="about-box" style="background:#f2f8ff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)">
+      <ul style="margin:0;padding-left:1.1rem">
         <li><strong>30+ years</strong> of dependable logistics.</li>
         <li><strong>Crossdock Akron</strong>: fast cross-docking, pallet rework/recoup, and storage.</li>
         <li><strong>Driver-friendly</strong>: 48 dock doors, 4+ acres of maneuverable parking, with 24/7 around-the-clock surveillance.</li>
         <li><strong>Highway access</strong> under 0.25 miles; ~11 miles to Walmart &amp; Sam’s Club DCs.</li>
         <li><strong>Hours</strong>: Mon–Fri 8–5 · 24/7 by appointment.</li>
       </ul>
-      <p class="about-note">Built for carriers, brokers, and shippers who need speed, access, and room to maneuver.</p>
+      <p style="margin-top:6px;color:var(--muted);font-size:14px">Built for carriers, brokers, and shippers who need speed, access, and room to maneuver.</p>
     </div>
   </section>
 
   <section class="container foot-map" aria-label="Location">
     <div class="map">
-      <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        title="Crossdock Akron Map"
+        src="https://maps.google.com/maps?width=100%25&height=420&hl=en&q=1172%20Rosemary%20Blvd,%20Akron,%20OH%2044306%20(Crossdock%20Akron)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
     </div>
   </section>
 
@@ -87,20 +57,10 @@
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
-
-    // Typewriter effect for About header
+    // Typewriter
     (function(){
-      const el = document.getElementById('abouth1');
-      const text = "About Parhar Group";
-      let i = 0;
-      function type(){
-        el.textContent = text.slice(0, i++);
-        if (i <= text.length){
-          setTimeout(type, 40);
-        } else {
-          el.classList.add("cursor");
-        }
-      }
+      const el=document.getElementById('abouth1'); const text="About Parhar Group"; let i=0;
+      function type(){ el.textContent=text.slice(0,i++); if(i<=text.length){ setTimeout(type,40); } else { el.classList.add('cursor'); } }
       type();
     })();
   </script>
