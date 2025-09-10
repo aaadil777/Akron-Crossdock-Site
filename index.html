@@ -82,11 +82,11 @@
     .logo-block{
       margin:18px 0 8px;
       padding-left:0 !important;
-      text-align:center;
+      text-align:center; /* Ensure centering */
     }
     .logo-center{
-      display:grid;
-      place-items:center;
+      display:flex;
+      justify-content:center; /* Center the logo */
       width:100%;
     }
     .logo-card{
@@ -106,6 +106,7 @@
       background-size: contain;
       background-position: 52% center;   /* adjust 50–54% to taste */
       min-height: 140px;                 /* ensures presence on small screens */
+      margin-top: 20px; /* Add gap between text and logo */
     }
     .logo-caption{
       margin:10px auto 0;
@@ -180,11 +181,7 @@
 
   <!-- Crossdock logo -->
   <section class="container logo-block">
-    <div>
-
-      
-    </div>
-    <div class="logo-center">
+       <div class="logo-center">
       <!-- Background div ignores internal padding and lets us nudge optical center -->
       <div class="logo-card logo-bg" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
     </div>
