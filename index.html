@@ -79,42 +79,42 @@
     }
 
     /* ===== Crossdock logo block — background image w/ optical centering ===== */
-    .logo-block {
-        margin: 18px 0 8px;
-        padding-left: 0 !important;
-        text-align: center; /* Base centering */
-      }
-      .logo-block .logo-center {
-        display: block;
-        text-align: center; /* Reinforce centering */
-      }
-      .logo-block .logo-card {
-        margin: 0 auto !important; /* Force centering */
-        max-width: 1000px;
-        width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        background: #fff;
-        display: inline-block !important; /* Ensure inline-block applies */
-      }
-      .logo-block .logo-card.logo-bg {
-        aspect-ratio: 11 / 4;
-        background-image: url("images/logo.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center !important; /* Force center alignment */
-        min-height: 140px;
-        margin-top: 20px; /* Gap between text and logo */
-      }
-      .logo-caption {
-        margin: 10px auto 0;
-        max-width: 1000px;
-        text-align: center;
-        color: #375a9d;
-        font-weight: 600;
-      }
+  .logo-block {
+      margin: 18px 0 8px;
+      padding-left: 0 !important;
+      text-align: center;
+    }
+    .logo-center {
+      display: block;
+      text-align: center;
+    }
+    .logo-card {
+      margin: 0 auto !important;
+      max-width: 1000px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #fff;
+      display: inline-block !important;
+    }
+    .logo-card.logo-bg {
+      aspect-ratio: 11 / 4;
+      background-image: url("images/logo.png");
+      background-repeat: no-repeat;
+      background-size: 80% auto; /* Compress to 80% of original size, maintain aspect ratio */
+      background-position: center center !important;
+      min-height: 140px;
+      margin-top: 20px; /* Gap between text and logo */
+    }
+    .logo-caption {
+      margin: 10px auto 0;
+      max-width: 1000px;
+      text-align: center;
+      color: #375a9d;
+      font-weight: 600;
+    }
 
     /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
