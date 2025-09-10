@@ -6,8 +6,10 @@
   <title>Crossdock Warehouse & Storage — Akron, OH</title>
   <meta name="description" content="Crossdock Akron — fast cross-docking, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access. Mon–Fri 8–5; 24/7 by appointment.">
   <meta name="theme-color" content="#0a2a6b" />
+  <!-- Preload key images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/logo.jpg">
+
   <style>
     :root{
       --bg:#ffffff;--paper:#ffffff;--line:#dbe8ff;--muted:#3a5aa3;--text:#0b1a37;
@@ -29,7 +31,7 @@
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#1b49a4);color:#fff;text-align:center;font-size:14px;padding:6px 0;white-space:nowrap}
     .quote-strip .e{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-right:6px}
 
-    /* HERO – background + subtle white overlays (works on iOS via ::before) */
+    /* HERO – desktop/web: full background with soft overlays */
     .hero{
       position:relative;display:flex;align-items:center;min-height:clamp(380px,54vw,640px);
       color:#0b1a37;background:#f6f8fc url("images/parhar-trucking.png") center/contain no-repeat;
@@ -42,12 +44,32 @@
         radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%);
     }
     .hero .inner{position:relative;z-index:1;padding:42px 0}
-
-    /* Typewriter */
-    .tw-cursor{border-right:2px solid var(--accent);animation:twblink 1s steps(1,end) infinite}
-    @keyframes twblink{50%{border-color:transparent}}
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
+
+    /* MOBILE CHANGE:
+       On small screens, remove hero-wide background and put the Parhar
+       logo + gentle white gradient ONLY behind the H1 (as a block). */
+    @media (max-width:768px){
+      .hero{background:none}
+      .hero::before{background:none}
+      #heroTitle{
+        position:relative;display:inline-block;z-index:1;
+      }
+      #heroTitle::before{
+        content:"";
+        position:absolute;
+        inset:-10px -14px;           /* little breathing room around the text */
+        z-index:-1;
+        border-radius:12px;
+        background:
+          /* soft white overlays for readability */
+          linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+          radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          url("images/parhar-trucking.png") center/contain no-repeat;
+      }
+    }
 
     /* Stat cards */
     .card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:18px}
@@ -61,41 +83,15 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block – always centered */
-    .logo-block{
-      margin: 28px 0 12px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
+    /* Crossdock block (centered) */
+    .logo-block{margin:18px 0 8px;text-align:center}
     .logo-card{
-      max-width:1000px;
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#f7fbff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      max-width:1000px;margin-inline:auto;
+      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
+      display:flex;align-items:center;justify-content:center;
     }
-    .logo-card img{
-      width:100%;
-      max-width:1000px;
-      height:auto;
-      object-fit:contain;
-    }
-    .logo-caption{
-      margin-top:10px;
-      max-width:1000px;
-      text-align:center;
-      color:#375a9d;
-      font-weight:600;
-    }
-
+    .logo-card img{display:block;width:100%;max-width:1000px;height:auto;object-fit:contain;margin-inline:auto}
+    .logo-caption{margin:10px auto 0;max-width:1000px;text-align:center;color:#375a9d;font-weight:600}
 
     /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
@@ -140,7 +136,7 @@
 
   <section class="hero" role="img" aria-label="Parhar Trucking, Inc. logo background">
     <div class="container inner">
-      <h1 id="heroTitle" class="tw-cursor"></h1>
+      <h1 id="heroTitle">We are Parhar Group — 30+ years of logistics service.</h1>
       <p>With <strong>Crossdock Akron</strong>, we provide fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
       <div class="card-row" id="facts">
@@ -148,24 +144,22 @@
         <div class="kcard"><b>19,000 sq ft</b><small>Expansive Warehouse &amp; Storage</small></div>
         <div class="kcard"><b>4+ Acres</b><small>Easy Maneuverability &amp; Parking</small></div>
         <div class="kcard"><b>24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b>&lt; ~ 0.25 mi</b><small>Multiple Highway Access</small></div>
+        <div class="kcard"><b>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
         <div class="kcard"><b>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
         <div class="kcard"><b>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
       </div>
     </div>
   </section>
 
-  <!-- Crossdock logo (centered on all devices) -->
-  <section class="logo-block">
+  <!-- Crossdock logo -->
+  <section class="container logo-block">
     <div class="logo-card">
       <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
     </div>
-    <div class="logo-caption">
-      Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.
-    </div>
+    <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
   </section>
 
-  <!-- Gallery / Turnstile -->
+  <!-- Gallery -->
   <section id="gallery" class="container" aria-label="Facility & Work">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
@@ -205,20 +199,8 @@
   </button>
 
   <script>
-    // Footer year
+    // Year
     document.getElementById('year').textContent=new Date().getFullYear();
-
-    // Typewriter for hero title
-    (function(){
-      const el = document.getElementById('heroTitle');
-      const text = 'We are Parhar Group — 30+ years of logistics service.';
-      let i = 0;
-      function tick(){
-        el.textContent = text.slice(0, i++);
-        if(i <= text.length){ setTimeout(tick, 28); }
-      }
-      tick();
-    })();
 
     // Simple, robust slider
     const sliderEl=document.getElementById('slider'); const dotsEl=document.getElementById('sdots');
