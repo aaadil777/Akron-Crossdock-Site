@@ -79,41 +79,41 @@
     }
 
     /* ===== Crossdock logo block — background image w/ optical centering ===== */
-    .logo-block{
-      margin:18px 0 8px;
-      padding-left:0 !important;
-      text-align:center; /* Ensure centering */
+  .logo-block {
+      margin: 18px 0 8px;
+      padding-left: 0 !important;
+      text-align: center; /* Ensure container is centered */
     }
-    .logo-center{
-      display:flex;
-      justify-content:center; /* Center the logo */
-      width:100%;
+    .logo-center {
+      display: block; /* Change to block for consistent centering */
+      text-align: center; /* Center the content */
     }
-    .logo-card{
-      margin:0 auto;
-      max-width:1000px;
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#fff;
+    .logo-card {
+      margin: 0 auto; /* Center the card horizontally */
+      max-width: 1000px; /* Limit maximum width */
+      width: 100%; /* Full width up to max-width */
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #fff;
+      display: inline-block; /* Inline-block to respect text-align */
     }
-    .logo-card.logo-bg{
-      aspect-ratio: 11 / 4;              /* close to the logo's ratio */
+    .logo-card.logo-bg {
+      aspect-ratio: 11 / 4; /* Maintain logo aspect ratio */
       background-image: url("images/logo.png");
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: 52% center;   /* adjust 50–54% to taste */
-      min-height: 140px;                 /* ensures presence on small screens */
-      margin-top: 20px; /* Add gap between text and logo */
+      background-position: center center; /* Center the background image */
+      min-height: 140px; /* Minimum height for visibility */
+      margin-top: 20px; /* Gap between text and logo */
     }
-    .logo-caption{
-      margin:10px auto 0;
-      max-width:1000px;
-      text-align:center;
-      color:#375a9d;
-      font-weight:600;
+    .logo-caption {
+      margin: 10px auto 0;
+      max-width: 1000px;
+      text-align: center;
+      color: #375a9d;
+      font-weight: 600;
     }
 
     /* Slider */
