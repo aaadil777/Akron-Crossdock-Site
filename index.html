@@ -51,7 +51,7 @@
     .kcard small{display:block;font-size:13px;color:#496aa7}
     @media (max-width:640px){.card-row{grid-template-columns:repeat(2,1fr);gap:8px}.kcard{padding:10px 8px}.kcard b{font-size:16px}.kcard small{font-size:12px}}
 
-    /* Crossdock block – hard centered */
+    /* Crossdock block – hard centered (mobile/tablet) */
     .logo-block{margin:18px 0 8px;text-align:center}
     .logo-card{
       max-width:1000px;margin-inline:auto; /* centers the card */
@@ -60,6 +60,16 @@
     }
     .logo-card img{display:block;width:100%;max-width:1000px;height:auto;object-fit:contain;margin-inline:auto}
     .logo-caption{margin:10px auto 0;max-width:1000px;text-align:center;color:#375a9d;font-weight:600}
+
+    /* Desktop-only indent (~2 tabs ≈ 4em) for Crossdock block */
+    @media (min-width: 992px){
+      .logo-card,
+      .logo-caption{
+        margin-left:4em;      /* manual 2-tab offset on desktop */
+        margin-right:auto;
+        text-align:left;      /* caption aligns with the card */
+      }
+    }
 
     /* Slider – guaranteed height so images never “disappear” */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
@@ -117,7 +127,7 @@
     </div>
   </section>
 
-  <!-- Crossdock logo (centered) -->
+  <!-- Crossdock logo (centered on mobile/tablet; indented on desktop) -->
   <section class="container logo-block">
     <div class="logo-card">
       <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
