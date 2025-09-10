@@ -78,20 +78,20 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block — HARD CENTER on all screens */
-    .logo-block{margin:18px 0 8px}
-    /* Kill any legacy indents that might linger */
-    .logo-block{padding-left:0 !important;text-align:center}
-
+    /* ===== Crossdock block — HARD CENTER on all screens (fixed) ===== */
+    .logo-block{
+      margin:18px 0 8px;
+      padding-left:0 !important; /* kill any inherited indent */
+    }
     .logo-center{
-      display:flex;            /* This guarantees centering */
-      justify-content:center;  /* center horizontally */
+      display:grid;
+      place-items:center;       /* centers both axes */
       width:100%;
     }
     .logo-card{
-      display:block;
-      width:min(100%, 1000px); /* explicit width + max cap */
-      margin:0 auto;           /* center fallback */
+      margin:0 auto;            /* center fallback */
+      max-width:1000px;         /* explicit cap */
+      width:100%;               /* fill container */
       border:1px solid var(--line);
       border-radius:12px;
       overflow:hidden;
@@ -102,6 +102,7 @@
       display:block;
       width:100%;
       height:auto;
+      margin-inline:auto;       /* guard against odd intrinsic padding */
       object-fit:contain;
     }
     .logo-caption{
