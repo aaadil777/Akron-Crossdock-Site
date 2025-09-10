@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a2a6b" />
   <!-- Preload key images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
-  <link rel="preload" as="image" href="images/logo.jpg">
+  <link rel="preload" as="image" href="images/logo.png">
 
   <style>
     :root{
@@ -39,26 +39,31 @@
     .hero::before{
       content:"";position:absolute;inset:0;pointer-events:none;
       background:
-        radial-gradient(125% 70% at 0% 50%, rgba(255,255,255,.82), transparent 60%),
-        radial-gradient(125% 70% at 100% 50%, rgba(255,255,255,.82), transparent 60%);
+        linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+        radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+        radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%);
     }
-    .hero .inner{position:relative;z-index:2;padding:28px 0}
-    .hero h1{margin:0 0 8px;font-size:clamp(28px,4.2vw,46px);line-height:1.12;color:#0b1a37}
-    .hero p{margin:0;color:#33589d;max-width:900px}
+    .hero .inner{position:relative;z-index:1;padding:42px 0}
+    #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
+    .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
-    .hero .inner::after{
-      content:"";display:block;margin-top:18px;height:1px;width:100%;
-      background:linear-gradient(90deg,rgba(27,73,164,.28),transparent 55%);
-    }
-
-    @media (max-width:640px){
-      .hero{min-height:unset;background:#f6f8fc}
-      .hero::before{display:none}
-      .hero .inner{
-        padding:14px 0 6px; background:rgba(255,255,255,.86);
-        border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)
+    /* MOBILE: put Parhar logo + soft overlay only behind the H1 block */
+    @media (max-width:768px){
+      .hero{background:none}
+      .hero::before{background:none}
+      #heroTitle{position:relative;display:inline-block;z-index:1}
+      #heroTitle::before{
+        content:"";
+        position:absolute;
+        inset:-10px -14px;
+        z-index:-1;
+        border-radius:12px;
+        background:
+          linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+          radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          url("images/parhar-trucking.png") center/contain no-repeat;
       }
-      .hero .inner::after{display:none}
     }
 
     /* Stat cards */
@@ -108,58 +113,30 @@
     }
 
     /* Slider */
-    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-    .slide{display:none}
-    .slide.active{display:block}
-    .slider img{width:100%;height:auto;display:block}
-    .sdots{display:flex;gap:6px;justify-content:center;padding:8px}
-    .sdots button{width:8px;height:8px;border-radius:999px;border:1px solid #9ab1e9;background:#e9f0ff;opacity:.7}
-    .sdots button.active{background:#4069c2;opacity:1}
-    .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:8px}
-    .snav button{appearance:none;border:none;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:10px;padding:6px 10px;cursor:pointer}
-    .snav button:hover{background:#fff}
+    .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
+    .slide.active{opacity:1}
+    .slide img{width:100%;height:100%;object-fit:cover}
+    .snav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .sbtn{pointer-events:auto;background:#ffffffed;border:1px solid var(--line);border-radius:999px;padding:10px;cursor:pointer;margin:10px}
+    .sdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+    .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.95}
+    .sdots button.active{background:#fff}
 
-    /* Map + Posts */
-    .split-2{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-top:18px}
-    @media (max-width:880px){ .split-2{grid-template-columns:1fr;gap:10px} }
-    .map iframe{border:0;aspect-ratio:16/11;width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow)}
-    .posts{display:grid;gap:10px}
-    .post{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-    .post img{width:100%;height:auto;display:block}
-    .post .p{padding:10px}
-    .post b{display:block;margin-bottom:4px}
-    .post small{color:#4b6aa8}
-
-    /* Footer */
-    footer{margin:26px 0 50px; text-align:center; color:#3e5ea3}
-    .footbrand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
-    .footbrand img{height:30px}
+    /* Map + footer */
+    section{padding:24px 0}
+    .foot-map .map{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .foot-map iframe{width:100%;height:360px;border:0}
+    footer{margin-top:28px;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+    .footbrand{display:inline-flex;align-items:center;gap:8px}
+    .footbrand img{height:40px;width:auto}
 
     /* Floating CTA */
-    .float-cta{
-      position:fixed;bottom:18px;right:18px;z-index:70;
-      border-radius:999px;display:flex;gap:8px;align-items:center;
-      padding:10px 14px;background:var(--accent);color:#fff;border:1px solid #063072;box-shadow:0 12px 30px rgba(10,42,107,.28);
-      cursor:pointer
-    }
+    .float-cta{position:fixed;right:16px;bottom:18px;z-index:70;background:var(--accent);color:#fff;border:0;border-radius:999px;
+      padding:12px 16px;box-shadow:0 14px 34px rgba(10,42,107,.28);display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer}
+    .float-cta:hover{background:var(--accent-2)}
     .float-cta svg{width:18px;height:18px}
-    .float-cta:hover{background:#123a7c}
-
-    /* ===== Added: logo hard-center (ignore bitmap whitespace) ===== */
-    .logo-card{ aspect-ratio: 16 / 9; min-height: 140px; }
-    .logo-bg{ background: #fff url("images/logo.jpg") center / contain no-repeat; }
-
-    /* ===== Added: Typewriter effect for hero headline ===== */
-    .typewriter{ white-space: nowrap; overflow: hidden; }
-    .typewriter::after{
-      content:""; display:inline-block; width:1px; height:1em;
-      vertical-align:-0.2em; background: currentColor; margin-left:2px;
-      animation: caret 1s steps(1) infinite;
-    }
-    @keyframes caret { 50% { opacity: 0; } }
-    @media (prefers-reduced-motion: reduce){
-      .typewriter::after{ animation: none; }
-    }
+    .pad-bottom{padding-bottom:84px}
   </style>
 </head>
 
@@ -182,7 +159,7 @@
 
   <section class="hero" role="img" aria-label="Parhar Trucking, Inc. logo background">
     <div class="container inner">
-      <h1 id="heroTitle" class="typewriter">We are Parhar Group — 30+ years of logistics service.</h1>
+      <h1 id="heroTitle">We are Parhar Group — 30+ years of logistics service.</h1>
       <p>With <strong>Crossdock Akron</strong>, we provide fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
       <div class="card-row" id="facts">
@@ -200,49 +177,35 @@
   <!-- Crossdock logo -->
   <section class="container logo-block">
     <div class="logo-center">
-      <!-- Replaced <img> with a background div to ignore bitmap whitespace -->
-      <div class="logo-card logo-bg" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
+      <div class="logo-card">
+        <img src="images/logo.png" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
+      </div>
     </div>
     <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
   </section>
 
   <!-- Gallery -->
-  <section class="container" id="gallery" aria-label="Facility &amp; Work">
+  <section id="gallery" class="container" aria-label="Facility & Work">
     <h2>Facility &amp; Work</h2>
     <div class="slider" id="slider">
       <div class="slide active"><img src="images/yard-bobcat.jpg" alt="Yard equipment" loading="eager" decoding="async"></div>
       <div class="slide"><img src="images/IMG_1794.jpg" alt="Pallet stacks staged" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1878.jpg" alt="Dock doors" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_2083.jpg" alt="Pallet rework" loading="lazy" decoding="async"></div>
-      <div class="slide"><img src="images/IMG_1792.jpg" alt="Warehouse aisle" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0315.jpg" alt="Trailer cartons organized" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_0183.jpg" alt="Produce cartons with dunnage bag" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="images/IMG_1918.jpg" alt="Sprite pallets staged at dock" loading="lazy" decoding="async"></div>
+
+      <div class="snav">
+        <button class="sbtn" id="prev" aria-label="Previous">◀</button>
+        <button class="sbtn" id="next" aria-label="Next">▶</button>
+      </div>
+      <div class="sdots" id="sdots" aria-label="Slide dots"></div>
     </div>
-    <div class="snav">
-      <button id="prev" aria-label="Previous slide">‹</button>
-      <button id="next" aria-label="Next slide">›</button>
-    </div>
-    <div class="sdots" id="sdots" aria-label="Slider dots"></div>
   </section>
 
-  <!-- Map + recent posts -->
-  <section class="container split-2">
+  <!-- Map -->
+  <section class="container foot-map" aria-label="Location">
     <div class="map">
-      <iframe title="Crossdock Akron Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.348436519557!2d-81.4868394!3d41.0350531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88312ba142e5e063%3A0x7e90f84d3957209f!2sCross%20dock%2C%20Warehouse%2C%20Rework%20%26%20Storage%20of%20(%20Freight%20all%20kind%20)%20of%20Akron%2C%20Ohio!5e0!3m2!1sen!2sus!4v1725320000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="posts" aria-label="Latest posts">
-      <article class="post">
-        <img src="images/IMG_1794.jpg" alt="Pallet rework and staging" loading="lazy" decoding="async">
-        <div class="p">
-          <b>Crossdock Rework &amp; Recoup</b>
-          <small>Fast turnaround to keep freight moving</small>
-        </div>
-      </article>
-      <article class="post">
-        <img src="images/IMG_2083.jpg" alt="Dock door operations" loading="lazy" decoding="async">
-        <div class="p">
-          <b>48 Doors, 4+ Acres</b>
-          <small>Easy access and maneuverability</small>
-        </div>
-      </article>
+      <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
@@ -251,12 +214,12 @@
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
       <span>Parhar Group · Crossdock Akron</span>
     </div>
-    <div>© <span id="year"></span> · <a href="https://maps.google.com/?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
+    <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
 
   <!-- Floating CTA -->
   <button class="float-cta" id="emailCta" aria-label="Request a quote">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 0 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Get a Quote
   </button>
 
@@ -272,43 +235,20 @@
     function go(i){if(!slides.length)return; cur=(i+slides.length)%slides.length; mark()}
     function next(){go(cur+1)} function prev(){go(cur-1)}
     function start(){stop(); timer=setInterval(next,5000)} function stop(){clearInterval(timer)}
-    function buildDots(){dotsEl.innerHTML=""; slides.forEach((_,i)=>{const b=document.createElement('button'); b.addEventListener('click',()=>{go(i);start()});dotsEl.appendChild(b)})}
+    function buildDots(){dotsEl.innerHTML=slides.map((_,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join('');
+      [...dotsEl.children].forEach((b,i)=>b.onclick=()=>{go(i);start()})}
     buildDots(); mark(); start();
     document.getElementById('next')?.addEventListener('click',()=>{next();start()})
     document.getElementById('prev')?.addEventListener('click',()=>{prev();start()})
-    slides.forEach(s=>{s.querySelector('img').addEventListener('load',()=>{buildDots(); if(cur>=slides.length) cur=slides.length-1; mark();})})
+    slides.forEach(s=>{s.querySelector('img').addEventListener('error',()=>{s.remove(); slides=[...sliderEl.querySelectorAll('.slide')]; if(!slides.length) return; buildDots(); if(cur>=slides.length) cur=slides.length-1; mark();})})
 
     // Mailto CTA
-    const to="crossdockW@gmail.com";
+    const to="crossdockW@gmail.com";  
     const subject="Inquiry for Crossdock Akron";
-    const body=["Hi, my name is __ and I am with __.","I am interested in cross-docking / pallet rework / storage.","Could you share current rates and availability?","My email/phone is ___.","","Best regards,"].join("%0D%0A");
+    const body=["Hi, my name is __ and I am with __.","I am interested in your services and would like more information on storage and pricing.","My email/phone is ___.","","Best regards,"].join("%0D%0A");
     const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
     document.getElementById('emailCta').addEventListener('click',()=>{window.location.href=mailto});
     document.getElementById('contactLink').addEventListener('click',(e)=>{e.preventDefault();window.location.href=mailto});
-  </script>
-
-  <!-- Added: Typewriter JS for heroTitle -->
-  <script>
-  (function(){
-    var el = document.getElementById('heroTitle');
-    if(!el) return;
-    var full = el.getAttribute('data-text') || el.textContent.trim();
-    var speed = 24;  // ms per char
-    var pause = 600; // initial delay
-
-    // Respect reduced motion
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      el.textContent = full;
-      return;
-    }
-
-    el.textContent = "";
-    var i=0;
-    setTimeout(function tick(){
-      el.textContent = full.slice(0, i++);
-      if(i<=full.length){ setTimeout(tick, speed); }
-    }, pause);
-  })();
   </script>
 </body>
 </html>
