@@ -13,7 +13,8 @@
       --bg:#ffffff;--paper:#ffffff;--line:#dbe8ff;--muted:#3a5aa3;--text:#0b1a37;
       --accent:#0a2a6b;--accent-2:#1b49a4;--radius:14px;--shadow:0 14px 34px rgba(10,42,107,.16);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
     img{max-width:100%;display:block}
     .container{width:min(1220px,92vw);margin-inline:auto}
@@ -28,7 +29,7 @@
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#1b49a4);color:#fff;text-align:center;font-size:14px;padding:6px 0;white-space:nowrap}
     .quote-strip .e{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-right:6px}
 
-    /* HERO – image as background, overlay via ::before for reliable iOS render */
+    /* HERO – background + subtle white overlays (works on iOS via ::before) */
     .hero{
       position:relative;display:flex;align-items:center;min-height:clamp(380px,54vw,640px);
       color:#0b1a37;background:#f6f8fc url("images/parhar-trucking.png") center/contain no-repeat;
@@ -41,7 +42,11 @@
         radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%);
     }
     .hero .inner{position:relative;z-index:1;padding:42px 0}
-    .hero h1{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
+
+    /* Typewriter */
+    .tw-cursor{border-right:2px solid var(--accent);animation:twblink 1s steps(1,end) infinite}
+    @keyframes twblink{50%{border-color:transparent}}
+    #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
     /* Stat cards */
@@ -49,29 +54,30 @@
     .kcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 12px;text-align:center}
     .kcard b{display:block;font-size:18px;margin-bottom:4px;color:var(--accent)}
     .kcard small{display:block;font-size:13px;color:#496aa7}
-    @media (max-width:640px){.card-row{grid-template-columns:repeat(2,1fr);gap:8px}.kcard{padding:10px 8px}.kcard b{font-size:16px}.kcard small{font-size:12px}}
+    @media (max-width:640px){
+      .card-row{grid-template-columns:repeat(2,1fr);gap:8px}
+      .kcard{padding:10px 8px}
+      .kcard b{font-size:16px}
+      .kcard small{font-size:12px}
+    }
 
-    /* Crossdock block – hard centered (mobile/tablet) */
-    .logo-block{margin:18px 0 8px;text-align:center}
+    /* Crossdock block */
+    .logo-block{margin:18px 0 8px;text-align:center}             /* centered by default (mobile/tablet) */
     .logo-card{
-      max-width:1000px;margin-inline:auto; /* centers the card */
+      max-width:1000px;margin-inline:auto;
       border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
       display:flex;align-items:center;justify-content:center;
     }
     .logo-card img{display:block;width:100%;max-width:1000px;height:auto;object-fit:contain;margin-inline:auto}
     .logo-caption{margin:10px auto 0;max-width:1000px;text-align:center;color:#375a9d;font-weight:600}
 
-    /* Desktop-only indent (~2 tabs ≈ 4em) for Crossdock block */
+    /* Desktop-only manual "2 tab" indent (~4em) for BOTH image + caption */
     @media (min-width: 992px){
-      .logo-card,
-      .logo-caption{
-        margin-left:4em;      /* manual 2-tab offset on desktop */
-        margin-right:auto;
-        text-align:left;      /* caption aligns with the card */
-      }
+      .logo-block{padding-left:4em;text-align:left;}
+      .logo-card,.logo-caption{margin-left:0;margin-right:auto;text-align:left;}
     }
 
-    /* Slider – guaranteed height so images never “disappear” */
+    /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity .45s}
     .slide.active{opacity:1}
@@ -93,10 +99,12 @@
     /* Floating CTA */
     .float-cta{position:fixed;right:16px;bottom:18px;z-index:70;background:var(--accent);color:#fff;border:0;border-radius:999px;
       padding:12px 16px;box-shadow:0 14px 34px rgba(10,42,107,.28);display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer}
-    .float-cta:hover{background:var(--accent-2)} .float-cta svg{width:18px;height:18px}
+    .float-cta:hover{background:var(--accent-2)}
+    .float-cta svg{width:18px;height:18px}
     .pad-bottom{padding-bottom:84px}
   </style>
 </head>
+
 <body class="pad-bottom">
   <header>
     <div class="container nav">
@@ -112,7 +120,7 @@
 
   <section class="hero" role="img" aria-label="Parhar Trucking, Inc. logo background">
     <div class="container inner">
-      <h1>We are Parhar Group — 30+ years of logistics service.</h1>
+      <h1 id="heroTitle" class="tw-cursor"></h1>
       <p>With <strong>Crossdock Akron</strong>, we provide fast cross-docking, pallet rework/recoup, and flexible storage — built for carriers, brokers, and shippers.</p>
 
       <div class="card-row" id="facts">
@@ -120,7 +128,7 @@
         <div class="kcard"><b>19,000 sq ft</b><small>Expansive Warehouse &amp; Storage</small></div>
         <div class="kcard"><b>4+ Acres</b><small>Easy Maneuverability &amp; Parking</small></div>
         <div class="kcard"><b>24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
+        <div class="kcard"><b>&lt; ~ 0.25 mi</b><small>Multiple Highway Access</small></div>
         <div class="kcard"><b>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
         <div class="kcard"><b>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
       </div>
@@ -175,9 +183,22 @@
   </button>
 
   <script>
+    // Footer year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Robust slider: rebuild safely if an image fails
+    // Typewriter for hero title
+    (function(){
+      const el = document.getElementById('heroTitle');
+      const text = 'We are Parhar Group — 30+ years of logistics service.';
+      let i = 0;
+      function tick(){
+        el.textContent = text.slice(0, i++);
+        if(i <= text.length){ setTimeout(tick, 28); }
+      }
+      tick();
+    })();
+
+    // Simple, robust slider
     const sliderEl=document.getElementById('slider'); const dotsEl=document.getElementById('sdots');
     let slides=[...sliderEl.querySelectorAll('.slide')], cur=0, timer;
     function mark(){slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
