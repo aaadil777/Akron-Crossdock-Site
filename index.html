@@ -47,6 +47,7 @@
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
+    /* MOBILE: logo overlay only behind the H1 block */
     @media (max-width:768px){
       .hero{background:none}
       .hero::before{background:none}
@@ -77,7 +78,7 @@
       .kcard small{font-size:12px}
     }
 
-    /* ===== Crossdock logo block — bulletproof centering ===== */
+    /* ===== Crossdock logo block — background image w/ optical centering ===== */
     .logo-block{
       margin:18px 0 8px;
       padding-left:0 !important;
@@ -85,7 +86,7 @@
     }
     .logo-center{
       display:grid;
-      place-items:center; /* center both axes */
+      place-items:center;
       width:100%;
     }
     .logo-card{
@@ -98,14 +99,13 @@
       box-shadow:var(--shadow);
       background:#fff;
     }
-    /* Render the logo as a background so internal whitespace can't skew centering.
-       Adjust background-position-x from 50% to taste (e.g., 52%) for optical centering. */
     .logo-card.logo-bg{
-      aspect-ratio: 11 / 4;                      /* close to your PNG's ratio */
+      aspect-ratio: 11 / 4;              /* close to the logo's ratio */
       background-image: url("images/logo.png");
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: 52% center;           /* tweak 50–54% if it still looks left-heavy */
+      background-position: 52% center;   /* adjust 50–54% to taste */
+      min-height: 140px;                 /* ensures presence on small screens */
     }
     .logo-caption{
       margin:10px auto 0;
@@ -180,6 +180,10 @@
 
   <!-- Crossdock logo -->
   <section class="container logo-block">
+    <div>
+
+      
+    </div>
     <div class="logo-center">
       <!-- Background div ignores internal padding and lets us nudge optical center -->
       <div class="logo-card logo-bg" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
