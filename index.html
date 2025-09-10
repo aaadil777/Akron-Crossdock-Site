@@ -47,7 +47,7 @@
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
-    /* MOBILE: place the Parhar logo + soft overlay only behind the H1 block */
+    /* MOBILE: put Parhar logo + soft overlay only behind the H1 block */
     @media (max-width:768px){
       .hero{background:none}
       .hero::before{background:none}
@@ -55,7 +55,7 @@
       #heroTitle::before{
         content:"";
         position:absolute;
-        inset:-10px -14px;           /* breathing room around text */
+        inset:-10px -14px;
         z-index:-1;
         border-radius:12px;
         background:
@@ -78,12 +78,20 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block (hard-center, robust) */
-    .logo-block{margin:18px 0 8px;text-align:center}
+    /* Crossdock block — HARD CENTER on all screens */
+    .logo-block{margin:18px 0 8px}
+    /* Kill any legacy indents that might linger */
+    .logo-block{padding-left:0 !important;text-align:center}
+
+    .logo-center{
+      display:flex;            /* This guarantees centering */
+      justify-content:center;  /* center horizontally */
+      width:100%;
+    }
     .logo-card{
-      display:block;                /* simpler than flex; avoids odd widths */
-      width:min(100%, 1000px);      /* explicit width for consistent centering */
-      margin:0 auto;                /* centers the card */
+      display:block;
+      width:min(100%, 1000px); /* explicit width + max cap */
+      margin:0 auto;           /* center fallback */
       border:1px solid var(--line);
       border-radius:12px;
       overflow:hidden;
@@ -159,7 +167,7 @@
         <div class="kcard"><b>19,000 sq ft</b><small>Expansive Warehouse &amp; Storage</small></div>
         <div class="kcard"><b>4+ Acres</b><small>Easy Maneuverability &amp; Parking</small></div>
         <div class="kcard"><b>24/7</b><small>Surveillance for Safety</small></div>
-        <div class="kcard"><b>&lt;~ 0.25 mi</b><small>Multiple Highway Access</small></div>
+        <div class="kcard"><b>&lt; 0.25 mi</b><small>Multiple Highway Access</small></div>
         <div class="kcard"><b>~ 11 mi</b><small>Walmart &amp; Sam’s DCs</small></div>
         <div class="kcard"><b>Mon–Fri 8–5</b><small>24/7 by Appt.</small></div>
       </div>
@@ -168,8 +176,10 @@
 
   <!-- Crossdock logo -->
   <section class="container logo-block">
-    <div class="logo-card">
-      <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
+    <div class="logo-center">
+      <div class="logo-card">
+        <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
+      </div>
     </div>
     <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
   </section>
