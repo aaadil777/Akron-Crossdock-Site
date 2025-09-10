@@ -79,42 +79,42 @@
     }
 
     /* ===== Crossdock logo block — background image w/ optical centering ===== */
-  .logo-block {
-      margin: 18px 0 8px;
-      padding-left: 0 !important;
-      text-align: center; /* Ensure container is centered */
-    }
-    .logo-center {
-      display: block; /* Change to block for consistent centering */
-      text-align: center; /* Center the content */
-    }
-    .logo-card {
-      margin: 0 auto; /* Center the card horizontally */
-      max-width: 1000px; /* Limit maximum width */
-      width: 100%; /* Full width up to max-width */
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: #fff;
-      display: inline-block; /* Inline-block to respect text-align */
-    }
-    .logo-card.logo-bg {
-      aspect-ratio: 11 / 4; /* Maintain logo aspect ratio */
-      background-image: url("images/logo.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center; /* Center the background image */
-      min-height: 140px; /* Minimum height for visibility */
-      margin-top: 20px; /* Gap between text and logo */
-    }
-    .logo-caption {
-      margin: 10px auto 0;
-      max-width: 1000px;
-      text-align: center;
-      color: #375a9d;
-      font-weight: 600;
-    }
+    .logo-block {
+        margin: 18px 0 8px;
+        padding-left: 0 !important;
+        text-align: center; /* Base centering */
+      }
+      .logo-block .logo-center {
+        display: block;
+        text-align: center; /* Reinforce centering */
+      }
+      .logo-block .logo-card {
+        margin: 0 auto !important; /* Force centering */
+        max-width: 1000px;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: #fff;
+        display: inline-block !important; /* Ensure inline-block applies */
+      }
+      .logo-block .logo-card.logo-bg {
+        aspect-ratio: 11 / 4;
+        background-image: url("images/logo.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center !important; /* Force center alignment */
+        min-height: 140px;
+        margin-top: 20px; /* Gap between text and logo */
+      }
+      .logo-caption {
+        margin: 10px auto 0;
+        max-width: 1000px;
+        text-align: center;
+        color: #375a9d;
+        font-weight: 600;
+      }
 
     /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
