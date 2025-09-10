@@ -66,16 +66,44 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock logo block — CENTERED + max width */
+    /* Crossdock logo block — hard-center the whole unit */
     .logo-block{margin:18px 0 8px}
+
+    /* Center the CARD itself and cap its width */
     .logo-card{
-      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
-      display:flex;justify-content:center;align-items:center;
+      max-width:1000px;          /* cap the card on wide screens */
+      margin-inline:auto;        /* ← centers the card */
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#f7fbff;
+
+      /* the image will already be centered by margin on the img,
+        but we keep flex for perfect vertical centering if it ever
+        gets a fixed height later */
+      display:flex;align-items:center;justify-content:center;
     }
+
+    /* Make the image fill the card width (up to the cap) and be centered */
     .logo-card img{
-      width:100%;max-width:980px;height:auto;object-fit:contain;margin:auto;
+      display:block;
+      width:100%;
+      max-width:1000px;          /* matches card cap for crisp edges */
+      height:auto;
+      object-fit:contain;
+      margin-inline:auto;        /* belt-and-suspenders center */
     }
-    .logo-caption{margin-top:10px;text-align:center;color:#375a9d;font-weight:600}
+
+    /* Center the caption and match the card width */
+    .logo-caption{
+      margin:10px auto 0;        /* center the caption container */
+      max-width:1000px;          /* line up with the card */
+      text-align:center;
+      color:#375a9d;
+      font-weight:600;
+    }
+
 
     /* Gallery / slider — give the container HEIGHT so it shows */
     .slider{
@@ -193,45 +221,74 @@
   </button>
 
   <script>
-    // Year
-    document.getElementById('year').textContent=new Date().getFullYear();
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Robust slider
-    const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('sdots');
-    let cur=0,timer;
-    function go(i){
-      slides[cur].classList.remove('active');
-      cur=(i+slides.length)%slides.length;
-      slides[cur].classList.add('active');
-      [...dots.children].forEach((d,j)=>d.classList.toggle('active',j===cur));
+    /* --- Slider (robust version) --- */
+    const sliderEl = document.getElementById('slider');
+    const dotsEl   = document.getElementById('sdots');
+    let slides = [];
+    let cur = 0, timer;
+
+    function collect() {
+      slides = [...sliderEl.querySelectorAll('.slide')];
     }
-    function next(){go(cur+1)} function prev(){go(cur-1)}
-    function start(){stop();timer=setInterval(next,5000)} function stop(){clearInterval(timer)}
-    dots.innerHTML=slides.map((_,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join('');
-    [...dots.children].forEach((b,i)=>b.onclick=()=>{go(i);start()});
-    document.getElementById('next')?.addEventListener('click', ()=>{next();start()});
-    document.getElementById('prev')?.addEventListener('click', ()=>{prev();start()});
+    function buildDots() {
+      dotsEl.innerHTML = slides.map((_, i) =>
+        `<button aria-label="Go to slide ${i+1}"></button>`).join('');
+      [...dotsEl.children].forEach((b, i) => b.onclick = () => { go(i); start(); });
+    }
+    function markActive() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === cur));
+      [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+    function go(i) {
+      if (!slides.length) return;
+      cur = (i + slides.length) % slides.length;
+      markActive();
+    }
+    function next(){ go(cur + 1); }
+    function prev(){ go(cur - 1); }
+    function start(){ stop(); timer = setInterval(next, 5000); }
+    function stop(){ clearInterval(timer); }
+
+    // Initial build
+    collect();
+    buildDots();
+    go(0);
     start();
 
-    // Mailto
-    const to="crossdockW@gmail.com";
-    const subject="Inquiry for Crossdock Akron";
-    const body=[
+    document.getElementById('next')?.addEventListener('click', () => { next(); start(); });
+    document.getElementById('prev')?.addEventListener('click', () => { prev(); start(); });
+
+    // If any image errors, remove its slide and rebuild lists/dots safely
+    slides.forEach((s) => {
+      const img = s.querySelector('img');
+      img.addEventListener('error', () => {
+        s.remove();
+        const oldIndex = cur;
+        collect();
+        if (!slides.length) return; // nothing left; quietly stop
+        buildDots();
+        if (oldIndex >= slides.length) cur = slides.length - 1;
+        go(cur);
+      });
+    });
+
+    /* --- Mailto CTA --- */
+    const to = "crossdockW@gmail.com";
+    const subject = "Inquiry for Crossdock Akron";
+    const body = [
       "Hi, my name is ____ and I am with ____.",
       "I am interested in your services and would like more information on storage and pricing.",
       "My email/phone is _____.",
       "",
       "Best regards,"
     ].join("%0D%0A");
-    const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    document.getElementById('emailCta').addEventListener('click', ()=>{ window.location.href=mailto; });
-    document.getElementById('contactLink').addEventListener('click',(e)=>{ e.preventDefault(); window.location.href=mailto; });
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
 
-    // If any gallery image errors, remove that slide so the carousel never looks empty
-    slides.forEach(s=>{
-      const img=s.querySelector('img');
-      img.addEventListener('error',()=>{ s.remove(); if(cur>=slides.length) cur=0; });
-    });
+    document.getElementById('emailCta').addEventListener('click', () => { window.location.href = mailto; });
+    document.getElementById('contactLink').addEventListener('click', (e) => { e.preventDefault(); window.location.href = mailto; });
   </script>
 </body>
 </html>
