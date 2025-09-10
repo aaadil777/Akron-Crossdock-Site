@@ -61,21 +61,41 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block */
-    .logo-block{margin:18px 0 8px;text-align:center}             /* centered by default (mobile/tablet) */
+    /* Crossdock block – always centered */
+    .logo-block{
+      margin: 28px 0 12px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
     .logo-card{
-      max-width:1000px;margin-inline:auto;
-      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
-      display:flex;align-items:center;justify-content:center;
+      max-width:1000px;
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#f7fbff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .logo-card img{display:block;width:100%;max-width:1000px;height:auto;object-fit:contain;margin-inline:auto}
-    .logo-caption{margin:10px auto 0;max-width:1000px;text-align:center;color:#375a9d;font-weight:600}
+    .logo-card img{
+      width:100%;
+      max-width:1000px;
+      height:auto;
+      object-fit:contain;
+    }
+    .logo-caption{
+      margin-top:10px;
+      max-width:1000px;
+      text-align:center;
+      color:#375a9d;
+      font-weight:600;
+    }
 
-    /* Desktop-only manual "2 tab" indent (~4em) for BOTH image + caption */
-    @media (min-width: 992px){
-      .logo-block{padding-left:4em;text-align:left;}
-      .logo-card,.logo-caption{margin-left:0;margin-right:auto;text-align:left;}
-    }
 
     /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
@@ -135,12 +155,14 @@
     </div>
   </section>
 
-  <!-- Crossdock logo (centered on mobile/tablet; indented on desktop) -->
-  <section class="container logo-block">
+  <!-- Crossdock logo (centered on all devices) -->
+  <section class="logo-block">
     <div class="logo-card">
       <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
     </div>
-    <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
+    <div class="logo-caption">
+      Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.
+    </div>
   </section>
 
   <!-- Gallery / Turnstile -->
