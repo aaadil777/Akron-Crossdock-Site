@@ -78,43 +78,34 @@
       .kcard small{font-size:12px}
     }
 
-    /* ===== Crossdock logo block — background image w/ optical centering ===== */
-    .logo-block {
-      margin: 18px 0 8px;
-      padding-left: 0 !important;
-      text-align: center;
+    /* ===== Crossdock Feature (full-width, zoom-proof center) ===== */
+    .logo-feature{
+      padding:14px 0 6px;       /* minimal rhythm */
+      margin:0;
+      background:transparent;
     }
-    .logo-center {
-      display: block;
-      text-align: center;
-    }
-    .logo-card {
-      margin: 0 auto !important;
-      max-width: 800px; /* Reduced max-width to better fit the logo */
-      width: auto; /* Allow width to adjust based on content */
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: #fff;
-      display: inline-block !important;
-      vertical-align: middle; /* Ensure vertical alignment if needed */
-    }
-    .logo-card.logo-bg {
+    .logo-tile{
+      /* Robust centering that ignores subpixel rounding */
+      position:relative; left:50%; transform:translateX(-50%);
+      width:min(1100px, 92vw);
       aspect-ratio: 11 / 4;
-      background-image: url("images/logo.png");
-      background-repeat: no-repeat;
-      background-size: 70% auto; /* Further compress to 70% to fit better */
-      background-position: center center !important;
-      min-height: 140px;
-      margin-top: 20px; /* Gap between text and logo */
+      background:#fff url("images/logo.png") 52% center / contain no-repeat; /* optical nudge */
+      border:1px solid var(--line);
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-inline:auto; /* fallback center */
     }
-    .logo-caption {
-      margin: 10px auto 0;
-      max-width: 1000px;
-      text-align: center;
-      color: #375a9d;
-      font-weight: 600;
+    @supports not (aspect-ratio: 1 / 1){
+      /* Old Safari/IE fallback so height is stable */
+      .logo-tile{height:180px;}
+    }
+    .logo-sub{
+      margin:10px auto 0;
+      width:min(1100px, 92vw);
+      text-align:center;
+      color:#375a9d;
+      font-weight:600;
     }
 
     /* Slider */
@@ -180,13 +171,10 @@
     </div>
   </section>
 
-  <!-- Crossdock logo -->
-  <section class="container logo-block">
-       <div class="logo-center">
-      <!-- Background div ignores internal padding and lets us nudge optical center -->
-      <div class="logo-card logo-bg" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
-    </div>
-    <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
+  <!-- Crossdock feature (full-width, no container) -->
+  <section class="logo-feature" aria-label="Crossdock Warehouse & Storage">
+    <div class="logo-tile" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
+    <p class="logo-sub">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</p>
   </section>
 
   <!-- Gallery -->
