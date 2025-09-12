@@ -78,30 +78,33 @@
       .kcard small{font-size:12px}
     }
 
-    /* ===== Crossdock Feature (full-width, zoom-proof center) ===== */
+    /* ===== Crossdock Feature (full-width, centered + spacing) ===== */
     .logo-feature{
-      padding:14px 0 6px;       /* minimal rhythm */
-      margin:0;
+      /* give it space from the hero above */
+      margin:48px 0 10px;
+      padding:0;               /* no extra padding to skew optics */
       background:transparent;
     }
+    .logo-row{
+      display:flex;
+      justify-content:center;  /* center at all zoom levels */
+      align-items:center;
+      width:100%;
+    }
     .logo-tile{
-      /* Robust centering that ignores subpixel rounding */
-      position:relative; left:50%; transform:translateX(-50%);
-      width:min(1100px, 92vw);
-      aspect-ratio: 11 / 4;
+      width:clamp(320px, 82vw, 1100px);
+      aspect-ratio: 11 / 4;    /* close to the PNG ratio */
       background:#fff url("images/logo.png") 52% center / contain no-repeat; /* optical nudge */
       border:1px solid var(--line);
       border-radius:12px;
       box-shadow:var(--shadow);
       overflow:hidden;
-      margin-inline:auto; /* fallback center */
     }
     @supports not (aspect-ratio: 1 / 1){
-      /* Old Safari/IE fallback so height is stable */
-      .logo-tile{height:180px;}
+      .logo-tile{height:180px;} /* old-browser fallback */
     }
     .logo-sub{
-      margin:10px auto 0;
+      margin:12px auto 0;
       width:min(1100px, 92vw);
       text-align:center;
       color:#375a9d;
@@ -173,7 +176,9 @@
 
   <!-- Crossdock feature (full-width, no container) -->
   <section class="logo-feature" aria-label="Crossdock Warehouse & Storage">
-    <div class="logo-tile" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
+    <div class="logo-row">
+      <div class="logo-tile" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
+    </div>
     <p class="logo-sub">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</p>
   </section>
 
