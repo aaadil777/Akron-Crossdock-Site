@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crossdock Warehouse & Storage — Akron, OH</title>
-  <meta name="description" content="Crossdock Akron — fast cross-docking, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access. Mon–Fri 8–5; 24/7 by appointment." />
+  <meta name="description" content="Crossdock Akron — fast cross-docking, pallet rework/recoup, storage. 48 doors, 4+ acres, quick highway access. Mon–Fri 8–5; 24/7 by appointment.">
   <meta name="theme-color" content="#0a2a6b" />
   <!-- Preload key images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
-  <link rel="preload" as="image" href="images/logo.jpg">
+  <link rel="preload" as="image" href="images/logo.png">
 
   <style>
     :root{
@@ -31,7 +31,7 @@
     .quote-strip{background:linear-gradient(90deg,#0a2a6b,#1b49a4);color:#fff;text-align:center;font-size:14px;padding:6px 0;white-space:nowrap}
     .quote-strip .e{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-right:6px}
 
-    /* HERO – desktop/web: full background with soft overlays */
+    /* HERO */
     .hero{
       position:relative;display:flex;align-items:center;min-height:clamp(380px,54vw,640px);
       color:#0b1a37;background:#f6f8fc url("images/parhar-trucking.png") center/contain no-repeat;
@@ -47,7 +47,7 @@
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
-    /* MOBILE: darker & larger Parhar logo ONLY behind the H1 */
+    /* MOBILE: logo overlay only behind the H1 block */
     @media (max-width:768px){
       .hero{background:none}
       .hero::before{background:none}
@@ -55,12 +55,14 @@
       #heroTitle::before{
         content:"";
         position:absolute;
-        inset:-14px -18px;                 /* roomy block area */
+        inset:-10px -14px;
         z-index:-1;
         border-radius:12px;
         background:
-          linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.28)), /* darker overlay */
-          url("images/parhar-trucking.png") center/120% no-repeat; /* expansive */
+          linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+          radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 55%),
+          url("images/parhar-trucking.png") center/contain no-repeat;
       }
     }
 
@@ -76,28 +78,34 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block – restored centering + responsive size */
-    .logo-block{margin:18px 0 8px}
-    .logo-row{display:flex;justify-content:center;align-items:center;width:100%}
-    .logo-card{
-      width:clamp(320px, 86vw, 1000px);   /* scales beautifully and stays centered */
-      margin:0 auto;
+    /* ===== Crossdock Feature (full-width, centered + spacing) ===== */
+    .logo-feature{
+      /* give it space from the hero above */
+      margin:48px 0 10px;
+      padding:0;               /* no extra padding to skew optics */
+      background:transparent;
+    }
+    .logo-row{
+      display:flex;
+      justify-content:center;  /* center at all zoom levels */
+      align-items:center;
+      width:100%;
+    }
+    .logo-tile{
+      width:clamp(320px, 82vw, 1100px);
+      aspect-ratio: 11 / 4;    /* close to the PNG ratio */
+      background:#fff url("images/logo.png") 52% center / contain no-repeat; /* optical nudge */
       border:1px solid var(--line);
       border-radius:12px;
-      overflow:hidden;
       box-shadow:var(--shadow);
-      background:#f7fbff;
-      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
     }
-    .logo-card img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      display:block;
+    @supports not (aspect-ratio: 1 / 1){
+      .logo-tile{height:180px;} /* old-browser fallback */
     }
-    .logo-caption{
-      margin:10px auto 0;
-      max-width:1000px;
+    .logo-sub{
+      margin:12px auto 0;
+      width:min(1100px, 92vw);
       text-align:center;
       color:#375a9d;
       font-weight:600;
@@ -114,16 +122,14 @@
     .sdots button{width:9px;height:9px;border-radius:999px;border:1px solid #fff;background:transparent;opacity:.95}
     .sdots button.active{background:#fff}
 
-    /* Map + footer */
+    /* Sections + Map + Footer */
     section{padding:24px 0}
+    .section-title{margin:0 0 10px;font-weight:800;font-size:clamp(20px,3.2vw,28px);color:var(--text)}
     .foot-map .map{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
     .foot-map iframe{width:100%;height:360px;border:0}
     footer{margin-top:28px;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
     .footbrand{display:inline-flex;align-items:center;gap:8px}
     .footbrand img{height:40px;width:auto}
-    .footcontact{margin-top:8px;font-size:14px}
-    .footcontact a{color:var(--accent-2);text-decoration:none}
-    .footcontact a:hover{text-decoration:underline}
 
     /* Floating CTA */
     .float-cta{position:fixed;right:16px;bottom:18px;z-index:70;background:var(--accent);color:#fff;border:0;border-radius:999px;
@@ -168,14 +174,12 @@
     </div>
   </section>
 
-  <!-- Crossdock logo (centered + responsive) -->
-  <section class="container logo-block">
+  <!-- Crossdock feature (full-width, no container) -->
+  <section class="logo-feature" aria-label="Crossdock Warehouse & Storage">
     <div class="logo-row">
-      <div class="logo-card">
-        <img src="images/logo.jpg" alt="Crossdock Warehouse & Storage logo" loading="eager" decoding="async">
-      </div>
+      <div class="logo-tile" role="img" aria-label="Crossdock Warehouse & Storage logo"></div>
     </div>
-    <div class="logo-caption">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</div>
+    <p class="logo-sub">Find out how we offer a top-of-the-line warehouse &amp; storage center facility in Northeast Ohio.</p>
   </section>
 
   <!-- Gallery -->
@@ -198,6 +202,7 @@
 
   <!-- Map -->
   <section class="container foot-map" aria-label="Location">
+    <h2 class="section-title">Check Us Out</h2>
     <div class="map">
       <iframe title="Crossdock Akron Map" src="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -207,11 +212,6 @@
     <div class="footbrand">
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
       <span>Parhar Group · Crossdock Akron</span>
-    </div>
-    <div class="footcontact">
-      ✉️ <a href="mailto:crossdockw@gmail.com">crossdockw@gmail.com</a>
-      &nbsp;·&nbsp;
-      📞 <a href="tel:+13305240021">330-524-0021</a>
     </div>
     <div>© <span id="year"></span> · <a href="https://www.google.com/maps?q=1172+Rosemary+Blvd,+Akron,+OH+44306">1172 Rosemary Blvd, Akron, OH 44306</a></div>
   </footer>
@@ -226,7 +226,7 @@
     // Year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Simple, robust slider
+    // Simple slider
     const sliderEl=document.getElementById('slider'); const dotsEl=document.getElementById('sdots');
     let slides=[...sliderEl.querySelectorAll('.slide')], cur=0, timer;
     function mark(){slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
@@ -242,9 +242,9 @@
     slides.forEach(s=>{s.querySelector('img').addEventListener('error',()=>{s.remove(); slides=[...sliderEl.querySelectorAll('.slide')]; if(!slides.length) return; buildDots(); if(cur>=slides.length) cur=slides.length-1; mark();})})
 
     // Mailto CTA
-    const to="crossdockw@gmail.com";
+    const to="crossdockW@gmail.com";  
     const subject="Inquiry for Crossdock Akron";
-    const body=["Hi, my name is ____ and I am with ____.","I am interested in your services and would like more information on storage and pricing.","My email/phone is _____.","","Best regards,"].join("%0D%0A");
+    const body=["Hi, my name is __ and I am with __.","I am interested in your services and would like more information on storage and pricing.","My email/phone is ___.","","Best regards,"].join("%0D%0A");
     const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
     document.getElementById('emailCta').addEventListener('click',()=>{window.location.href=mailto});
     document.getElementById('contactLink').addEventListener('click',(e)=>{e.preventDefault();window.location.href=mailto});
