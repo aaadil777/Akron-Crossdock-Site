@@ -9,6 +9,7 @@
   <!-- Preload key images -->
   <link rel="preload" as="image" href="images/parhar-trucking.png">
   <link rel="preload" as="image" href="images/logo.jpg">
+
   <style>
     :root{
       --bg:#ffffff;--paper:#ffffff;--line:#dbe8ff;--muted:#3a5aa3;--text:#0b1a37;
@@ -46,7 +47,7 @@
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
-    /* MOBILE: put the Parhar logo darker & larger ONLY behind the H1 */
+    /* MOBILE: darker & larger Parhar logo ONLY behind the H1 */
     @media (max-width:768px){
       .hero{background:none}
       .hero::before{background:none}
@@ -54,12 +55,12 @@
       #heroTitle::before{
         content:"";
         position:absolute;
-        inset:-14px -18px;             /* larger block area */
+        inset:-14px -18px;                 /* roomy block area */
         z-index:-1;
         border-radius:12px;
         background:
           linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.28)), /* darker overlay */
-          url("images/parhar-trucking.png") center/120% no-repeat; /* more expansive */
+          url("images/parhar-trucking.png") center/120% no-repeat; /* expansive */
       }
     }
 
@@ -75,17 +76,32 @@
       .kcard small{font-size:12px}
     }
 
-    /* Crossdock block (hard-centered) */
+    /* Crossdock block – restored centering + responsive size */
     .logo-block{margin:18px 0 8px}
     .logo-row{display:flex;justify-content:center;align-items:center;width:100%}
     .logo-card{
-      width:min(1000px,100%);
+      width:clamp(320px, 86vw, 1000px);   /* scales beautifully and stays centered */
       margin:0 auto;
-      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#f7fbff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#f7fbff;
       display:flex;align-items:center;justify-content:center;
     }
-    .logo-card img{display:block;width:100%;height:auto;object-fit:contain}
-    .logo-caption{margin:10px auto 0;max-width:1000px;text-align:center;color:#375a9d;font-weight:600}
+    .logo-card img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+    .logo-caption{
+      margin:10px auto 0;
+      max-width:1000px;
+      text-align:center;
+      color:#375a9d;
+      font-weight:600;
+    }
 
     /* Slider */
     .slider{position:relative;margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;height:min(70vh,680px)}
@@ -152,7 +168,7 @@
     </div>
   </section>
 
-  <!-- Crossdock logo -->
+  <!-- Crossdock logo (centered + responsive) -->
   <section class="container logo-block">
     <div class="logo-row">
       <div class="logo-card">
