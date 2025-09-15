@@ -47,7 +47,7 @@
     #heroTitle{margin:0 0 10px;font-weight:800;font-size:clamp(28px,5vw,52px)}
     .hero p{margin:0;color:#324b7c;max-width:80ch;font-size:clamp(15px,1.6vw,18px)}
 
-    /* MOBILE: logo overlay only behind the H1 block (slightly darker) */
+    /* MOBILE: logo overlay only behind the H1 block */
     @media (max-width:768px){
       .hero{background:none}
       .hero::before{background:none}
@@ -59,13 +59,10 @@
         z-index:-1;
         border-radius:12px;
         background:
-          /* subtle darkener on top for a touch more contrast */
-          linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.14)),
-          /* slightly reduced white so logo shows a bit more */
-          linear-gradient(180deg,rgba(255,255,255,.84),rgba(255,255,255,.84)),
-          radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.95) 0 25%, transparent 55%),
-          radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.95) 0 25%, transparent 55%),
-          url("images/parhar-trucking.png") center/115% no-repeat;
+          linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.86)),
+          radial-gradient(150% 100% at 0% 50%, rgba(255,255,255,.96) 0 25%, transparent 45%),
+          radial-gradient(150% 100% at 100% 50%, rgba(255,255,255,.96) 0 25%, transparent 45%),
+          url("images/parhar-trucking.png") center/contain no-repeat;
       }
     }
 
@@ -83,27 +80,28 @@
 
     /* ===== Crossdock Feature (full-width, centered + spacing) ===== */
     .logo-feature{
+      /* give it space from the hero above */
       margin:48px 0 10px;
-      padding:0;
+      padding:0;               /* no extra padding to skew optics */
       background:transparent;
     }
     .logo-row{
       display:flex;
-      justify-content:center;
+      justify-content:center;  /* center at all zoom levels */
       align-items:center;
       width:100%;
     }
     .logo-tile{
       width:clamp(320px, 82vw, 1100px);
-      aspect-ratio: 11 / 4;
-      background:#fff url("images/logo.png") 52% center / contain no-repeat;
+      aspect-ratio: 11 / 4;    /* close to the PNG ratio */
+      background:#fff url("images/logo.png") 52% center / contain no-repeat; /* optical nudge */
       border:1px solid var(--line);
       border-radius:12px;
       box-shadow:var(--shadow);
       overflow:hidden;
     }
     @supports not (aspect-ratio: 1 / 1){
-      .logo-tile{height:180px;}
+      .logo-tile{height:180px;} /* old-browser fallback */
     }
     .logo-sub{
       margin:12px auto 0;
@@ -215,7 +213,7 @@
       <img src="images/parhar-logo.jpeg" alt="Parhar Group logo">
       <span>Parhar Group · Crossdock Akron</span>
     </div>
-    <div class="footcontact">
+        <div class="footcontact">
       ✉️ <a href="mailto:crossdockw@gmail.com">crossdockw@gmail.com</a>
       &nbsp;·&nbsp;
       📞 <a href="tel:+13305240021">330-524-0021</a>
@@ -249,7 +247,7 @@
     slides.forEach(s=>{s.querySelector('img').addEventListener('error',()=>{s.remove(); slides=[...sliderEl.querySelectorAll('.slide')]; if(!slides.length) return; buildDots(); if(cur>=slides.length) cur=slides.length-1; mark();})})
 
     // Mailto CTA
-    const to="crossdockW@gmail.com";
+    const to="crossdockW@gmail.com";  
     const subject="Inquiry for Crossdock Akron";
     const body=["Hi, my name is __ and I am with __.","I am interested in your services and would like more information on storage and pricing.","My email/phone is ___.","","Best regards,"].join("%0D%0A");
     const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
